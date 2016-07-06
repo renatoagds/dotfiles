@@ -7,38 +7,28 @@ Plug 'wakatime/vim-wakatime'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
-
 Plug 'honza/vim-snippets'
-
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
-
 Plug 'airblade/vim-gitgutter'
-
-Plug 'https://github.com/sheerun/vim-polyglot.git'
-
 Plug 'scrooloose/nerdcommenter'
-
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-
 Plug 'kien/ctrlp.vim'
-
 Plug 'mileszs/ack.vim'
-
+Plug 'https://github.com/nanotech/jellybeans.vim'
+Plug 'https://github.com/sheerun/vim-polyglot.git'
 Plug 'https://github.com/ervandew/supertab.git'
-
 Plug 'https://github.com/Raimondi/delimitMate.git'
-
-Plug 'skammer/vim-css-color'
 
 call plug#end()
 "<<Plugins
 
-colorscheme pablo
+colorscheme jellybeans
+
+let mapleader=","
 
 set showcmd                  " Show (partial) command in status line.
 set showmatch                " Show matching brackets.
@@ -50,16 +40,13 @@ set textwidth=0              " Hard-wrap long lines as you type them.
 set expandtab                " Insert spaces when TAB is pressed.
 set tabstop=2                " Render TABs using this many spaces.
 set shiftwidth=2             " Indentation amount for < and > commands.
-
 set noerrorbells             " No beeps.
 set modeline                 " Enable modeline.
 set esckeys                  " Cursor keys in insert mode.
 set linespace=0              " Set line-spacing to minimum.
 set nojoinspaces             " Prevents inserting two spaces after punctuation on a join (J)
-
 set splitbelow               " Horizontal split below current.
 set splitright               " Vertical split to right of current.
-
 if !&scrolloff
   set scrolloff=3            " Show next 3 lines while scrolling.
 endif
@@ -69,10 +56,8 @@ endif
 set display+=lastline
 set nostartofline            " Do not jump to first character with page commands.
 
-let mapleader=","
-
 "Airline>>
-let g:airline_theme='luna'
+let g:airline_theme='bubblegum'
 
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#empty_message = ''

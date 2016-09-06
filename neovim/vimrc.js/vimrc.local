@@ -1,40 +1,3 @@
-"Plugins>>
-call plug#begin()
-
-Plug 'jaawerth/neomake-local-eslint-first'
-Plug 'neomake/neomake'
-Plug 'wakatime/vim-wakatime'
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
-Plug 'honza/vim-snippets'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'kien/ctrlp.vim'
-Plug 'mileszs/ack.vim'
-Plug 'https://github.com/nanotech/jellybeans.vim'
-Plug 'sheerun/vim-polyglot'
-Plug 'ervandew/supertab'
-Plug 'https://github.com/Raimondi/delimitMate.git'
-Plug 'rizzatti/dash.vim'
-Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'valloric/youcompleteme'
-Plug 'mattn/emmet-vim'
-
-call plug#end()
-"<<Plugins
-
-colorscheme jellybeans
-
-let mapleader=","
-
 set showcmd                  " Show (partial) command in status line.
 set showmatch                " Show matching brackets.
 set showmode                 " Show current mode.
@@ -68,31 +31,6 @@ let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#empty_message = ''
 let g:airline#extensions#branch#displayed_head_limit = 10
 "<<Airline
-
-"Neomake>>
-"let g:neomake_open_list = 2
-
-let g:neomake_javascript_jshint_maker = {
-    \ 'args': ['--verbose'],
-    \ 'errorformat': '%A%f: line %l\, col %v\, %m \(%t%*\d\)',
-    \ }
-let g:neomake_javascript_enabled_makers = ['eslint']
-
-let g:neomake_warning_sign = {
-  \ 'text': 'W',
-  \ 'texthl': 'WarningMsg',
-  \ }
-let g:neomake_error_sign = {
-  \ 'text': 'E',
-  \ 'texthl': 'ErrorMsg',
-  \ }
-
-autocmd! BufWritePost * Neomake
-"<<Neomake
-
-"NerdTree>>
-map <C-n> :NERDTreeToggle<CR>
-"<<NerdTree
 
 "SnipMate>>
 :imap jj <Plug>snipMateNextOrTrigger

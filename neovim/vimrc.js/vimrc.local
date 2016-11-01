@@ -1,3 +1,7 @@
+colorscheme jellybeans
+let mapleader=","
+
+"PersonalConfig>>
 set showcmd                  " Show (partial) command in status line.
 set showmatch                " Show matching brackets.
 set showmode                 " Show current mode.
@@ -23,6 +27,7 @@ if !&sidescrolloff
 endif
 set display+=lastline
 set nostartofline            " Do not jump to first character with page commands.
+"<<PersonalConfig
 
 "Airline>>
 let g:airline_theme='bubblegum'
@@ -36,3 +41,7 @@ let g:airline#extensions#branch#displayed_head_limit = 10
 :imap jj <Plug>snipMateNextOrTrigger
 :smap jj <Plug>snipMateNextOrTrigger
 "<<SnipMate
+
+"Deoplete>>
+let g:deoplete#file#enable_buffer_path = 1
+"<<Deoplete

@@ -7,22 +7,23 @@ Plug 'tpope/vim-repeat'
 Plug 'jiangmiao/auto-pairs'
 Plug 'airblade/vim-gitgutter'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'itchyny/lightline.vim'
 
 " == Autocomplete plugins ==
 Plug 'ervandew/supertab'
-"if has('nvim')
+if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins'  }
   Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
   Plug 'steelsojka/deoplete-flow'
-"else
-  "Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
-"endif
+else
+  Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
+endif
 
 " == JavaScript syntax highlighting ==
-Plug 'gavocanov/vim-js-indent', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'othree/yajs.vim'
+Plug 'othree/es.next.syntax.vim'
+Plug 'mxw/vim-jsx'
+Plug 'othree/javascript-libraries-syntax.vim'
 
 " == SCSS and CSS syntax highlighting ==
 if v:version < 704
@@ -31,23 +32,10 @@ endif
 Plug 'cakebaker/scss-syntax.vim'
 
 " == JavaScript tools integration ==
-Plug 'flowtype/vim-flow', { 'for': ['javascript', 'javascript.jsx'] }
-"Plug 'scrooloose/syntastic'
-
-" == Personal Plugs ==
-Plug 'neomake/neomake'
-Plug 'wakatime/vim-wakatime'
-Plug 'tomtom/tlib_vim'
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'garbas/vim-snipmate'
-Plug 'honza/vim-snippets'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'tpope/vim-fugitive'
-Plug 'scrooloose/nerdcommenter'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'mileszs/ack.vim'
-Plug 'https://github.com/nanotech/jellybeans.vim'
-Plug 'rizzatti/dash.vim'
-Plug 'mattn/emmet-vim'
+if has('nvim')
+  Plug 'neomake/neomake'
+else
+  Plug 'scrooloose/syntastic'
+  Plug 'flowtype/vim-flow'
+endif
 

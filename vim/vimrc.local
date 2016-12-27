@@ -1,4 +1,7 @@
+"VimJellybeans>>
 colorscheme jellybeans
+"<<VimJellybeans
+
 let mapleader=","
 
 "PersonalConfig>>
@@ -21,7 +24,7 @@ set nojoinspaces             " Prevents inserting two spaces after punctuation o
 set splitbelow               " Horizontal split below current.
 set splitright               " Vertical split to right of current.
 if !&scrolloff
-  set scrolloff=3            " Show next 3 lines while scrolling.
+  set scrolloff=6            " Show next 3 lines while scrolling.
 endif
 if !&sidescrolloff
   set sidescrolloff=5        " Show next 5 columns while side-scrolling.
@@ -46,3 +49,21 @@ let g:airline#extensions#branch#displayed_head_limit = 10
 "Deoplete>>
 let g:deoplete#file#enable_buffer_path = 1
 "<<Deoplete
+
+"NerdTREE>>
+nnoremap <C-n> :NERDTreeToggle<CR>
+inoremap <C-n> <ESC>:NERDTreeToggle<CR>
+"<<NerdTREE
+
+"VimJavascript>>
+let g:javascript_plugin_flow = 1
+"<<VimJavascript
+
+"VimFlow>>
+let g:flow#enable = 0
+let g:flow#autoclose = 0
+"<<VimFlow
+
+"NerdCommenter>>
+let g:NERDSpaceDelims = 1
+"<<NerdCommenter

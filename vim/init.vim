@@ -4,7 +4,7 @@
 call plug#begin()
 
 try
-  source ./plugins.vim
+  source ~/.config/nvim/plugins.vim
 catch
 endtry
 
@@ -13,13 +13,13 @@ call plug#end()
 " === Profile Setup ===
 
 try
-  source ./profile.vim
+  source ~/.config/nvim/profile.vim
 catch
 endtry
 
 " === Plugin Config ===
 
 try
-  source ./config.vim
+  source ~/.config/nvim/config.vim
 catch
 endtry

@@ -1,10 +1,11 @@
-"VimJellybeans>>
-colorscheme jellybeans
-"<<VimJellybeans
+"=== Profile Configuration ===
 
 let mapleader=","
+syntax enable
 
-"PersonalConfig>>
+" === Color Scheme
+colorscheme jellybeans
+
 set showcmd                  " Show (partial) command in status line.
 set showmatch                " Show matching brackets.
 set showmode                 " Show current mode.
@@ -23,47 +24,14 @@ set linespace=0              " Set line-spacing to minimum.
 set nojoinspaces             " Prevents inserting two spaces after punctuation on a join (J)
 set splitbelow               " Horizontal split below current.
 set splitright               " Vertical split to right of current.
+
 if !&scrolloff
   set scrolloff=6            " Show next 3 lines while scrolling.
 endif
+
 if !&sidescrolloff
   set sidescrolloff=5        " Show next 5 columns while side-scrolling.
 endif
+
 set display+=lastline
 set nostartofline            " Do not jump to first character with page commands.
-"<<PersonalConfig
-
-"Airline>>
-let g:airline_theme='bubblegum'
-
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#branch#empty_message = ''
-let g:airline#extensions#branch#displayed_head_limit = 10
-"<<Airline
-
-"SnipMate>>
-:imap jj <Plug>snipMateNextOrTrigger
-:smap jj <Plug>snipMateNextOrTrigger
-"<<SnipMate
-
-"Deoplete>>
-let g:deoplete#file#enable_buffer_path = 1
-"<<Deoplete
-
-"NerdTREE>>
-nnoremap <C-n> :NERDTreeToggle<CR>
-inoremap <C-n> <ESC>:NERDTreeToggle<CR>
-"<<NerdTREE
-
-"VimJavascript>>
-let g:javascript_plugin_flow = 1
-"<<VimJavascript
-
-"VimFlow>>
-let g:flow#enable = 0
-let g:flow#autoclose = 0
-"<<VimFlow
-
-"NerdCommenter>>
-let g:NERDSpaceDelims = 1
-"<<NerdCommenter

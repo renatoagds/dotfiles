@@ -1,11 +1,21 @@
+" === FUNCTIONS ==
+
+" == Vim Flow Path
+
 function! StrTrim(txt)
   return substitute(a:txt, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
 endfunction
 
+let g:flow_path = StrTrim(system('PATH=$(npm bin):$PATH && which flow'))
+
+" == Vim Flow Current File
+
 function! FlowArgs()
-  let g:file_path = expand('#:p')
-  return ['-c', 'cat '.g:file_path.' | '.g:flow_path.' check-contents --json | flow-vim-quickfix --path='.g:file_path]
+  let g:file_path = expand('%:p')
+  return ['-c', g:flow_path.' check-contents '.g:file_path.' < '.g:file_path.' --json | flow-vim-quickfix']
 endfunction
+
+" === END FUNCTIONS ===
 
 "=== Airline ===
 let g:airline_theme='bubblegum'
@@ -30,7 +40,6 @@ let g:javascript_plugin_flow = 1
 "=== VimFlow ===
 let g:flow#enable = 0
 let g:flow#autoclose = 0
-let g:flow_path = StrTrim(system('PATH=$(npm bin):$PATH && which flow'))
 
 "=== NerdCommenter ===
 let g:NERDSpaceDelims = 1
@@ -61,7 +70,7 @@ let g:neomake_error_sign = {
 \ 'texthl': 'ErrorMsg',
 \ }
 
-let g:makers = ['eslint']
+let g:makers = ['eslint', 'flow']
 let g:neomake_javascript_enabled_makers = g:makers
 let g:neomake_jsx_enabled_makers = g:makers
 let g:neomake_javascript_flow_maker = g:flow_maker
@@ -79,3 +88,6 @@ inoremap <C-T> <ESC>:FZF<CR>i
 " == Nerdtree ==
 nnoremap <C-\> :NERDTreeToggle<CR>
 inoremap <C-\> <ESC>:NERDTreeToggle<CR>
+
+" == TagBar ==
+nmap <F8> :TagbarToggle<CR>

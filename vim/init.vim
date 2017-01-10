@@ -10,16 +10,16 @@ endtry
 
 call plug#end()
 
-" === Profile Setup ===
-
-try
-  source ~/.config/nvim/profile.vim
-catch
-endtry
-
 " === Plugin Config ===
 
 try
   source ~/.config/nvim/config.vim
+catch
+endtry
+
+" === Profile Setup ===
+
+try
+  source ~/.config/nvim/profile.vim
 catch
 endtry

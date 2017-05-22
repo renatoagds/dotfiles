@@ -1,0 +1,7 @@
+# @renatoagds zshrc profile
+export ZSH=/Users/loggi/.oh-my-zsh
+ZSH_THEME="pygmalion"
+plugins=(git z tmux nvm docker)
+source $ZSH/oh-my-zsh.sh
+source /Users/loggi/.bash_profile
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -1,26 +1,7 @@
-" === FUNCTIONS ==
-
-" == Vim Flow Path
-
-" function! StrTrim(txt)
-  " return substitute(a:txt, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
-" endfunction
-
-" let g:flow_path = StrTrim(system('PATH=$(npm bin):$PATH && which flow'))
-
-" == Vim Flow Current File
-
-" function! FlowArgs()
-  " let g:file_path = expand('%:p')
-  " return ['-c', g:flow_path.' check-contents '.g:file_path.' < '.g:file_path.' --json | flow-vim-quickfix']
-" endfunction
-
-" === END FUNCTIONS ===
-
-"== Color Scheme ==
+" == Color Scheme ==
 let g:enable_bold_font = 1
 
-"=== Airline ===
+" === Airline ===
 let g:airline_theme = "hybrid"
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#empty_message = ''
@@ -43,46 +24,27 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 nmap <leader>< <Plug>AirlineSelectPrevTab
 nmap <leader>> <Plug>AirlineSelectNextTab
 
-"=== SnipMate ===
-:imap jj <Plug>snipMateNextOrTrigger
-:smap jj <Plug>snipMateNextOrTrigger
+" === SnipMate ===
+" :imap jj <Plug>snipMateNextOrTrigger
+" :smap jj <Plug>snipMateNextOrTrigger
 
-"=== NerdTREE ===
+" == UltiSnips ==
+let g:UltiSnipsExpandTrigger="<leader>aa"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
+
+" === NerdTREE ===
 nnoremap <C-n> :NERDTreeToggle<CR>
 inoremap <C-n> <ESC>:NERDTreeToggle<CR>
 
-"=== Vim Javascript ===
+" === Vim Javascript ===
 let g:javascript_plugin_flow = 1
 
-"=== VimFlow ===
-" let g:flow#enable = 0
-" let g:flow#autoclose = 0
-
-"=== NerdCommenter ===
+" === NerdCommenter ===
 let g:NERDSpaceDelims = 1
 
-" == Deoplete ==
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_refresh_always = 1
-let g:SuperTabDefaultCompletionType = "<c-n>"
-" let g:autocomplete_flow#flow_bin = g:flow_path
-let g:tern_request_timeout = 1
-let g:tern_show_signature_in_pum = 0
-let g:deoplete#file#enable_buffer_path = 1
-let g:tern#filetypes = [
-\ 'jsx',
-\ 'javascript.jsx'
-\ ]
-set completeopt-=preview
-
 " == Neomake ==
-" let g:flow_maker = {
-" \ 'exe': 'sh',
-" \ 'args': function('FlowArgs'),
-" \ 'errorformat': '%E%f:%l:%c\,%n: %m',
-" \ 'cwd': '%:p:h'
-" \ }
-
 let g:neomake_warning_sign = {
 \ 'text': 'W',
 \ 'texthl': 'WarningMsg',
@@ -96,9 +58,6 @@ let g:neomake_error_sign = {
 let g:makers = ['eslint']
 let g:neomake_javascript_enabled_makers = g:makers
 let g:neomake_jsx_enabled_makers = g:makers
-" let g:neomake_javascript_flow_maker = g:flow_maker
-" let g:neomake_jsx_flow_maker = g:flow_maker
-
 autocmd! BufWritePost * Neomake
 
 " == Vim JSX ==
@@ -112,11 +71,17 @@ inoremap <C-T> <ESC>:FZF<CR>i
 nnoremap <C-\> :NERDTreeToggle<CR>
 inoremap <C-\> <ESC>:NERDTreeToggle<CR>
 
-" == TagBar ==
-nmap <F8> :TagbarToggle<CR>
-
 " == Javascript Libraries ==
 let g:used_javascript_libs = 'underscore,jasmine,react,flux'
 
 " == Vim Matchmaker == 
 let g:matchmaker_enable_startup = 1
+let g:matchmaker_matchpriority = -1
+
+" == ListToggle ==
+let g:lt_location_list_toggle_map = '<leader>l'
+let g:lt_quickfix_list_toggle_map = '<leader>q'
+let g:lt_height = 10
+
+" == Indent Guides
+let g:indent_guides_enable_on_vim_startup = 1

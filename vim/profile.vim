@@ -9,7 +9,7 @@ colorscheme hybrid_reverse
 
 " === Fold
 set foldmethod=manual
-
+set completeopt-=preview
 set showcmd                  " Show (partial) command in status line.
 set showmatch                " Show matching brackets.
 set showmode                 " Show current mode.

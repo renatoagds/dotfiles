@@ -6,17 +6,13 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'kristijanhusak/vim-hybrid-material'
 
 " == Snippets ==
+Plug 'SirVer/ultisnips'
+" Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
-" Plug 'bentayloruk/vim-react-es6-snippets'
 
 " == Autocomplete plugins ==
 Plug 'ternjs/tern_for_vim'
-Plug 'ervandew/supertab'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins'  }
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-" Plug 'steelsojka/deoplete-flow'
-" Plug 'wokalski/autocomplete-flow'
-Plug '1995eaton/vim-better-javascript-completion'
+Plug 'Valloric/YouCompleteMe', { 'do': 'python3 ./install.py --tern-completer' }
 Plug 'mattn/emmet-vim'
 Plug 'othree/jspc.vim'
 
@@ -40,29 +36,33 @@ Plug 'othree/jsdoc-syntax.vim'
 " == Liquid (Ruby) highlighting ==
 Plug 'tpope/vim-liquid'
 
-" == JavaScript tools integration ==
+" == Tools Integration ==
 Plug 'neomake/neomake'
-" Plug 'flowtype/vim-flow'
+
+" == File Search ==
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'mileszs/ack.vim'
+
+" == Markdown
+Plug 'tpope/vim-markdown'
+
+" == NodeJS
+Plug 'moll/vim-node'
 
 " == General editor plugins ==
-Plug 'majutsushi/tagbar'
-Plug 'moll/vim-node'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'tpope/vim-surround'
-Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-repeat'
-Plug 'jiangmiao/auto-pairs'
-Plug 'airblade/vim-gitgutter'
-Plug 'nathanaelkane/vim-indent-guides'
+Plug 'tpope/vim-surround' " == helpers with surrounders
+Plug 'scrooloose/nerdtree' " == file tree
+Plug 'tpope/vim-repeat' " == improve repeat using .
+Plug 'jiangmiao/auto-pairs' " == auto close pairs
+Plug 'airblade/vim-gitgutter' " == git visually helpers
+Plug 'nathanaelkane/vim-indent-guides' " == indent guides visually
 Plug 'wakatime/vim-wakatime'
-Plug 'tomtom/tlib_vim'
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'garbas/vim-snipmate'
-Plug 'tpope/vim-fugitive'
-Plug 'scrooloose/nerdcommenter'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'mileszs/ack.vim'
-Plug 'rizzatti/dash.vim'
-Plug 'easymotion/vim-easymotion'
-Plug 'tpope/vim-markdown'
-Plug 'qstrahl/vim-matchmaker'
+Plug 'tomtom/tlib_vim'  " == utility functions
+Plug 'MarcWeber/vim-addon-mw-utils' " == cache files
+Plug 'tpope/vim-fugitive' " == git commands
+Plug 'scrooloose/nerdcommenter' " == comment helpers
+Plug 'Xuyuanp/nerdtree-git-plugin' " == git for nerd tree
+Plug 'rizzatti/dash.vim' " == plugin for Dash (MacOnly)
+Plug 'easymotion/vim-easymotion' " == improve movimentation in file
+Plug 'qstrahl/vim-matchmaker' " == highlight words
+Plug 'Valloric/ListToggle' " == toogle list

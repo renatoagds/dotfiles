@@ -1,3 +1,12 @@
+" == Helpers ==
+augroup Mkdir " == create folder if don't exists
+  autocmd!
+  autocmd BufWritePre *
+    \ if !isdirectory(expand("<afile>:p:h")) |
+        \ call mkdir(expand("<afile>:p:h"), "p") |
+    \ endif
+augroup END
+
 " == Color Scheme ==
 let g:enable_bold_font = 1
 
@@ -66,10 +75,6 @@ let g:jsx_ext_required = 0
 " == FZF ==
 nnoremap <C-T> :FZF<CR>
 inoremap <C-T> <ESC>:FZF<CR>i
-
-" == Nerdtree ==
-nnoremap <C-\> :NERDTreeToggle<CR>
-inoremap <C-\> <ESC>:NERDTreeToggle<CR>
 
 " == Javascript Libraries ==
 let g:used_javascript_libs = 'underscore,jasmine,react,flux'

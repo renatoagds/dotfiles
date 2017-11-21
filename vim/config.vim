@@ -8,10 +8,10 @@ augroup Mkdir " == create folder if don't exists
 augroup END
 
 " == Color Scheme ==
-let g:enable_bold_font = 1
+" let g:enable_bold_font = 1
 
 " === Airline ===
-let g:airline_theme = "hybrid"
+let g:airline_theme = "tender"
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#empty_message = ''
 let g:airline#extensions#branch#displayed_head_limit = 20

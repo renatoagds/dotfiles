@@ -1,11 +1,10 @@
 "=== Profile Configuration ===
-
 syntax enable
 let mapleader=","
 
 " === Color Scheme
 set background=dark
-colorscheme hybrid_reverse
+colorscheme tender
 
 " === Fold
 set foldmethod=manual
@@ -39,4 +38,7 @@ endif
 
 set display+=lastline
 set nostartofline            " Do not jump to first character with page commands.
-set termguicolors            " Set 16m colors
+
+if (has("termguicolors"))    " Set 16m colors
+ set termguicolors
+endif

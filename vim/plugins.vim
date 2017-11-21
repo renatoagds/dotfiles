@@ -4,6 +4,8 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'crusoexia/vim-monokai'
+Plug 'jacoborus/tender.vim'
 
 " == Snippets ==
 Plug 'SirVer/ultisnips'

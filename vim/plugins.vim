@@ -21,6 +21,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'isRuslan/vim-es6'
 Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'chemzqm/vim-jsx-improve'
 
 " == SCSS and CSS syntax highlighting ==
 Plug 'JulesWang/css.vim'

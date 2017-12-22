@@ -7,6 +7,44 @@ augroup Mkdir " == create folder if don't exists
     \ endif
 augroup END
 
+fun! s:openBuffer(count, vertical)
+  let size = a:count ? a:count : '50'
+  let direction = a:vertical ? 'vnew' : 'new'
+  let cmd = 'rightbelow' . size . direction
+  exe cmd
+endf
+
+fun! s:openTerm(args, count, vertical)
+  let direction = a:vertical
+  call s:openBuffer(a:count, direction)
+  call termopen(a:args)
+endf
+
+function! s:runPathTests(args, watch)
+  let cmd = 'npm run test'
+  let cmd = a:watch ? cmd . ' -- -w' : cmd
+  if len(a:args) > 0
+    let cmd = 'cd ' . a:args . ' && ' . cmd
+  endif
+  call s:openTerm(cmd, 0, 1)
+endf
+
+function! s:callSpotify(args, type)
+  let cmd = 'silent !spotify ' . a:type . ' ' . a:args . ' &> /dev/null'
+  exec cmd
+  exec 'redraw!'
+endf
+
+" == General Utilities
+tnoremap <Esc> <C-\><C-n>
+command! -count -nargs=* Term call s:openTerm(<q-args>, <count>, 1)
+command! -nargs=? TestWatch call s:runPathTests(<q-args>, 1)
+command! -nargs=? Test call s:runPathTests(<q-args>, 1)
+command! -nargs=1 SpotifyVol call s:callSpotify(<q-args>, 'vol')
+command! SpotifyPlay call s:callSpotify('', 'play')
+command! SpotifyPause call s:callSpotify('', 'pause')
+command! SpotifyNext call s:callSpotify('', 'next')
+
 " == Color Scheme ==
 " let g:enable_bold_font = 1
 
@@ -90,3 +128,16 @@ let g:lt_height = 10
 
 " == Indent Guides
 let g:indent_guides_enable_on_vim_startup = 1
+
+" == Tern
+" let g:tern#command = ["tern"]
+" let g:tern#arguments = ["--persistent"]
+
+" == Deoplete
+" let g:deoplete#enable_at_startup = 1
+" let g:deoplete#file#enable_buffer_path = 1
+" let g:deoplete#sources#ternjs#types = 1
+" let g:deoplete#sources#ternjs#docs = 1
+" let g:deoplete#sources#ternjs#omit_object_prototype = 0
+" let g:deoplete#sources#ternjs#include_keywords = 1:w
+" inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"

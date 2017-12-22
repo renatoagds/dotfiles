@@ -15,6 +15,8 @@ Plug 'honza/vim-snippets'
 " == Autocomplete plugins ==
 Plug 'ternjs/tern_for_vim'
 Plug 'Valloric/YouCompleteMe', { 'do': 'python3 ./install.py --tern-completer' }
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'mattn/emmet-vim'
 Plug 'othree/jspc.vim'
 

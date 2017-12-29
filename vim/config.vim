@@ -8,7 +8,7 @@ augroup Mkdir " == create folder if don't exists
 augroup END
 
 fun! s:openBuffer(count, vertical)
-  let size = a:count ? a:count : '50'
+  let size = a:count ? a:count : '80'
   let direction = a:vertical ? 'vnew' : 'new'
   let cmd = 'rightbelow' . size . direction
   exe cmd
@@ -17,16 +17,8 @@ endf
 fun! s:openTerm(args, count, vertical)
   let direction = a:vertical
   call s:openBuffer(a:count, direction)
-  call termopen(a:args)
-endf
-
-function! s:runPathTests(args, watch)
-  let cmd = 'npm run test'
-  let cmd = a:watch ? cmd . ' -- -w' : cmd
-  if len(a:args) > 0
-    let cmd = 'cd ' . a:args . ' && ' . cmd
-  endif
-  call s:openTerm(cmd, 0, 1)
+  exec 'terminal'
+  exec 'startinsert'
 endf
 
 function! s:callSpotify(args, type)
@@ -38,8 +30,6 @@ endf
 " == General Utilities
 tnoremap <Esc> <C-\><C-n>
 command! -count -nargs=* Term call s:openTerm(<q-args>, <count>, 1)
-command! -nargs=? TestWatch call s:runPathTests(<q-args>, 1)
-command! -nargs=? Test call s:runPathTests(<q-args>, 1)
 command! -nargs=1 SpotifyVol call s:callSpotify(<q-args>, 'vol')
 command! SpotifyPlay call s:callSpotify('', 'play')
 command! SpotifyPause call s:callSpotify('', 'pause')

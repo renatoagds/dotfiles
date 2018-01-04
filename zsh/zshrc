@@ -8,7 +8,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # Oh My ZSH
 ZSH_THEME="pygmalion"
-plugins=(git z tmux nvm docker)
+plugins=(git z tmux nvm docker adb)
 source $ZSH/oh-my-zsh.sh
 
 # Aliases

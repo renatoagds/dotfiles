@@ -131,3 +131,6 @@ let g:indent_guides_enable_on_vim_startup = 1
 " let g:deoplete#sources#ternjs#omit_object_prototype = 0
 " let g:deoplete#sources#ternjs#include_keywords = 1:w
 " inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
+" == indentLine
+let g:indentLine_color_term = 238

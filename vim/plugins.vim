@@ -60,7 +60,8 @@ Plug 'scrooloose/nerdtree' " == file tree
 Plug 'tpope/vim-repeat' " == improve repeat using .
 Plug 'jiangmiao/auto-pairs' " == auto close pairs
 Plug 'airblade/vim-gitgutter' " == git visually helpers
-Plug 'nathanaelkane/vim-indent-guides' " == indent guides visually
+" Plug 'nathanaelkane/vim-indent-guides' " == indent guides visually
+Plug 'Yggdroot/indentLine'
 Plug 'wakatime/vim-wakatime'
 Plug 'tomtom/tlib_vim'  " == utility functions
 Plug 'MarcWeber/vim-addon-mw-utils' " == cache files

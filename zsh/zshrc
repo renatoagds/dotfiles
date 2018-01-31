@@ -10,6 +10,8 @@ export NVM_DIR="$HOME/.nvm"
 ZSH_THEME="pygmalion"
 plugins=(git z tmux nvm docker adb)
 source $ZSH/oh-my-zsh.sh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=cyan'
 
 # Aliases
 alias nculoggi='ncu -u -f /@loggi/'

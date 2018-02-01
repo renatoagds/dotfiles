@@ -52,7 +52,6 @@ declare -a cask=(
     "skype" 
     "the-unarchiver"
     "adobe-acrobat-reader"
-    "google-photos-backup-and-sync"
     "google-backup-and-sync"
     "android-studio"
   )

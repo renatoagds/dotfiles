@@ -34,6 +34,7 @@ declare -a brew=(
     "shpotify"
     "docker"
     "cmake"
+    "watchman"
   )
 
 declare -a cask=(
@@ -55,6 +56,7 @@ declare -a cask=(
     "google-backup-and-sync"
     "android-studio"
     "java8"
+    "frappe"
   )
 
 # install all brew dep

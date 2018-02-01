@@ -18,6 +18,9 @@ sudo mkdir -p "${LOGGI}"
 sudo chown -R "${USER}" "${LOGGI}"
 sudo chmod -R 755 "${LOGGI}"
 
+# install libpng
+brew install libpng
+
 declare -a front=(
     "corp-web-ui"
     "wms-web-ui"

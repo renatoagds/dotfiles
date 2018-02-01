@@ -36,6 +36,7 @@ declare -a front=(
     "auth-web-ui"
     "shell-web-ui"
     "email-web-ui"
+    "orwell-web-ui"
   )
 
 # clone and setup front repos
@@ -46,6 +47,20 @@ for i in "${front[@]}"; do
   cd "${i}"
   npm i
 done
+
+# export NVM
+export NVM_DIR="$HOME/.nvm"
+. "$(brew --prefix nvm)/nvm.sh"
+
+#war-room
+cd "${LOGGI}"
+git clone "git@github.com:loggi/war-room-web-ui"
+cd war-room-web-ui
+nvm install v6.9.5
+nvm use v6.9.5
+npm install
+nvm use default
+cd ~
 
 declare -a others=(
     "ops"

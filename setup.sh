@@ -102,6 +102,9 @@ declare -a npm=(
     "appcenter-cli"
     "npm-check-updates"
     "http-server"
+    "tern"
+    "tern-jsx"
+    "eslint"
   )
 
 for i in "${npm[@]}"; do

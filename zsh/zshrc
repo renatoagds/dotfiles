@@ -18,10 +18,8 @@ alias nculoggi='ncu -u -f /@loggi/'
 alias gbr='git branch | grep -v "master" | xargs git branch -D'
 alias ctags="`brew --prefix`/bin/ctags"
 alias fml='rm -rf node_modules && npm install'
-alias fakesym='function _fake() { watchman-make --make "rsync -av --exclude="node_modules" --exclude=".babelrc" `pwd`/*" -p "**/*.js" "**/*.scss" "**/*.java" -t $1; };_fake'
 alias nba='react-native run-android'
 alias nbi='react-native run-ios'
 alias nreset='watchman watch-del-all && npm run start'
-alias dapull="docker images |grep -v REPOSITORY|awk '{print $1}'|xargs -L1 docker pull"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

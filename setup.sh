@@ -52,7 +52,7 @@ declare -a cask=(
     "skype" 
     "the-unarchiver"
     "adobe-acrobat-reader"
-    "dropbox"
+    "google-drive-file-stream"
     "android-studio"
   )
 

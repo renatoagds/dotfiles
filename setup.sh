@@ -54,7 +54,7 @@ declare -a cask=(
     "adobe-acrobat-reader"
     "google-backup-and-sync"
     "android-studio"
-    "java"
+    "java8"
   )
 
 # install all brew dep
@@ -65,6 +65,7 @@ done
 
 # install all cask dep
 echo "brew-cask"
+brew tap caskroom/versions
 for i in "${cask[@]}"; do
   brew cask install "$i"
 done

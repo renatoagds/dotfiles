@@ -54,6 +54,7 @@ declare -a cask=(
     "adobe-acrobat-reader"
     "google-backup-and-sync"
     "android-studio"
+    "java"
   )
 
 # install all brew dep

@@ -19,6 +19,7 @@ cat install.sh | awk 'NR!=113{print $0}' | sh
 rm -rf ~/.zshrc
 ln -s "${DOTFILES}/zsh/zshrc" ~/.zshrc
 rm -rf install.sh
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 
 declare -a brew=(
     "nvm"

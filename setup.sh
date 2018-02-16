@@ -57,6 +57,7 @@ declare -a cask=(
     "android-studio"
     "java8"
     "frappe"
+    "numi"
   )
 
 # install all brew dep

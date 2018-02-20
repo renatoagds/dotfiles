@@ -36,6 +36,7 @@ declare -a brew=(
     "docker"
     "cmake"
     "watchman"
+    "--HEAD universal-ctags/universal-ctags/universal-ctags"
   )
 
 declare -a cask=(

@@ -43,8 +43,11 @@ Plug 'neomake/neomake'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'mileszs/ack.vim'
 
-" == NodeJS
+" == NodeJS ==
 Plug 'moll/vim-node'
+
+" == Android ==
+Plug 'hsanson/vim-android'
 
 " == General editor plugins ==
 " Plug 'nathanaelkane/vim-indent-guides' " == indent guides visually

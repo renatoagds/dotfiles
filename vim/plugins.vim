@@ -8,38 +8,33 @@ Plug 'crusoexia/vim-monokai'
 Plug 'jacoborus/tender.vim'
 
 " == Snippets ==
-Plug 'SirVer/ultisnips'
 " Plug 'garbas/vim-snipmate'
+Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 " == Autocomplete plugins ==
+" Plug 'Valloric/YouCompleteMe', { 'do': 'python3 ./install.py --tern-completer' }
 Plug 'ternjs/tern_for_vim'
-Plug 'Valloric/YouCompleteMe', { 'do': 'python3 ./install.py --tern-completer' }
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'mattn/emmet-vim'
 Plug 'othree/jspc.vim'
 
-" == JavaScript syntax highlighting ==
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'isRuslan/vim-es6'
+" == Syntax Highlighting ==
+" Plug 'elzr/vim-json'
+" Plug 'pangloss/vim-javascript'
+" Plug 'mxw/vim-jsx'
+" Plug 'chemzqm/vim-jsx-improve'
+" Plug 'cakebaker/scss-syntax.vim'
+" Plug 'tpope/vim-markdown'
+" Plug 'tpope/vim-liquid'
+Plug 'sheerun/vim-polyglot'
+Plug 'othree/yajs.vim', { 'for': 'javascript' }
+Plug 'othree/es.next.syntax.vim'
 Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'chemzqm/vim-jsx-improve'
-
-" == SCSS and CSS syntax highlighting ==
-Plug 'JulesWang/css.vim'
-Plug 'cakebaker/scss-syntax.vim'
+Plug 'isRuslan/vim-es6'
 Plug 'hail2u/vim-css3-syntax'
-
-" == JSON highlighting ==
-Plug 'elzr/vim-json'
-
-" == JSDOC highlighting ==
 Plug 'othree/jsdoc-syntax.vim'
-
-" == Liquid (Ruby) highlighting ==
-Plug 'tpope/vim-liquid'
 
 " == Tools Integration ==
 Plug 'neomake/neomake'
@@ -48,19 +43,16 @@ Plug 'neomake/neomake'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'mileszs/ack.vim'
 
-" == Markdown
-Plug 'tpope/vim-markdown'
-
 " == NodeJS
 Plug 'moll/vim-node'
 
 " == General editor plugins ==
+" Plug 'nathanaelkane/vim-indent-guides' " == indent guides visually
 Plug 'tpope/vim-surround' " == helpers with surrounders
 Plug 'scrooloose/nerdtree' " == file tree
 Plug 'tpope/vim-repeat' " == improve repeat using .
 Plug 'jiangmiao/auto-pairs' " == auto close pairs
 Plug 'airblade/vim-gitgutter' " == git visually helpers
-" Plug 'nathanaelkane/vim-indent-guides' " == indent guides visually
 Plug 'Yggdroot/indentLine' " == indent guides visually
 Plug 'wakatime/vim-wakatime' " === wakatime plugin
 Plug 'tomtom/tlib_vim'  " == utility functions

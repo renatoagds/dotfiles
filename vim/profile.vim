@@ -6,7 +6,7 @@ let mapleader=","
 set background=dark
 colorscheme tender
 
-" === Fold
+" === Options
 set foldmethod=manual
 set completeopt-=preview
 set showcmd                  " Show (partial) command in status line.

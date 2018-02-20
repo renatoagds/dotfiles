@@ -61,8 +61,8 @@ Plug 'tpope/vim-repeat' " == improve repeat using .
 Plug 'jiangmiao/auto-pairs' " == auto close pairs
 Plug 'airblade/vim-gitgutter' " == git visually helpers
 " Plug 'nathanaelkane/vim-indent-guides' " == indent guides visually
-Plug 'Yggdroot/indentLine'
-Plug 'wakatime/vim-wakatime'
+Plug 'Yggdroot/indentLine' " == indent guides visually
+Plug 'wakatime/vim-wakatime' " === wakatime plugin
 Plug 'tomtom/tlib_vim'  " == utility functions
 Plug 'MarcWeber/vim-addon-mw-utils' " == cache files
 Plug 'tpope/vim-fugitive' " == git commands
@@ -72,3 +72,4 @@ Plug 'rizzatti/dash.vim' " == plugin for Dash (MacOnly)
 Plug 'easymotion/vim-easymotion' " == improve movimentation in file
 Plug 'qstrahl/vim-matchmaker' " == highlight words
 Plug 'Valloric/ListToggle' " == toogle list
+Plug 'ludovicchabant/vim-gutentags' " == ctags handler

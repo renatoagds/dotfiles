@@ -19,6 +19,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'mattn/emmet-vim'
 Plug 'othree/jspc.vim'
+Plug 'artur-shaik/vim-javacomplete2'
 
 " == Syntax Highlighting ==
 " Plug 'elzr/vim-json'
@@ -68,3 +69,4 @@ Plug 'easymotion/vim-easymotion' " == improve movimentation in file
 Plug 'qstrahl/vim-matchmaker' " == highlight words
 Plug 'Valloric/ListToggle' " == toogle list
 Plug 'ludovicchabant/vim-gutentags' " == ctags handler
+Plug 'sbdchd/neoformat' " == format code

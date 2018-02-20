@@ -59,8 +59,8 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 
 " === NerdTREE ===
-nnoremap <C-n> :NERDTreeToggle<CR>
-inoremap <C-n> <ESC>:NERDTreeToggle<CR>
+nnoremap <C-\> :NERDTreeToggle<CR>
+inoremap <C-\> <ESC>:NERDTreeToggle<CR>
 
 " === Vim Javascript ===
 let g:javascript_plugin_flow = 1
@@ -106,18 +106,25 @@ let g:lt_height = 10
 " == Indent Guides
 " let g:indent_guides_enable_on_vim_startup = 1
 
+" == indentLine
+let g:indentLine_color_term = 238
+
 " == Tern
 let g:tern#command = ["tern"]
 let g:tern#arguments = ["--persistent"]
 
 " == Deoplete
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#file#enable_buffer_path = 1
+let g:deoplete#complete_method = "omnifunc"
 let g:deoplete#sources#ternjs#types = 1
 let g:deoplete#sources#ternjs#docs = 1
+let g:deoplete#sources#ternjs#include_keywords = 1
 let g:deoplete#sources#ternjs#omit_object_prototype = 0
-let g:deoplete#sources#ternjs#include_keywords = 1:w
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-
-" == indentLine
-let g:indentLine_color_term = 238
+let g:deoplete#sources#ternjs#filetypes = [
+  \ 'jsx',
+  \ 'javascript.jsx',
+  \ 'vue'
+  \ ]

@@ -17,9 +17,10 @@ Plug 'honza/vim-snippets'
 Plug 'ternjs/tern_for_vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+Plug 'zchee/deoplete-jedi'
+Plug 'artur-shaik/vim-javacomplete2'
 Plug 'mattn/emmet-vim'
 Plug 'othree/jspc.vim'
-Plug 'artur-shaik/vim-javacomplete2'
 
 " == Syntax Highlighting ==
 " Plug 'elzr/vim-json'

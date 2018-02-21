@@ -71,3 +71,4 @@ Plug 'qstrahl/vim-matchmaker' " == highlight words
 Plug 'Valloric/ListToggle' " == toogle list
 Plug 'ludovicchabant/vim-gutentags' " == ctags handler
 Plug 'sbdchd/neoformat' " == format code
+Plug 'kristijanhusak/vim-carbon-now-sh' " == take screenshot of your code

@@ -22,4 +22,8 @@ alias nba='react-native run-android'
 alias nbi='react-native run-ios'
 alias nreset='watchman watch-del-all && npm run start'
 
+function adbtext {
+  adb shell input text "$1" && adb shell input keyevent ENTER;
+}
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

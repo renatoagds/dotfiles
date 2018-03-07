@@ -60,6 +60,7 @@ declare -a cask=(
     "java8"
     "frappe"
     "numi"
+    "1password"
   )
 
 # install all brew dep

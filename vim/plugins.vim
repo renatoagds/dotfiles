@@ -69,5 +69,5 @@ Plug 'rizzatti/dash.vim' " == plugin for Dash (MacOnly)
 Plug 'easymotion/vim-easymotion' " == improve movimentation in file
 Plug 'qstrahl/vim-matchmaker' " == highlight words
 Plug 'Valloric/ListToggle' " == toogle list
-Plug 'ludovicchabant/vim-gutentags' " == ctags handler
+" Plug 'ludovicchabant/vim-gutentags' " == ctags handler
 Plug 'sbdchd/neoformat' " == format code

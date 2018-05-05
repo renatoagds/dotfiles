@@ -52,7 +52,7 @@ nmap <leader>> <Plug>AirlineSelectNextTab
 " :imap jj <Plug>snipMateNextOrTrigger
 " :smap jj <Plug>snipMateNextOrTrigger
 
-" == UltiSnips ==
+"  UltiSnips ==
 let g:UltiSnipsExpandTrigger="<leader>aa"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
@@ -64,6 +64,7 @@ inoremap <C-\> <ESC>:NERDTreeToggle<CR>
 
 " === Vim Javascript ===
 let g:javascript_plugin_flow = 1
+let g:javascript_plugin_jsdoc = 1
 
 " === NerdCommenter ===
 let g:NERDSpaceDelims = 1

@@ -3,6 +3,7 @@ export ANDROID_HOME=~/Library/Android/sdk
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=/opt/loggi/ops/ansible/bin:$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools
 export ZSH=~/.oh-my-zsh
+export EDITOR=nvim
 export NVM_DIR="$HOME/.nvm"
 . "$(brew --prefix nvm)/nvm.sh"
 
@@ -21,9 +22,16 @@ alias fml='rm -rf node_modules && npm install'
 alias nba='react-native run-android'
 alias nbi='react-native run-ios'
 alias nreset='watchman watch-del-all && npm run start'
+alias rshake='adb shell input keyevent 82'
+alias rreload='adb shell input keyevent 82 && adb shell input keyevent 19 && adb shell input keyevent 23'
 
 function adbtext {
   adb shell input text "$1" && adb shell input keyevent ENTER;
 }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+# begin appcenter completion
+. <(appcenter --completion)
+# end appcenter completion

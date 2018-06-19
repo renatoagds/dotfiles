@@ -60,6 +60,7 @@ declare -a cask=(
     "java8"
     "frappe"
     "numi"
+    "1password"
   )
 
 # install all brew dep
@@ -97,9 +98,9 @@ export NVM_DIR="$HOME/.nvm"
 
 # install node/npm
 echo "node/npm"
-nvm install node
-nvm use node
-nvm alias default node
+nvm install lts/boron
+nvm alias default lts/boron
+nvm use default
 
 # setup modules
 echo "npm"

@@ -2,7 +2,11 @@
 
 # renatoagds (Setup loggi stuffs )
 LOGGI=/opt/loggi
-USER=loggi
+USER=renatoagds
+
+# export NVM
+export NVM_DIR="$HOME/.nvm"
+. "$(brew --prefix nvm)/nvm.sh"
 
 # login into registry
 echo "npm login"
@@ -21,6 +25,14 @@ sudo chmod -R 755 "${LOGGI}"
 # install libpng
 brew install libpng
 
+#web-builder
+cd "${LOGGI}"
+git clone "git@github.com:loggi/ui-builder"
+cd ui-builder
+npm install
+npm link
+cd ~
+
 declare -a front=(
     "corp-web-ui"
     "wms-web-ui"
@@ -31,7 +43,6 @@ declare -a front=(
     "consumer-app"
     "wms-terminal-app-1"
     "wms-terminal-app"
-    "ui-builder"
     "tracker-web-ui"
     "auth-web-ui"
     "shell-web-ui"
@@ -47,10 +58,6 @@ for i in "${front[@]}"; do
   cd "${i}"
   npm i
 done
-
-# export NVM
-export NVM_DIR="$HOME/.nvm"
-. "$(brew --prefix nvm)/nvm.sh"
 
 #war-room
 cd "${LOGGI}"

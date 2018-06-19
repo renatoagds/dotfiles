@@ -7,7 +7,7 @@ export NVM_DIR="$HOME/.nvm"
 . "$(brew --prefix nvm)/nvm.sh"
 
 # Oh My ZSH
-ZSH_THEME="pygmalion"
+ZSH_THEME="amuse"
 plugins=(git z tmux nvm docker adb)
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh

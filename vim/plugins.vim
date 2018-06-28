@@ -21,6 +21,7 @@ Plug 'zchee/deoplete-jedi'
 Plug 'artur-shaik/vim-javacomplete2'
 Plug 'mattn/emmet-vim'
 Plug 'othree/jspc.vim'
+Plug 'mhartington/nvim-typescript'
 
 " == Syntax Highlighting ==
 " Plug 'elzr/vim-json'
@@ -37,6 +38,9 @@ Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'isRuslan/vim-es6'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'othree/jsdoc-syntax.vim'
+Plug 'Quramy/vim-js-pretty-template'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'leafgarland/typescript-vim'
 
 " == Tools Integration ==
 Plug 'neomake/neomake'

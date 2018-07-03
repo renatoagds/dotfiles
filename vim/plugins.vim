@@ -31,7 +31,7 @@ Plug 'mhartington/nvim-typescript'
 " Plug 'cakebaker/scss-syntax.vim'
 " Plug 'tpope/vim-markdown'
 " Plug 'tpope/vim-liquid'
-Plug 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot' " == replace all specif highlights
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'othree/es.next.syntax.vim'
 Plug 'othree/javascript-libraries-syntax.vim'
@@ -76,3 +76,4 @@ Plug 'Valloric/ListToggle' " == toogle list
 " Plug 'ludovicchabant/vim-gutentags' " == ctags handler
 Plug 'sbdchd/neoformat' " == format code
 Plug 'kristijanhusak/vim-carbon-now-sh' " == take screenshot of your code
+Plug 'suan/vim-instant-markdown', { 'do': 'npm install -g instant-markdown-d' } " == markdown live preview

@@ -76,4 +76,4 @@ Plug 'Valloric/ListToggle' " == toogle list
 " Plug 'ludovicchabant/vim-gutentags' " == ctags handler
 Plug 'sbdchd/neoformat' " == format code
 Plug 'kristijanhusak/vim-carbon-now-sh' " == take screenshot of your code
-Plug 'suan/vim-instant-markdown', { 'do': 'npm install -g instant-markdown-d' } " == markdown live preview
+Plug 'shime/vim-livedown', { 'do': 'npm install -g livedown' } " == markdown live preview

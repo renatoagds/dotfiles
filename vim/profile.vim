@@ -1,4 +1,5 @@
 "=== Profile Configuration ===
+filetype plugin on
 syntax enable
 let mapleader=","
 

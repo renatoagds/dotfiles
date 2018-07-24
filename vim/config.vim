@@ -7,6 +7,12 @@ augroup Mkdir
     \ endif
 augroup END
 
+" == Automatic define filetype
+augroup FiletypeGroup
+    autocmd!
+    au BufNewFile,BufRead *.flow set filetype=javascript.jsx
+  augroup END
+
 " == Spotify Utilities (depend on shpotify) ===
 function! s:callSpotify(args, type)
   let cmd = 'silent !spotify ' . a:type . ' ' . a:args . ' &> /dev/null'

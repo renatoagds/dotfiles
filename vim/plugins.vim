@@ -41,9 +41,11 @@ Plug 'othree/jsdoc-syntax.vim'
 Plug 'Quramy/vim-js-pretty-template'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'leafgarland/typescript-vim'
+Plug 'flowtype/vim-flow'
 
 " == Tools Integration ==
-Plug 'neomake/neomake'
+" Plug 'neomake/neomake'
+Plug 'w0rp/ale'
 
 " == File Search ==
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }

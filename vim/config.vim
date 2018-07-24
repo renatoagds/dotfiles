@@ -70,20 +70,31 @@ let g:javascript_plugin_jsdoc = 1
 let g:NERDSpaceDelims = 1
 
 " == Neomake ==
-let g:neomake_warning_sign = {
-\ 'text': 'W',
-\ 'texthl': 'WarningMsg',
-\ }
+" let g:neomake_warning_sign = {
+" \ 'text': 'W',
+" \ 'texthl': 'WarningMsg',
+" \ }
 
-let g:neomake_error_sign = {
-\ 'text': 'E',
-\ 'texthl': 'ErrorMsg',
-\ }
+" let g:neomake_error_sign = {
+" \ 'text': 'E',
+" \ 'texthl': 'ErrorMsg',
+" \ }
 
-let g:makers = ['eslint']
-let g:neomake_javascript_enabled_makers = g:makers
-let g:neomake_jsx_enabled_makers = g:makers
-autocmd! BufWritePost * Neomake
+" let g:makers = ['eslint', 'flow']
+" let g:neomake_javascript_enabled_makers = g:makers
+" let g:neomake_jsx_enabled_makers = g:makers
+" autocmd! BufWritePost * Neomake
+
+" == Flow ==
+let g:flow#enable = 1
+let g:flow#showquickfix = 0
+
+" == ALE ==
+let g:ale_linters = {'javascript': ['eslint', 'flow']}
+let g:ale_linters_explicit = 1
+let g:ale_sign_error = 'E'
+let g:ale_sign_warning = 'W'
+let g:airline#extensions#ale#enabled = 1
 
 " == Vim JSX ==
 let g:jsx_ext_required = 0

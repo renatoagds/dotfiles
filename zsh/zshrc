@@ -9,7 +9,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # Oh My ZSH
 ZSH_THEME="amuse"
-plugins=(git z tmux nvm docker adb)
+plugins=(git z tmux nvm docker adb zsh_reload)
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=cyan'
@@ -40,3 +40,5 @@ function dcleanup {
 # begin appcenter completion
 . <(appcenter --completion)
 # end appcenter completion
+
+[ -s "/Users/renatosantos/.scm_breeze/scm_breeze.sh" ] && source "/Users/renatosantos/.scm_breeze/scm_breeze.sh"

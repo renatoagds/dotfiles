@@ -118,3 +118,8 @@ declare -a npm=(
 for i in "${npm[@]}"; do
   npm i -g "$i"
 done
+
+# setup scm_breeze
+git clone git://github.com/scmbreeze/scm_breeze.git ~/.scm_breeze
+~/.scm_breeze/install.sh
+source ~/.zshrc

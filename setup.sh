@@ -92,6 +92,10 @@ done
 echo "tmux"
 ln -s "${DOTFILES}/tmux/tmux.conf" ~/.tmux.conf
 
+# setup tern
+echo "tern-config"
+ln -s "${DOTFILES}/tern/tern-config" ~/.tern-config
+
 # export NVM
 export NVM_DIR="$HOME/.nvm"
 . "$(brew --prefix nvm)/nvm.sh"

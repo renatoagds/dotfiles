@@ -9,9 +9,9 @@ augroup END
 
 " == Automatic define filetype
 augroup FiletypeGroup
-    autocmd!
-    au BufNewFile,BufRead *.flow set filetype=javascript.jsx
-  augroup END
+  autocmd!
+  au BufNewFile,BufRead *.flow set filetype=javascript.jsx
+augroup END
 
 " == Spotify Utilities (depend on shpotify) ===
 function! s:callSpotify(args, type)
@@ -27,6 +27,9 @@ command! SpotifyNext call s:callSpotify('', 'next')
 
 " == Terminal (map ESC to leave in terminal) ==
 tnoremap <Esc> <C-\><C-n>
+
+" == Tern for Vim
+nnoremap <leader>tr :TernRefs<CR> <bar> :resize 5<CR>
 
 " == Color Scheme ==
 " let g:enable_bold_font = 1
@@ -58,7 +61,7 @@ nmap <leader>> <Plug>AirlineSelectNextTab
 " :imap jj <Plug>snipMateNextOrTrigger
 " :smap jj <Plug>snipMateNextOrTrigger
 
-"  UltiSnips ==
+" == UltiSnips ==
 let g:UltiSnipsExpandTrigger="<leader>aa"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
@@ -143,6 +146,7 @@ let g:deoplete#sources#ternjs#include_keywords = 1
 let g:deoplete#sources#ternjs#omit_object_prototype = 0
 let g:deoplete#sources#ternjs#filetypes = [
   \ 'jsx',
+  \ 'javascript',
   \ 'javascript.jsx',
   \ 'vue'
   \ ]

@@ -8,12 +8,11 @@ Plug 'crusoexia/vim-monokai'
 Plug 'jacoborus/tender.vim'
 
 " == Snippets ==
-" Plug 'garbas/vim-snipmate'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+" Plug 'garbas/vim-snipmate'
 
 " == Autocomplete plugins ==
-" Plug 'Valloric/YouCompleteMe', { 'do': 'python3 ./install.py --tern-completer' }
 Plug 'ternjs/tern_for_vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
@@ -22,8 +21,20 @@ Plug 'artur-shaik/vim-javacomplete2'
 Plug 'mattn/emmet-vim'
 Plug 'othree/jspc.vim'
 Plug 'mhartington/nvim-typescript'
+" Plug 'Valloric/YouCompleteMe', { 'do': 'python3 ./install.py --tern-completer' }
 
 " == Syntax Highlighting ==
+Plug 'sheerun/vim-polyglot' " == replace all specific highlights
+Plug 'othree/es.next.syntax.vim'
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'othree/yajs.vim', { 'for': 'javascript' }
+Plug 'othree/jsdoc-syntax.vim'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'flowtype/vim-flow'
+Plug 'hail2u/vim-css3-syntax'
+" Plug 'isRuslan/vim-es6'
+" Plug 'Quramy/vim-js-pretty-template'
 " Plug 'elzr/vim-json'
 " Plug 'pangloss/vim-javascript'
 " Plug 'mxw/vim-jsx'
@@ -31,21 +42,10 @@ Plug 'mhartington/nvim-typescript'
 " Plug 'cakebaker/scss-syntax.vim'
 " Plug 'tpope/vim-markdown'
 " Plug 'tpope/vim-liquid'
-Plug 'sheerun/vim-polyglot' " == replace all specif highlights
-Plug 'othree/yajs.vim', { 'for': 'javascript' }
-Plug 'othree/es.next.syntax.vim'
-Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'isRuslan/vim-es6'
-Plug 'hail2u/vim-css3-syntax'
-Plug 'othree/jsdoc-syntax.vim'
-Plug 'Quramy/vim-js-pretty-template'
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'leafgarland/typescript-vim'
-Plug 'flowtype/vim-flow'
 
 " == Tools Integration ==
-" Plug 'neomake/neomake'
 Plug 'w0rp/ale'
+" Plug 'neomake/neomake'
 
 " == File Search ==
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -58,7 +58,6 @@ Plug 'moll/vim-node'
 Plug 'hsanson/vim-android'
 
 " == General editor plugins ==
-" Plug 'nathanaelkane/vim-indent-guides' " == indent guides visually
 Plug 'tpope/vim-surround' " == helpers with surrounders
 Plug 'scrooloose/nerdtree' " == file tree
 Plug 'tpope/vim-repeat' " == improve repeat using .
@@ -75,7 +74,8 @@ Plug 'rizzatti/dash.vim' " == plugin for Dash (MacOnly)
 Plug 'easymotion/vim-easymotion' " == improve movimentation in file
 Plug 'qstrahl/vim-matchmaker' " == highlight words
 Plug 'Valloric/ListToggle' " == toogle list
-" Plug 'ludovicchabant/vim-gutentags' " == ctags handler
 Plug 'sbdchd/neoformat' " == format code
 Plug 'kristijanhusak/vim-carbon-now-sh' " == take screenshot of your code
 Plug 'shime/vim-livedown', { 'do': 'npm install -g livedown' } " == markdown live preview
+" Plug 'nathanaelkane/vim-indent-guides' " == indent guides visually
+" Plug 'ludovicchabant/vim-gutentags' " == ctags handler

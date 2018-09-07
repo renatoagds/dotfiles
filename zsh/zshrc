@@ -6,6 +6,8 @@ export ZSH=~/.oh-my-zsh
 export EDITOR=nvim
 export NVM_DIR="$HOME/.nvm"
 . "$(brew --prefix nvm)/nvm.sh"
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 # Oh My ZSH
 ZSH_THEME="amuse"
@@ -36,9 +38,9 @@ function dcleanup {
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-
 # begin appcenter completion
 . <(appcenter --completion)
 # end appcenter completion
 
-[ -s "/Users/renatosantos/.scm_breeze/scm_breeze.sh" ] && source "/Users/renatosantos/.scm_breeze/scm_breeze.sh"
+USER=$USERNAME
+[ -s "/Users/${USER}/.scm_breeze/scm_breeze.sh" ] && source "/Users/${USER}/.scm_breeze/scm_breeze.sh"

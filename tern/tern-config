@@ -1,6 +1,6 @@
 {
   "ecmaVersion": 6,
-  "libs": ["browser", "underscore", "ecmascript", "react"],
+  "libs": ["browser", "underscore", "ecmascript"],
   "plugins": {
     "es_modules": {},
     "node": {},

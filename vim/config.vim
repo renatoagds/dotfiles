@@ -1,4 +1,4 @@
-" == Mkdir (create folder if don't exists) ==
+" == Mkdir Recursive (create folder if don't exists) ==
 augroup Mkdir
   autocmd!
   autocmd BufWritePre *
@@ -7,7 +7,7 @@ augroup Mkdir
     \ endif
 augroup END
 
-" == Automatic define filetype
+" == Automatic define filetype for Flow Files ==
 augroup FiletypeGroup
   autocmd!
   au BufNewFile,BufRead *.flow set filetype=javascript.jsx
@@ -35,7 +35,7 @@ nnoremap <leader>tr :TernRefs<CR> <bar> :resize 5<CR>
 " let g:enable_bold_font = 1
 
 " === Airline ===
-let g:airline_theme = "tender"
+let g:airline_theme = "hybrid"
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#empty_message = ''
 let g:airline#extensions#branch#displayed_head_limit = 20
@@ -57,10 +57,6 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 nmap <leader>< <Plug>AirlineSelectPrevTab
 nmap <leader>> <Plug>AirlineSelectNextTab
 
-" === SnipMate ===
-" :imap jj <Plug>snipMateNextOrTrigger
-" :smap jj <Plug>snipMateNextOrTrigger
-
 " == UltiSnips ==
 let g:UltiSnipsExpandTrigger="<leader>aa"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
@@ -77,26 +73,6 @@ let g:javascript_plugin_jsdoc = 1
 
 " === NerdCommenter ===
 let g:NERDSpaceDelims = 1
-
-" == Neomake ==
-" let g:neomake_warning_sign = {
-" \ 'text': 'W',
-" \ 'texthl': 'WarningMsg',
-" \ }
-
-" let g:neomake_error_sign = {
-" \ 'text': 'E',
-" \ 'texthl': 'ErrorMsg',
-" \ }
-
-" let g:makers = ['eslint', 'flow']
-" let g:neomake_javascript_enabled_makers = g:makers
-" let g:neomake_jsx_enabled_makers = g:makers
-" autocmd! BufWritePost * Neomake
-
-" == Flow ==
-let g:flow#enable = 1
-let g:flow#showquickfix = 0
 
 " == ALE ==
 let g:ale_linters = {'javascript': ['eslint', 'flow']}
@@ -124,9 +100,6 @@ let g:lt_location_list_toggle_map = '<leader>l'
 let g:lt_quickfix_list_toggle_map = '<leader>q'
 let g:lt_height = 10
 
-" == Indent Guides
-" let g:indent_guides_enable_on_vim_startup = 1
-
 " == indentLine
 let g:indentLine_color_term = 238
 
@@ -134,19 +107,47 @@ let g:indentLine_color_term = 238
 let g:tern#command = ["tern"]
 let g:tern#arguments = ["--persistent"]
 
+" == Echodoc
+let g:echodoc_enable_at_startup = 1
+
 " == Deoplete
+call deoplete#custom#option({'complete_method': 'omnifunc'})
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#file#enable_buffer_path = 1
-let g:deoplete#complete_method = "omnifunc"
 let g:deoplete#sources#ternjs#types = 1
 let g:deoplete#sources#ternjs#docs = 1
 let g:deoplete#sources#ternjs#include_keywords = 1
-let g:deoplete#sources#ternjs#omit_object_prototype = 0
-let g:deoplete#sources#ternjs#filetypes = [
-  \ 'jsx',
+let g:deoplete#sources#ternjs#filetypes = [ \ 'jsx',
   \ 'javascript',
   \ 'javascript.jsx',
   \ 'vue'
   \ ]
+
+
+" == Flow ==
+let g:flow#enable = 1
+let g:flow#showquickfix = 0
+
+" == Neomake ==
+" let g:neomake_warning_sign = {
+" \ 'text': 'W',
+" \ 'texthl': 'WarningMsg',
+" \ }
+
+" let g:neomake_error_sign = {
+" \ 'text': 'E',
+" \ 'texthl': 'ErrorMsg',
+" \ }
+
+" let g:makers = ['eslint', 'flow']
+" let g:neomake_javascript_enabled_makers = g:makers
+" let g:neomake_jsx_enabled_makers = g:makers
+" autocmd! BufWritePost * Neomake
+
+" == Indent Guides
+" let g:indent_guides_enable_on_vim_startup = 1
+
+" === SnipMate ===
+" :imap jj <Plug>snipMateNextOrTrigger
+" :smap jj <Plug>snipMateNextOrTrigger

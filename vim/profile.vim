@@ -5,9 +5,10 @@ let mapleader=","
 
 " === Color Scheme
 set background=dark
-colorscheme tender
+colorscheme hybrid_reverse
 
 " === Options
+set cmdheight=2
 set foldmethod=manual
 set completeopt-=preview
 set showcmd                  " Show (partial) command in status line.

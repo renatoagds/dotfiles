@@ -167,7 +167,8 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#ternjs#types = 1
 let g:deoplete#sources#ternjs#docs = 1
 let g:deoplete#sources#ternjs#include_keywords = 1
-let g:deoplete#sources#ternjs#filetypes = [ \ 'jsx',
+let g:deoplete#sources#ternjs#filetypes = [
+  \ 'jsx',
   \ 'javascript',
   \ 'javascript.jsx',
   \ 'vue'

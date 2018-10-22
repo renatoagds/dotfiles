@@ -130,6 +130,9 @@ let g:deoplete#sources#ternjs#filetypes = [
 let g:flow#enable = 1
 let g:flow#showquickfix = 0
 
+" Editor Config
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+
 " == Neomake ==
 " let g:neomake_warning_sign = {
 " \ 'text': 'W',

@@ -7,6 +7,9 @@ augroup Mkdir
     \ endif
 augroup END
 
+" == CronJOB
+autocmd filetype crontab setlocal nobackup nowritebackup
+
 " == Automatic define filetype for Flow Files ==
 augroup FiletypeGroup
   autocmd!

@@ -36,6 +36,12 @@ function dcleanup {
   docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
 }
 
+function adbpic {
+  adb shell screencap -p /sdcard/screen.png
+  adb pull /sdcard/screen.png
+  adb shell rm /sdcard/screen.png
+}
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # begin appcenter completion

@@ -36,8 +36,7 @@ declare -a brew=(
     "docker"
     "cmake"
     "watchman"
-    "--HEAD universal-ctags/universal-ctags/universal-ctags",
-    "global --with-ctags"
+    "--HEAD universal-ctags/universal-ctags/universal-ctags"
   )
 
 declare -a cask=(
@@ -48,18 +47,14 @@ declare -a cask=(
     "docker"
     "spectacle"
     "evernote"
-    "telegram"
-    "whatsapp"
     "slack"
     "spotify"
-    "tuxera-ntfs"
     "skype" 
     "the-unarchiver"
     "adobe-acrobat-reader"
     "google-backup-and-sync"
     "android-studio"
     "java8"
-    "frappe"
     "numi"
     "1password"
   )
@@ -110,14 +105,10 @@ nvm use default
 # setup modules
 echo "npm"
 declare -a npm=(
-    "react-native-cli"
-    "code-push-cli"
-    "appcenter-cli"
     "npm-check-updates"
     "http-server"
     "tern"
     "tern-jsx"
-    "eslint"
   )
 
 for i in "${npm[@]}"; do

@@ -109,6 +109,7 @@ declare -a npm=(
     "http-server"
     "tern"
     "tern-jsx"
+    "neovim"
   )
 
 for i in "${npm[@]}"; do

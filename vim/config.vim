@@ -78,7 +78,7 @@ let g:javascript_plugin_jsdoc = 1
 let g:NERDSpaceDelims = 1
 
 " == ALE ==
-let g:ale_linters = {'javascript': ['eslint', 'flow']}
+let g:ale_linters = {'javascript': ['eslint', 'flow'], 'python': ['flake8']}
 let g:ale_linters_explicit = 1
 let g:ale_sign_error = 'E'
 let g:ale_sign_warning = 'W'

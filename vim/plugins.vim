@@ -12,7 +12,7 @@ Plug 'ternjs/tern_for_vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'mattn/emmet-vim'
-" Plug 'zchee/deoplete-jedi'
+Plug 'zchee/deoplete-jedi', { 'do': 'pip install jedi' }
 " Plug 'artur-shaik/vim-javacomplete2'
 " Plug 'othree/jspc.vim'
 " Plug 'mhartington/nvim-typescript'
@@ -39,7 +39,7 @@ Plug 'flowtype/vim-flow'
 " Plug 'tpope/vim-liquid'
 
 " == Tools Integration ==
-Plug 'w0rp/ale'
+Plug 'w0rp/ale', { 'do': 'pip install flake8' }
 " Plug 'neomake/neomake'
 
 " == File Search ==

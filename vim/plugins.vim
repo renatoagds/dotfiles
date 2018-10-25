@@ -10,7 +10,7 @@ Plug 'honza/vim-snippets'
 " == Autocomplete plugins ==
 Plug 'ternjs/tern_for_vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern tern-jsx' }
 Plug 'mattn/emmet-vim'
 Plug 'zchee/deoplete-jedi', { 'do': 'pip install jedi' }
 " Plug 'artur-shaik/vim-javacomplete2'

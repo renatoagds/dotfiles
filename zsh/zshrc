@@ -42,6 +42,10 @@ function adbpic {
   adb shell rm /sdcard/screen.png
 }
 
+function dpull {
+  docker images | grep -v REPOSITORY | awk '{print $1}' | xargs -L1 docker pull
+}
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # begin appcenter completion

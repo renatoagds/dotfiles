@@ -1,7 +1,7 @@
 # Exports
 export ANDROID_HOME=~/Library/Android/sdk
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=/opt/loggi/ops/ansible/bin:$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools
+export PATH=/opt/loggi/ops/ansible/bin:$(yarn global bin):$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin
 export ZSH=~/.oh-my-zsh
 export EDITOR=nvim
 export NVM_DIR="$HOME/.nvm"

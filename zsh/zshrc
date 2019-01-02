@@ -1,6 +1,6 @@
 # Exports
 export ANDROID_HOME=~/Library/Android/sdk
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$(pyenv root)/shims:$HOME/bin:/usr/local/bin:$PATH
 export PATH=/opt/loggi/ops/ansible/bin:$(yarn global bin):$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin
 export ZSH=~/.oh-my-zsh
 export EDITOR=nvim

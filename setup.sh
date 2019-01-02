@@ -96,6 +96,8 @@ pip install neovim
 pip install flake8
 ln -s $(pyenv which flake8) /usr/local/bin  # Assumes that $HOME/bin is in $PATH
 
+pyenv deactivate
+
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 mkdir -p ~/.config/nvim/

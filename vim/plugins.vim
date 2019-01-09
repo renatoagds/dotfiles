@@ -67,10 +67,10 @@ Plug 'scrooloose/nerdtree' " == file tree
 Plug 'Xuyuanp/nerdtree-git-plugin' " == git for nerd tree
 Plug 'Shougo/context_filetype.vim' " == context filetype
 Plug 'Shougo/echodoc.vim' " == print documents in echo area
-Plug 'jsfaint/gen_tags.vim' " == ctags handler
 Plug 'heavenshell/vim-jsdoc' " == generate jsdoc
 Plug 'rizzatti/dash.vim' " == plugin for Dash (MacOnly)
 Plug 'editorconfig/editorconfig-vim' " == editor config for vim
+" Plug 'jsfaint/gen_tags.vim' " == ctags handler
 " Plug 'nathanaelkane/vim-indent-guides' " == indent guides visually
 " Plug 'sbdchd/neoformat' " == format code
 " Plug 'tomtom/tlib_vim'  " == utility functions

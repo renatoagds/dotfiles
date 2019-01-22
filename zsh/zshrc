@@ -15,7 +15,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 fi
 
 # paths
-export PATH=$(pyenv root)/shims:$HOME/bin:/usr/local/bin:$PATH
+export PATH=$(pyenv root)/shims:$HOME/bin:/usr/local/bin:$ANDROID_HOME/emulator:$PATH
 export PATH=/opt/loggi/ops/ansible/bin:$(yarn global bin):$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin
 
 # zsh path

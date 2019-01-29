@@ -1,26 +1,61 @@
-# Exports
-export ANDROID_HOME=~/Library/Android/sdk
-export PATH=$(pyenv root)/shims:$HOME/bin:/usr/local/bin:$PATH
+###########
+# EXPORTS #
+###########
+
+# android home
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  export ANDROID_HOME=$HOME/Android/Sdk
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  export ANDROID_HOME=~/Library/Android/sdk
+fi
+
+# linux brew
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
+fi
+
+# paths
+export PATH=$(pyenv root)/shims:$HOME/bin:/usr/local/bin:$ANDROID_HOME/emulator:$PATH
 export PATH=/opt/loggi/ops/ansible/bin:$(yarn global bin):$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin
+
+# zsh path
 export ZSH=~/.oh-my-zsh
+
+# default editor
 export EDITOR=nvim
+
+# nvm
 export NVM_DIR="$HOME/.nvm"
 . "$(brew --prefix nvm)/nvm.sh"
+
+#############
+# PERL VARS #
+#############
+
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-# pyenv virtualenv
+#######################
+# PYENV + VIRTUAL ENV #
+#######################
+
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-# Oh My ZSH
+#############
+# OH MY ZSH #
+#############
+
 ZSH_THEME="amuse"
 plugins=(git z tmux nvm docker adb zsh_reload)
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=cyan'
 
-# Aliases
+###########
+# ALIASES #
+###########
+
 alias nculoggi='ncu -u -f /@loggi/'
 alias gbr='git branch | grep -v "master" | xargs git branch -D'
 alias ctags="`brew --prefix`/bin/ctags"
@@ -50,23 +85,31 @@ function dpull {
   docker images | grep -v REPOSITORY | awk '{print $1}' | xargs -L1 docker pull
 }
 
+##############
+# FZF EXPORT #
+##############
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# begin appcenter completion
-. <(appcenter --completion)
-# end appcenter completion
+#####################
+# SCM BREEZE EXPORT #
+#####################
 
 USER=$USERNAME
-[ -s "/Users/${USER}/.scm_breeze/scm_breeze.sh" ] && source "/Users/${USER}/.scm_breeze/scm_breeze.sh"
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  [ -s "/home/${USER}/.scm_breeze/scm_breeze.sh" ] && source "/home/${USER}/.scm_breeze/scm_breeze.sh"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  [ -s "/Users/${USER}/.scm_breeze/scm_breeze.sh" ] && source "/Users/${USER}/.scm_breeze/scm_breeze.sh"
+fi
 
-###-begin-npm-completion-###
-#
-# npm command completion script
-#
-# Installation: npm completion >> ~/.bashrc  (or ~/.zshrc)
-# Or, maybe: npm completion > /usr/local/etc/bash_completion.d/npm
-#
+##########################
+# COMMANDS AUTO COMPLETE #
+##########################
 
+# app center
+. <(appcenter --completion)
+
+# npm
 if type complete &>/dev/null; then
   _npm_completion () {
     local words cword
@@ -118,4 +161,3 @@ elif type compctl &>/dev/null; then
   }
   compctl -K _npm_completion npm
 fi
-###-end-npm-completion-###

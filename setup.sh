@@ -80,25 +80,8 @@ for i in "${cask[@]}"; do
   brew cask install "$i"
 done
 
-# setup neovim
-echo "Neovim Setup"
-pyenv install "${PYTHON2_VERSION}"
-pyenv install "${PYTHON3_VERSION}"
-
-pyenv virtualenv "${PYTHON2_VERSION}" neovim2
-pyenv virtualenv "${PYTHON3_VERSION}" neovim3
-
-pyenv activate neovim2
-pip install neovim
-
-pyenv activate neovim3
-pip install neovim
-
-pip install flake8
-ln -s $(pyenv which flake8) /usr/local/bin  # Assumes that $HOME/bin is in $PATH
-
-pyenv deactivate
-
+# install neovim
+echo "Installing neovim"
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 mkdir -p ~/.config/nvim/
@@ -143,3 +126,21 @@ done
 git clone git://github.com/scmbreeze/scm_breeze.git ~/.scm_breeze
 ~/.scm_breeze/install.sh
 source ~/.zshrc
+
+# setup python-neovim
+# pyenv install "${PYTHON2_VERSION}"
+# pyenv install "${PYTHON3_VERSION}"
+
+# pyenv virtualenv "${PYTHON2_VERSION}" neovim2
+# pyenv virtualenv "${PYTHON3_VERSION}" neovim3
+
+# pyenv activate neovim2
+# pip install neovim
+
+# pyenv activate neovim3
+# pip install neovim
+
+# pip install flake8
+# ln -s $(pyenv which flake8) /usr/local/bin  # Assumes that $HOME/bin is in $PATH
+
+# pyenv deactivate

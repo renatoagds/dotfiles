@@ -64,6 +64,7 @@ declare -a cask=(
     "1password"
     "kap"
     "vlc"
+    "devhub"
   )
 
 # install all brew dep

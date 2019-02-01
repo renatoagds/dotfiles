@@ -106,9 +106,6 @@ fi
 # COMMANDS AUTO COMPLETE #
 ##########################
 
-# app center
-. <(appcenter --completion)
-
 # npm
 if type complete &>/dev/null; then
   _npm_completion () {

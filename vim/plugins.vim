@@ -23,6 +23,7 @@ Plug 'sheerun/vim-polyglot' " == replace all specific highlights
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'othree/jsdoc-syntax.vim'
 Plug 'flowtype/vim-flow'
+Plug 'ap/vim-css-color'
 " Plug 'othree/es.next.syntax.vim'
 " Plug 'othree/yajs.vim', { 'for': 'javascript' }
 " Plug 'HerringtonDarkholme/yats.vim'

@@ -58,6 +58,16 @@ source $ZSH/oh-my-zsh.sh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=cyan'
 
+#####################
+# SCM BREEZE EXPORT #
+#####################
+USER=$USERNAME
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  [ -s "/home/${USER}/.scm_breeze/scm_breeze.sh" ] && source "/home/${USER}/.scm_breeze/scm_breeze.sh"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  [ -s "/Users/${USER}/.scm_breeze/scm_breeze.sh" ] && source "/Users/${USER}/.scm_breeze/scm_breeze.sh"
+fi
+
 ###########
 # ALIASES #
 ###########

@@ -1,3 +1,4 @@
-# CTags
 tags
 tags.*
+.DS_Store
+zsh/c6bank

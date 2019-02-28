@@ -1,51 +1,57 @@
-###########
-# EXPORTS #
-###########
+#############
+# UTILITIES #
+#############
+import_file () {
+  if [ -f "$HOME/Documents/Code/dotfiles/zsh/$1" ]; then
+    source "$HOME/Documents/Code/dotfiles/zsh/$1"
+  elif [ -f "$HOME/Documents/Personal/dotfiles/zsh/$1" ]; then
+    source "$HOME/Documents/Personal/dotfiles/zsh/$1"
+  fi
+}
 
-# android home
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-  export ANDROID_HOME=$HOME/Android/Sdk
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-  export ANDROID_HOME=~/Library/Android/sdk
-fi
+# c6 specific
+import_file "c6bank"
 
-# linux brew
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-  export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
-fi
-
-# paths
-export PATH=$(pyenv root)/shims:$HOME/bin:/usr/local/bin:$ANDROID_HOME/emulator:$PATH
-export PATH=/opt/loggi/ops/ansible/bin:$(yarn global bin):$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin
+# default editor
+export EDITOR=nvim
 
 # zsh path
 export ZSH=~/.oh-my-zsh
 
-# default editor
-export EDITOR=nvim
+################
+# OS SPECIFICS #
+################
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  import_file "linux"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  import_file "mac"
+fi
+
+# paths
+export PATH=$(pyenv root)/shims:$HOME/bin:/usr/local/bin:$ANDROID_HOME/emulator:$PATH
+export PATH=$(yarn global bin):$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$PATH
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
 . "$(brew --prefix nvm)/nvm.sh"
 
-#############
-# PERL VARS #
-#############
-
+################
+# GENERAL VARS #
+################
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+export LDFLAGS="-L$(brew --prefix openssl)/lib"
+export CPPFLAGS="-I$(brew --prefix openssl)/include"
 
 #######################
 # PYENV + VIRTUAL ENV #
 #######################
-
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 #############
 # OH MY ZSH #
 #############
-
 ZSH_THEME="amuse"
 plugins=(git z tmux nvm docker adb zsh_reload)
 source $ZSH/oh-my-zsh.sh
@@ -55,106 +61,14 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=cyan'
 ###########
 # ALIASES #
 ###########
-
-alias nculoggi='ncu -u -f /@loggi/'
-alias gbr='git branch | grep -v "master" | xargs git branch -D'
-alias ctags="`brew --prefix`/bin/ctags"
-alias fml='rm -rf node_modules && npm install'
-alias nba='react-native run-android'
-alias nbi='react-native run-ios'
-alias nreset='watchman watch-del-all && npm run start'
-alias rshake='adb shell input keyevent 82'
-alias rreload='adb shell input keyevent 82 && adb shell input keyevent 19 && adb shell input keyevent 23'
-
-function adbtext {
-  adb shell input text "$1" && adb shell input keyevent ENTER;
-}
-
-function dcleanup {
-  docker rm -v $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
-  docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
-}
-
-function adbpic {
-  adb shell screencap -p /sdcard/screen.png
-  adb pull /sdcard/screen.png
-  adb shell rm /sdcard/screen.png
-}
-
-function dpull {
-  docker images | grep -v REPOSITORY | awk '{print $1}' | xargs -L1 docker pull
-}
+import_file "aliases"
 
 ##############
 # FZF EXPORT #
 ##############
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-#####################
-# SCM BREEZE EXPORT #
-#####################
-
-USER=$USERNAME
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-  [ -s "/home/${USER}/.scm_breeze/scm_breeze.sh" ] && source "/home/${USER}/.scm_breeze/scm_breeze.sh"
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-  [ -s "/Users/${USER}/.scm_breeze/scm_breeze.sh" ] && source "/Users/${USER}/.scm_breeze/scm_breeze.sh"
-fi
-
-##########################
-# COMMANDS AUTO COMPLETE #
-##########################
-
-# npm
-if type complete &>/dev/null; then
-  _npm_completion () {
-    local words cword
-    if type _get_comp_words_by_ref &>/dev/null; then
-      _get_comp_words_by_ref -n = -n @ -n : -w words -i cword
-    else
-      cword="$COMP_CWORD"
-      words=("${COMP_WORDS[@]}")
-    fi
-
-    local si="$IFS"
-    IFS=$'\n' COMPREPLY=($(COMP_CWORD="$cword" \
-                           COMP_LINE="$COMP_LINE" \
-                           COMP_POINT="$COMP_POINT" \
-                           npm completion -- "${words[@]}" \
-                           2>/dev/null)) || return $?
-    IFS="$si"
-    if type __ltrim_colon_completions &>/dev/null; then
-      __ltrim_colon_completions "${words[cword]}"
-    fi
-  }
-  complete -o default -F _npm_completion npm
-elif type compdef &>/dev/null; then
-  _npm_completion() {
-    local si=$IFS
-    compadd -- $(COMP_CWORD=$((CURRENT-1)) \
-                 COMP_LINE=$BUFFER \
-                 COMP_POINT=0 \
-                 npm completion -- "${words[@]}" \
-                 2>/dev/null)
-    IFS=$si
-  }
-  compdef _npm_completion npm
-elif type compctl &>/dev/null; then
-  _npm_completion () {
-    local cword line point words si
-    read -Ac words
-    read -cn cword
-    let cword-=1
-    read -l line
-    read -ln point
-    si="$IFS"
-    IFS=$'\n' reply=($(COMP_CWORD="$cword" \
-                       COMP_LINE="$line" \
-                       COMP_POINT="$point" \
-                       npm completion -- "${words[@]}" \
-                       2>/dev/null)) || return $?
-    IFS="$si"
-  }
-  compctl -K _npm_completion npm
-fi
+#################
+# AUTO COMPLETE #
+#################
+import_file "npm-completion"

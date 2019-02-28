@@ -1,0 +1,7 @@
+##################
+# LINUX SPECIFIC #
+##################
+
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
+[ -s "/home/${USER}/.scm_breeze/scm_breeze.sh" ] && source "/home/${USER}/.scm_breeze/scm_breeze.sh"

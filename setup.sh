@@ -114,7 +114,6 @@ declare -a npm=(
     "npm-check"
     "http-server"
     "tern"
-    "tern-jsx"
     "neovim"
   )
 

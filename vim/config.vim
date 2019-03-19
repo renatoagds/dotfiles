@@ -7,10 +7,10 @@ augroup Mkdir
     \ endif
 augroup END
 
-" == CronJOB
+" == CronJOB ==
 autocmd filetype crontab setlocal nobackup nowritebackup
 
-" == FZF.Vim
+" == FZF.Vim ==
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
@@ -124,17 +124,17 @@ let g:lt_location_list_toggle_map = '<leader>l'
 let g:lt_quickfix_list_toggle_map = '<leader>q'
 let g:lt_height = 10
 
-" == indentLine
+" == indentLine ==
 let g:indentLine_color_term = 238
 
 " == Tern
 let g:tern#command = ["tern"]
 let g:tern#arguments = ["--persistent"]
 
-" == Echodoc
+" == Echodoc ==
 let g:echodoc_enable_at_startup = 1
 
-" == Deoplete
+" == Deoplete ==
 call deoplete#custom#option({'complete_method': 'omnifunc'})
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -154,8 +154,28 @@ let g:deoplete#sources#ternjs#filetypes = [
 let g:flow#enable = 1
 let g:flow#showquickfix = 0
 
-" Editor Config
+" == Editor Config ==
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+
+" == AutoPairs ==
+let g:AutoPairsMapCh = 0
+
+" == Insert mode navigation ==
+imap <Up>    <Nop>
+imap <Down>  <Nop>
+imap <Left>  <Nop>
+imap <Right> <Nop>
+
+inoremap <C-k> <Up>
+inoremap <C-j> <Down>
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
+
+" == Space navigation
+nnoremap <Tab>   >>
+nnoremap <S-Tab> <<
+vnoremap <Tab>   >><Esc>gv
+vnoremap <S-Tab> <<<Esc>gv
 
 " == Neomake ==
 " let g:neomake_warning_sign = {

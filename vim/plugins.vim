@@ -45,6 +45,7 @@ Plug 'w0rp/ale', { 'do': 'pip install flake8' }
 
 " == File Search ==
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
 
 " == NodeJS ==

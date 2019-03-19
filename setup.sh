@@ -39,6 +39,7 @@ declare -a brew=(
     "cmake"
     "watchman"
     "yarn"
+    "highlight"
   )
 
 declare -a cask=(

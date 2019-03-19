@@ -10,6 +10,10 @@ augroup END
 " == CronJOB
 autocmd filetype crontab setlocal nobackup nowritebackup
 
+" == FZF.Vim
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
 " == Automatic define filetype for Flow Files ==
 augroup FiletypeGroup
   autocmd!
@@ -105,8 +109,8 @@ let g:airline#extensions#ale#enabled = 1
 let g:jsx_ext_required = 0
 
 " == FZF ==
-nnoremap <C-T> :FZF<CR>
-inoremap <C-T> <ESC>:FZF<CR>i
+nnoremap <C-T> :Files<CR>
+inoremap <C-T> <ESC>:Files<CR>i
 
 " == Javascript Libraries ==
 let g:used_javascript_libs = 'underscore,jasmine,react,flux,vue'

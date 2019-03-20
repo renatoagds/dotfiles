@@ -177,6 +177,9 @@ nnoremap <S-Tab> <<
 vnoremap <Tab>   >><Esc>gv
 vnoremap <S-Tab> <<<Esc>gv
 
+" == Gutentags
+let g:gutentags_cache_dir='~/.config/nvim/tags/'
+
 " == Neomake ==
 " let g:neomake_warning_sign = {
 " \ 'text': 'W',

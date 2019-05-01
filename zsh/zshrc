@@ -6,6 +6,8 @@ import_file () {
     source "$HOME/Documents/Code/dotfiles/zsh/$1"
   elif [ -f "$HOME/Documents/Personal/dotfiles/zsh/$1" ]; then
     source "$HOME/Documents/Personal/dotfiles/zsh/$1"
+  elif [ -f "$HOME/Documentos/Personal/dotfiles/zsh/$1" ]; then
+    source "$HOME/Documentos/Personal/dotfiles/zsh/$1"
   fi
 }
 

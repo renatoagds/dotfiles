@@ -54,7 +54,8 @@ eval "$(pyenv virtualenv-init -)"
 #############
 # OH MY ZSH #
 #############
-ZSH_THEME="amuse"
+# https://raw.githubusercontent.com/shashankmehta/dotfiles/master/thesetup/zsh/.oh-my-zsh/custom/themes/gitster.zsh-theme
+ZSH_THEME="gitster"
 plugins=(git z tmux nvm docker adb zsh_reload)
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh

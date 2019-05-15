@@ -127,6 +127,9 @@ git clone git://github.com/scmbreeze/scm_breeze.git ~/.scm_breeze
 ~/.scm_breeze/install.sh
 source ~/.zshrc
 
+# setup TPM
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 # setup python-neovim
 # pyenv install "${PYTHON2_VERSION}"
 # pyenv install "${PYTHON3_VERSION}"

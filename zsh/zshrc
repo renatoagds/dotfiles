@@ -38,10 +38,6 @@ fi
 export PATH=$(pyenv root)/shims:$HOME/bin:/usr/local/bin:$ANDROID_HOME/emulator:$PATH
 export PATH=$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$PATH
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-. "$(brew --prefix nvm)/nvm.sh" --no-use
-
 ################
 # GENERAL VARS #
 ################
@@ -90,3 +86,7 @@ import_file "aliases"
 # AUTO COMPLETE #
 #################
 import_file "npm-completion"
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+. "$(brew --prefix nvm)/nvm.sh"

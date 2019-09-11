@@ -72,6 +72,7 @@ Plug 'Shougo/echodoc.vim' " == print documents in echo area
 Plug 'heavenshell/vim-jsdoc' " == generate jsdoc
 Plug 'rizzatti/dash.vim' " == plugin for Dash (MacOnly)
 Plug 'editorconfig/editorconfig-vim' " == editor config for vim
+Plug 'terryma/vim-multiple-cursors' " == multiple cursors
 " Plug 'ludovicchabant/vim-gutentags' " == tags generator
 " Plug 'jsfaint/gen_tags.vim' " == ctags handler
 " Plug 'nathanaelkane/vim-indent-guides' " == indent guides visually

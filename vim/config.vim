@@ -180,6 +180,10 @@ vnoremap <S-Tab> <<<Esc>gv
 " == Gutentags
 let g:gutentags_cache_dir='~/.config/nvim/tags/'
 
+" == Vim Markdown
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0
+
 " == Neomake ==
 " let g:neomake_warning_sign = {
 " \ 'text': 'W',

@@ -29,13 +29,14 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   import_file "mac"
 fi
 
+# yarn
+if type "$yarn" > /dev/null; then
+  export PATH=$(yarn global bin):$PATH
+fi
+
 # paths
 export PATH=$(pyenv root)/shims:$HOME/bin:/usr/local/bin:$ANDROID_HOME/emulator:$PATH
-export PATH=$(yarn global bin):$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$PATH
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-. "$(brew --prefix nvm)/nvm.sh"
+export PATH=$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$PATH
 
 ################
 # GENERAL VARS #
@@ -85,3 +86,7 @@ import_file "aliases"
 # AUTO COMPLETE #
 #################
 import_file "npm-completion"
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+. "$(brew --prefix nvm)/nvm.sh"

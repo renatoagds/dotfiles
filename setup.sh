@@ -118,6 +118,7 @@ declare -a npm=(
     "http-server"
     "tern"
     "neovim"
+    "pure-prompt"
   )
 
 for i in "${npm[@]}"; do

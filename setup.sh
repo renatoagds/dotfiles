@@ -41,6 +41,7 @@ declare -a brew=(
     "yarn"
     "highlight"
     "bat"
+    "prettyping"
   )
 
 declare -a cask=(

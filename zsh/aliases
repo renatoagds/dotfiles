@@ -11,6 +11,7 @@ alias nba='react-native run-android'
 alias nbi='react-native run-ios'
 alias nreset='watchman watch-del-all && npm run start'
 alias cat='bat'
+alias ping='prettyping'
 
 function adbtext {
   adb shell input text "$1" && adb shell input keyevent ENTER;

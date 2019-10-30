@@ -2,8 +2,6 @@
 
 # renatoagds (SH to setup basic stuffs in new Mac OS)
 DOTFILES=~/Documents/Personal/dotfiles
-PYTHON2_VERSION=2.7.15
-PYTHON3_VERSION=3.7.1
 
 # go to main folder
 cd ~
@@ -45,29 +43,20 @@ declare -a brew=(
   )
 
 declare -a cask=(
-    "google-chrome-dev"
+    "brave-browser"
     "iterm2"
-    "firefox-developer-edition"
-    "dash"
     "docker"
     "spectacle"
     "telegram"
     "whatsapp"
-    "evernote"
     "slack"
     "spotify"
-    "discord"
-    "skype" 
     "the-unarchiver"
     "adobe-acrobat-reader"
-    "google-backup-and-sync"
-    "android-studio"
-    "java8"
     "numi"
     "1password"
     "kap"
     "vlc"
-    "devhub"
   )
 
 # install all brew dep
@@ -106,13 +95,13 @@ export NVM_DIR="$HOME/.nvm"
 . "$(brew --prefix nvm)/nvm.sh"
 
 # install node/npm
-echo "Installing Node LTS Carbon"
-nvm install lts/carbon
-nvm alias default lts/carbon
+echo "Installing Node LTS"
+nvm install lts/dubnium
+nvm alias default lts/dubnium
 nvm use default
 
 # setup modules
-echo "Installing Yarn Global Dependencies"
+echo "Installing Node Dependencies"
 declare -a npm=(
     "npm-check"
     "http-server"
@@ -122,7 +111,7 @@ declare -a npm=(
   )
 
 for i in "${npm[@]}"; do
-  yarn global add "$i"
+  npm i -g "$i"
 done
 
 # setup scm_breeze
@@ -132,21 +121,3 @@ source ~/.zshrc
 
 # setup TPM
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
-# setup python-neovim
-# pyenv install "${PYTHON2_VERSION}"
-# pyenv install "${PYTHON3_VERSION}"
-
-# pyenv virtualenv "${PYTHON2_VERSION}" neovim2
-# pyenv virtualenv "${PYTHON3_VERSION}" neovim3
-
-# pyenv activate neovim2
-# pip install neovim
-
-# pyenv activate neovim3
-# pip install neovim
-
-# pip install flake8
-# ln -s $(pyenv which flake8) /usr/local/bin  # Assumes that $HOME/bin is in $PATH
-
-# pyenv deactivate

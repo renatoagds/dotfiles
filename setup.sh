@@ -40,6 +40,7 @@ declare -a brew=(
     "watchman"
     "yarn"
     "highlight"
+    "bat"
   )
 
 declare -a cask=(

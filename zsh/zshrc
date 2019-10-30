@@ -56,7 +56,7 @@ eval "$(pyenv virtualenv-init -)"
 # OH MY ZSH #
 #############
 # https://raw.githubusercontent.com/shashankmehta/dotfiles/master/thesetup/zsh/.oh-my-zsh/custom/themes/gitster.zsh-theme
-ZSH_THEME="gitster"
+ZSH_THEME=""
 plugins=(git z tmux nvm docker adb zsh_reload)
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -90,3 +90,7 @@ import_file "npm-completion"
 # nvm
 export NVM_DIR="$HOME/.nvm"
 . "$(brew --prefix nvm)/nvm.sh"
+
+# prompt pure
+autoload -U promptinit; promptinit
+prompt pure

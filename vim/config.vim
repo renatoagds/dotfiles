@@ -83,9 +83,10 @@ nmap <leader>> <Plug>AirlineSelectNextTab
 
 " == UltiSnips ==
 let g:UltiSnipsExpandTrigger="<leader>aa"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsEditSplit="vertical"
+let g:ultisnips_javascript = {'semi': 'never'}
 
 " === NerdTREE ===
 nnoremap <C-\> :NERDTreeToggle<CR>

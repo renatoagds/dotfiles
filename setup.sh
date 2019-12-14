@@ -40,6 +40,7 @@ declare -a brew=(
     "highlight"
     "bat"
     "prettyping"
+    "reattach-to-user-namespace"
   )
 
 declare -a cask=(

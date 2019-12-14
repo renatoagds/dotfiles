@@ -73,6 +73,8 @@ Plug 'heavenshell/vim-jsdoc' " == generate jsdoc
 Plug 'rizzatti/dash.vim' " == plugin for Dash (MacOnly)
 Plug 'editorconfig/editorconfig-vim' " == editor config for vim
 Plug 'terryma/vim-multiple-cursors' " == multiple cursors
+Plug 'tpope/vim-obsession' " == to persist session with tmux
+Plug 'tpope/vim-sensible' " == default set of rules
 " Plug 'ludovicchabant/vim-gutentags' " == tags generator
 " Plug 'jsfaint/gen_tags.vim' " == ctags handler
 " Plug 'nathanaelkane/vim-indent-guides' " == indent guides visually

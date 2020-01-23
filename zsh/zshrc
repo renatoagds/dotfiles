@@ -35,8 +35,7 @@ if type "$yarn" > /dev/null; then
 fi
 
 # paths
-export PATH=$(pyenv root)/shims:$HOME/bin:/usr/local/bin:$ANDROID_HOME/emulator:$PATH
-export PATH=$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$PATH
+export PATH=$(pyenv root)/shims:$HOME/bin:/usr/local/bin:$PATH
 
 ################
 # GENERAL VARS #

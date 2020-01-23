@@ -89,7 +89,9 @@ import_file "npm-completion"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
-. "$(brew --prefix nvm)/nvm.sh"
+if [ -f "$(brew --prefix nvm)/nvm.sh" ]; then
+  . "$(brew --prefix nvm)/nvm.sh"
+fi
 
 # prompt pure
 autoload -U promptinit; promptinit

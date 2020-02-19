@@ -54,7 +54,6 @@ eval "$(pyenv virtualenv-init -)"
 #############
 # OH MY ZSH #
 #############
-# https://raw.githubusercontent.com/shashankmehta/dotfiles/master/thesetup/zsh/.oh-my-zsh/custom/themes/gitster.zsh-theme
 ZSH_THEME=""
 plugins=(git z tmux nvm docker adb zsh_reload)
 source $ZSH/oh-my-zsh.sh
@@ -92,6 +91,13 @@ if [ -f "$(brew --prefix nvm)/nvm.sh" ]; then
   . "$(brew --prefix nvm)/nvm.sh"
 fi
 
+# pure zsh prompt
+# https://github.com/sindresorhus/pure
+# autoload -U promptinit; promptinit
 # prompt pure
+
+# spaceship zsh prompt
+# https://github.com/denysdovhan/spaceship-prompt
+fpath=($fpath "/Users/renato.santos/.zfunctions")
 autoload -U promptinit; promptinit
-prompt pure
+prompt spaceship

@@ -100,7 +100,7 @@ fi
 # prompt pure
 
 # spaceship zsh prompt
-https://github.com/denysdovhan/spaceship-prompt
+# https://github.com/denysdovhan/spaceship-prompt
 fpath=($fpath "$HOME/.zfunctions")
 autoload -U promptinit; promptinit
 prompt spaceship

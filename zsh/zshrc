@@ -14,6 +14,9 @@ import_file () {
 # c6 specific
 import_file "c6bank"
 
+# secret
+import_file "secret"
+
 # default editor
 export EDITOR=nvim
 
@@ -97,7 +100,7 @@ fi
 # prompt pure
 
 # spaceship zsh prompt
-# https://github.com/denysdovhan/spaceship-prompt
-fpath=($fpath "/Users/renato.santos/.zfunctions")
+https://github.com/denysdovhan/spaceship-prompt
+fpath=($fpath "$HOME/.zfunctions")
 autoload -U promptinit; promptinit
 prompt spaceship

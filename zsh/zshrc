@@ -11,9 +11,6 @@ import_file () {
   fi
 }
 
-# c6 specific
-import_file "c6bank"
-
 # secret
 import_file "secret"
 

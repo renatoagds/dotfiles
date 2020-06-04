@@ -55,6 +55,15 @@ tnoremap <Esc> <C-\><C-n>
 " == Tern for Vim
 nnoremap <leader>tr :TernRefs<CR> <bar> :resize 5<CR>
 
+" == File Related
+nnoremap ;; :w<CR>
+nnoremap :: :bp\|bd #<CR>
+nnoremap <C-W> :q!<CR>
+
+" == Split Related
+nnoremap L <C-W><C-L>
+nnoremap H <C-W><C-H>
+
 " == Color Scheme ==
 " let g:enable_bold_font = 1
 
@@ -105,13 +114,20 @@ let g:ale_linters_explicit = 1
 let g:ale_sign_error = 'E'
 let g:ale_sign_warning = 'W'
 let g:airline#extensions#ale#enabled = 1
+nnoremap <leader>f :ALEFix eslint<CR>
 
 " == Vim JSX ==
 let g:jsx_ext_required = 0
 
 " == FZF ==
 nnoremap <C-T> :Files<CR>
-inoremap <C-T> <ESC>:Files<CR>i
+nnoremap <C-P> :GFiles<CR>
+nnoremap <C-M> :Ag<CR>
+
+if has("nvim")
+  au TermOpen * tnoremap <Esc> <c-\><c-n>
+  au FileType fzf tunmap <Esc>
+endif
 
 " == Javascript Libraries ==
 let g:used_javascript_libs = 'underscore,jasmine,react,flux,vue'

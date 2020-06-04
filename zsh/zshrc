@@ -101,4 +101,3 @@ fi
 fpath=($fpath "$HOME/.zfunctions")
 autoload -U promptinit; promptinit
 prompt spaceship
-SPACESHIP_PACKAGE_SHOW=false

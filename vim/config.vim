@@ -21,33 +21,33 @@ augroup FiletypeGroup
 augroup END
 
 " == Spotify Utilities (depend on shpotify) ===
-function! s:callSpotify(args, type)
-  let cmd = 'silent !spotify ' . a:type . ' ' . a:args . ' &> /dev/null'
-  exec cmd
-  exec 'redraw!'
-endf
+" function! s:callSpotify(args, type)
+  " let cmd = 'silent !spotify ' . a:type . ' ' . a:args . ' &> /dev/null'
+  " exec cmd
+  " exec 'redraw!'
+" endf
 
-command! -nargs=1 SpotifyVol call s:callSpotify(<q-args>, 'vol')
-command! SpotifyPlay call s:callSpotify('', 'play')
-command! SpotifyPause call s:callSpotify('', 'pause')
-command! SpotifyNext call s:callSpotify('', 'next')
+" command! -nargs=1 SpotifyVol call s:callSpotify(<q-args>, 'vol')
+" command! SpotifyPlay call s:callSpotify('', 'play')
+" command! SpotifyPause call s:callSpotify('', 'pause')
+" command! SpotifyNext call s:callSpotify('', 'next')
 
 " == ADB Utilities (depend on alias) ===
-function! s:callADBCommand(command)
-  let cmd = ''
+" function! s:callADBCommand(command)
+  " let cmd = ''
 
-  if a:command == "reload"
-    let cmd = 'silent !adb shell input keyevent 82 && adb shell input keyevent 19 && adb shell input keyevent 23 &> /dev/null'
-  elseif a:command == "shake"
-    let cmd = 'silent !adb shell input keyevent 82 &> /dev/null'
-  endif
+  " if a:command == "reload"
+    " let cmd = 'silent !adb shell input keyevent 82 && adb shell input keyevent 19 && adb shell input keyevent 23 &> /dev/null'
+  " elseif a:command == "shake"
+    " let cmd = 'silent !adb shell input keyevent 82 &> /dev/null'
+  " endif
 
-  exec cmd
-  exec 'redraw!'
-endf
+  " exec cmd
+  " exec 'redraw!'
+" endf
 
-command! RReload call s:callADBCommand('reload')
-command! RShake call s:callADBCommand('shake')
+" command! RReload call s:callADBCommand('reload')
+" command! RShake call s:callADBCommand('shake')
 
 " == Terminal (map ESC to leave in terminal) ==
 tnoremap <Esc> <C-\><C-n>

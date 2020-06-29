@@ -11,12 +11,15 @@ Plug 'honza/vim-snippets'
 " == Autocomplete plugins ==
 Plug 'ternjs/tern_for_vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern tern-jsx' }
 Plug 'mattn/emmet-vim'
 Plug 'zchee/deoplete-jedi', { 'do': 'pip install jedi' }
+if has('nvim')
+  Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+endif
 " Plug 'artur-shaik/vim-javacomplete2'
 " Plug 'othree/jspc.vim'
-" Plug 'mhartington/nvim-typescript'
 " Plug 'Valloric/YouCompleteMe', { 'do': 'python3 ./install.py --tern-completer' }
 
 " == Syntax Highlighting ==
@@ -25,10 +28,10 @@ Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'othree/jsdoc-syntax.vim'
 Plug 'flowtype/vim-flow'
 Plug 'ap/vim-css-color'
+" Plug 'leafgarland/typescript-vim'
 " Plug 'othree/es.next.syntax.vim'
 " Plug 'othree/yajs.vim', { 'for': 'javascript' }
 " Plug 'HerringtonDarkholme/yats.vim'
-" Plug 'leafgarland/typescript-vim'
 " Plug 'hail2u/vim-css3-syntax'
 " Plug 'isRuslan/vim-es6'
 " Plug 'Quramy/vim-js-pretty-template'

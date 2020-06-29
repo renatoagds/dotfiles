@@ -202,7 +202,7 @@ let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0
 
 " == Vim JSX Pretty
-let g:vim_jsx_pretty_highlight_close_tag = 1
+" let g:vim_jsx_pretty_highlight_close_tag = 1
 
 " == Neomake ==
 " let g:neomake_warning_sign = {

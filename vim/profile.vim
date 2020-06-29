@@ -4,8 +4,8 @@ syntax enable
 let mapleader=","
 
 " === Color Scheme
-set background=dark
-colorscheme hybrid_reverse
+" set background=dark
+colorscheme dracula
 
 " === Options
 set cmdheight=2

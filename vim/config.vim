@@ -68,7 +68,7 @@ nnoremap H <C-W><C-H>
 " let g:enable_bold_font = 1
 
 " === Airline ===
-let g:airline_theme = "hybrid"
+let g:airline_theme = "dracula"
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#empty_message = ''
 let g:airline#extensions#branch#displayed_head_limit = 20
@@ -200,6 +200,9 @@ let g:gutentags_cache_dir='~/.config/nvim/tags/'
 " == Vim Markdown
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0
+
+" == Vim JSX Pretty
+let g:vim_jsx_pretty_highlight_close_tag = 1
 
 " == Neomake ==
 " let g:neomake_warning_sign = {

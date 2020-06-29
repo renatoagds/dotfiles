@@ -1,7 +1,8 @@
 " == Styling and Themes ==
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'kristijanhusak/vim-hybrid-material'
+" Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 " == Snippets ==
 Plug 'SirVer/ultisnips'

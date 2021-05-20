@@ -3,6 +3,7 @@
 " === Python Setup
 let g:python_host_prog = $HOME.'/.pyenv/versions/neovim2/bin/python'
 let g:python3_host_prog = $HOME.'/.pyenv/versions/neovim3/bin/python'
+let g:wakatime_PythonBinary = $HOME.'/.pyenv/versions/neovim3/bin/python'
 
 " === Plugins ===
 call plug#begin()

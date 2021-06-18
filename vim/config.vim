@@ -152,6 +152,7 @@ let g:tern#arguments = ["--persistent"]
 let g:echodoc_enable_at_startup = 1
 
 " == Deoplete ==
+call deoplete#custom#option('num_processes', 4)
 call deoplete#custom#option({'complete_method': 'omnifunc'})
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"

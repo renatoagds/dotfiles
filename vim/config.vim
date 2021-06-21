@@ -1,3 +1,7 @@
+" ===============
+" NO PLUGINS RELATED
+" ===============
+
 " == Mkdir Recursive (create folder if don't exists) ==
 augroup Mkdir
   autocmd!
@@ -7,12 +11,8 @@ augroup Mkdir
     \ endif
 augroup END
 
-" == CronJOB ==
+" == CronTab ==
 autocmd filetype crontab setlocal nobackup nowritebackup
-
-" == FZF.Vim ==
-command! -bang -nargs=? -complete=dir Files
-  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
 " == Automatic define filetype for Flow Files ==
 augroup FiletypeGroup
@@ -20,40 +20,8 @@ augroup FiletypeGroup
   au BufNewFile,BufRead *.flow set filetype=javascript.jsx
 augroup END
 
-" == Spotify Utilities (depend on shpotify) ===
-" function! s:callSpotify(args, type)
-  " let cmd = 'silent !spotify ' . a:type . ' ' . a:args . ' &> /dev/null'
-  " exec cmd
-  " exec 'redraw!'
-" endf
-
-" command! -nargs=1 SpotifyVol call s:callSpotify(<q-args>, 'vol')
-" command! SpotifyPlay call s:callSpotify('', 'play')
-" command! SpotifyPause call s:callSpotify('', 'pause')
-" command! SpotifyNext call s:callSpotify('', 'next')
-
-" == ADB Utilities (depend on alias) ===
-" function! s:callADBCommand(command)
-  " let cmd = ''
-
-  " if a:command == "reload"
-    " let cmd = 'silent !adb shell input keyevent 82 && adb shell input keyevent 19 && adb shell input keyevent 23 &> /dev/null'
-  " elseif a:command == "shake"
-    " let cmd = 'silent !adb shell input keyevent 82 &> /dev/null'
-  " endif
-
-  " exec cmd
-  " exec 'redraw!'
-" endf
-
-" command! RReload call s:callADBCommand('reload')
-" command! RShake call s:callADBCommand('shake')
-
 " == Terminal (map ESC to leave in terminal) ==
 tnoremap <Esc> <C-\><C-n>
-
-" == Tern for Vim
-nnoremap <leader>tr :TernRefs<CR> <bar> :resize 5<CR>
 
 " == File Related
 nnoremap ;; :w<CR>
@@ -64,8 +32,80 @@ nnoremap <C-W> :q!<CR>
 nnoremap L <C-W><C-L>
 nnoremap H <C-W><C-H>
 
-" == Color Scheme ==
-" let g:enable_bold_font = 1
+" == Space navigation
+nnoremap <Tab>   >>
+nnoremap <S-Tab> <<
+vnoremap <Tab>   >><Esc>gv
+vnoremap <S-Tab> <<<Esc>gv
+
+" == Insert mode navigation ==
+imap <Up>    <Nop>
+imap <Down>  <Nop>
+imap <Left>  <Nop>
+imap <Right> <Nop>
+
+inoremap <C-k> <Up>
+inoremap <C-j> <Down>
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
+
+" ===============
+" PLUGINS RELATED
+" ===============
+
+" === FZF.Vim ===
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+nnoremap <C-T> :Files<CR>
+nnoremap <C-P> :GFiles<CR>
+nnoremap <C-M> :Ag<CR>
+
+if has("nvim")
+  au TermOpen * tnoremap <Esc> <c-\><c-n>
+  au FileType fzf tunmap <Esc>
+endif
+
+" === COC.Nvim ===
+
+" = format range code
+vmap <leader>f <Plug>(coc-format-selected)
+nmap <leader>f <Plug>(coc-format-selected)
+" = rename all references
+nmap <leader>rn <Plug>(coc-rename)
+" = go to definition/references
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gr <Plug>(coc-references)
+" = list all lint errors
+nnoremap <silent> <leader>l :<C-u>CocList diagnostics<cr>
+" = navigate thru lint errors
+nmap <silent> <c-k> <Plug>(coc-diagnostic-prev)
+nmap <silent> <c-j> <Plug>(coc-diagnostic-next)
+" = open file explorer
+nnoremap <space>e :CocCommand explorer<CR>
+" = trigger doc info
+nnoremap <silent> K :call CocAction('doHover')<CR>
+" = trigger completion list
+inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <NUL> coc#refresh()
+" = navigate with tab on completion list
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" = confirm completion on enter
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : 
+                                           \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+let g:coc_global_extensions = [
+      \'coc-tsserver',
+      \'coc-eslint',
+      \'coc-json',
+      \'coc-html',
+      \'coc-css',
+      \'coc-snippets',
+      \'coc-prettier',
+      \'coc-lists',
+      \'coc-explorer',
+      \]
 
 " === Airline ===
 let g:airline_theme = "dracula"
@@ -90,16 +130,12 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 nmap <leader>< <Plug>AirlineSelectPrevTab
 nmap <leader>> <Plug>AirlineSelectNextTab
 
-" == UltiSnips ==
+" === UltiSnips ===
 let g:UltiSnipsExpandTrigger="<leader>aa"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsEditSplit="vertical"
 let g:ultisnips_javascript = {'semi': 'never'}
-
-" === NerdTREE ===
-nnoremap <C-\> :NERDTreeToggle<CR>
-inoremap <C-\> <ESC>:NERDTreeToggle<CR>
 
 " === Vim Javascript ===
 let g:javascript_plugin_flow = 1
@@ -108,122 +144,21 @@ let g:javascript_plugin_jsdoc = 1
 " === NerdCommenter ===
 let g:NERDSpaceDelims = 1
 
-" == ALE ==
-let g:ale_linters = {'javascript': ['eslint', 'flow'], 'python': ['flake8']}
-let g:ale_linters_explicit = 1
-let g:ale_sign_error = 'E'
-let g:ale_sign_warning = 'W'
-let g:airline#extensions#ale#enabled = 1
-nnoremap <leader>f :ALEFix eslint<CR>
-
-" == Vim JSX ==
-let g:jsx_ext_required = 0
-
-" == FZF ==
-nnoremap <C-T> :Files<CR>
-nnoremap <C-P> :GFiles<CR>
-nnoremap <C-M> :Ag<CR>
-
-if has("nvim")
-  au TermOpen * tnoremap <Esc> <c-\><c-n>
-  au FileType fzf tunmap <Esc>
-endif
-
-" == Javascript Libraries ==
-let g:used_javascript_libs = 'underscore,jasmine,react,flux,vue'
-
-" == Vim Matchmaker == 
+" === Vim Matchmaker === 
 let g:matchmaker_enable_startup = 1
 let g:matchmaker_matchpriority = -1
 
-" == ListToggle ==
-let g:lt_location_list_toggle_map = '<leader>l'
-let g:lt_quickfix_list_toggle_map = '<leader>q'
-let g:lt_height = 10
+" === indentLine ===
+" http://www.calmar.ws/vim/256-xterm-24bit-rgb-color-chart.html
+let g:indentLine_color_term = 241
 
-" == indentLine ==
-let g:indentLine_color_term = 238
-
-" == Tern
-let g:tern#command = ["tern"]
-let g:tern#arguments = ["--persistent"]
-
-" == Echodoc ==
-let g:echodoc_enable_at_startup = 1
-
-" == Deoplete ==
-call deoplete#custom#option('num_processes', 4)
-call deoplete#custom#option({'complete_method': 'omnifunc'})
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#ternjs#types = 1
-let g:deoplete#sources#ternjs#docs = 1
-let g:deoplete#sources#ternjs#include_keywords = 1
-let g:deoplete#sources#ternjs#filetypes = [
-  \ 'jsx',
-  \ 'javascript',
-  \ 'javascript.jsx',
-  \ 'vue'
-  \ ]
-
-
-" == Flow ==
-let g:flow#enable = 1
-let g:flow#showquickfix = 0
-
-" == Editor Config ==
+" === Editor Config ===
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
-" == AutoPairs ==
+" === AutoPairs ===
 let g:AutoPairsMapCh = 0
 
-" == Insert mode navigation ==
-imap <Up>    <Nop>
-imap <Down>  <Nop>
-imap <Left>  <Nop>
-imap <Right> <Nop>
-
-inoremap <C-k> <Up>
-inoremap <C-j> <Down>
-inoremap <C-h> <Left>
-inoremap <C-l> <Right>
-
-" == Space navigation
-nnoremap <Tab>   >>
-nnoremap <S-Tab> <<
-vnoremap <Tab>   >><Esc>gv
-vnoremap <S-Tab> <<<Esc>gv
-
-" == Gutentags
-let g:gutentags_cache_dir='~/.config/nvim/tags/'
-
-" == Vim Markdown
-let g:vim_markdown_conceal = 0
-let g:vim_markdown_conceal_code_blocks = 0
-
-" == Vim JSX Pretty
-" let g:vim_jsx_pretty_highlight_close_tag = 1
-
-" == Neomake ==
-" let g:neomake_warning_sign = {
-" \ 'text': 'W',
-" \ 'texthl': 'WarningMsg',
-" \ }
-
-" let g:neomake_error_sign = {
-" \ 'text': 'E',
-" \ 'texthl': 'ErrorMsg',
-" \ }
-
-" let g:makers = ['eslint', 'flow']
-" let g:neomake_javascript_enabled_makers = g:makers
-" let g:neomake_jsx_enabled_makers = g:makers
-" autocmd! BufWritePost * Neomake
-
-" == Indent Guides
-" let g:indent_guides_enable_on_vim_startup = 1
-
-" === SnipMate ===
-" :imap jj <Plug>snipMateNextOrTrigger
-" :smap jj <Plug>snipMateNextOrTrigger
+" === Easymotion ===
+" https://github.com/neoclide/coc.nvim/issues/110#issuecomment-768264638
+autocmd User EasyMotionPromptBegin silent! CocDisable
+autocmd User EasyMotionPromptEnd silent! CocEnable

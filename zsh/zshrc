@@ -90,7 +90,9 @@ import_file "aliases"
 #################
 import_file "npm-completion"
 
-# nvm
+#######
+# NVM #
+#######
 export NVM_DIR="$HOME/.nvm"
 if [ -f "$(brew --prefix nvm)/nvm.sh" ]; then
   . "$(brew --prefix nvm)/nvm.sh"
@@ -98,12 +100,16 @@ fi
 
 source $HOME/.phpbrew/bashrc
 
-# pure zsh prompt
+###################
+# PURE ZSH PROMPT #
+###################
 # https://github.com/sindresorhus/pure
 # autoload -U promptinit; promptinit
 # prompt pure
 
-# spaceship zsh prompt
+########################
+# SPACESHIP ZSH PROMPT #
+########################
 # https://github.com/denysdovhan/spaceship-prompt
 fpath=($fpath "$HOME/.zfunctions")
 autoload -U promptinit; promptinit

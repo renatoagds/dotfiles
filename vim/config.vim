@@ -158,6 +158,10 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 " === AutoPairs ===
 let g:AutoPairsMapCh = 0
 
+" === Vim Markdown ===
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_conceal = 0
+
 " === Easymotion ===
 " https://github.com/neoclide/coc.nvim/issues/110#issuecomment-768264638
 autocmd User EasyMotionPromptBegin silent! CocDisable

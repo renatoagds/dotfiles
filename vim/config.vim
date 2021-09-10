@@ -82,8 +82,6 @@ nnoremap <silent> <leader>l :<C-u>CocList diagnostics<cr>
 " = navigate thru lint errors
 nmap <silent> <c-k> <Plug>(coc-diagnostic-prev)
 nmap <silent> <c-j> <Plug>(coc-diagnostic-next)
-" = open file explorer
-nnoremap <space>e :CocCommand explorer<CR>
 " = trigger doc info
 nnoremap <silent> K :call CocAction('doHover')<CR>
 " = trigger completion list
@@ -104,7 +102,6 @@ let g:coc_global_extensions = [
       \'coc-snippets',
       \'coc-prettier',
       \'coc-lists',
-      \'coc-explorer',
       \]
 
 " === Airline ===
@@ -170,3 +167,14 @@ autocmd User EasyMotionPromptEnd silent! CocEnable
 " === Minimap ===
 let g:minimap_width = 10
 let g:minimap_auto_start = 1
+let g:minimap_auto_start_win_enter = 1
+let g:minimap_git_colors = 1
+
+" === Nvim TREE ===
+nnoremap <C-n> :NvimTreeToggle<CR>
+nnoremap <leader>r :NvimTreeRefresh<CR>
+nnoremap <leader>n :NvimTreeFindFile<CR>
+let g:nvim_tree_ignore = [ '.git', 'node_modules' ]
+let g:nvim_tree_git_hl = 1
+let g:nvim_tree_gitignore = 1
+let g:nvim_tree_highlight_opened_files = 1

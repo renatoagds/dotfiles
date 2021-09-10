@@ -30,9 +30,9 @@ Plug 'tpope/vim-fugitive' " == git commands
 Plug 'easymotion/vim-easymotion' " == improve movimentation in file
 Plug 'qstrahl/vim-matchmaker' " == highlight words under cursor
 Plug 'shime/vim-livedown', { 'do': 'npm install -g livedown' } " == markdown live preview
-Plug 'Shougo/context_filetype.vim' " == context filetype
 Plug 'editorconfig/editorconfig-vim' " == editor config for vim
-Plug 'terryma/vim-multiple-cursors' " == multiple cursors
 
 " === NEOVIM 0.5 ===
 Plug 'wfxr/minimap.vim'
+Plug 'kyazdani42/nvim-web-devicons' " for file icons
+Plug 'kyazdani42/nvim-tree.lua'

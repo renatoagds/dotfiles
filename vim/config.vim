@@ -142,6 +142,7 @@ let g:javascript_plugin_jsdoc = 1
 let g:NERDSpaceDelims = 1
 
 " === Vim Matchmaker === 
+let g:matchmaker_ignore_single_match = 1
 let g:matchmaker_enable_startup = 1
 let g:matchmaker_matchpriority = -1
 
@@ -174,3 +175,32 @@ require'hop'.setup()
 EOF
 nnoremap <leader><leader>w :HopWordAC<CR>
 nnoremap <leader><leader>b :HopWordBC<CR>
+
+" === Tree Sitter ===
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = {
+    "javascript",
+    "typescript",
+    "python",
+    "json",
+    "json5",
+    "php",
+    "vim",
+    "css",
+    "html",
+    "dockerfile",
+    "vue",
+    "lua",
+    "go",
+    "rust",
+    "scss",
+    "svelte",
+    "tsx",
+    "yaml",
+  },
+  highlight = {
+    enable = true,
+  },
+}
+EOF

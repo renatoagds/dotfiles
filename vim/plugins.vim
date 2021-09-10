@@ -1,6 +1,7 @@
 " == Styling and Themes ==
 Plug 'vim-airline/vim-airline'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'rose-pine/neovim'
 
 " == Snippets ==
 Plug 'SirVer/ultisnips'
@@ -35,3 +36,4 @@ Plug 'editorconfig/editorconfig-vim' " == editor config for vim
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'phaazon/hop.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}

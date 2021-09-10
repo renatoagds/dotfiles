@@ -9,6 +9,7 @@ let g:wakatime_PythonBinary = $HOME.'/.pyenv/versions/neovim3/bin/python'
 call plug#begin()
 
 try
+  highlight link Matchmaker underlined
   source ~/.config/nvim/plugins.vim
 catch
 endtry

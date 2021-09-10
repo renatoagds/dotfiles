@@ -4,8 +4,9 @@ syntax enable
 let mapleader=","
 
 " === Color Scheme
-" set background=dark
-colorscheme dracula
+let g:rose_pine_variant = 'moon'
+set termguicolors
+colorscheme rose-pine
 
 " === Options
 set cmdheight=2
@@ -40,10 +41,6 @@ endif
 
 set display+=lastline
 set nostartofline            " Do not jump to first character with page commands.
-
-if (has("termguicolors"))    " Set 16m colors
- set termguicolors
-endif
 
 if (has("nvim"))
   "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >

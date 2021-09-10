@@ -98,8 +98,6 @@ if [ -f "$(brew --prefix nvm)/nvm.sh" ]; then
   . "$(brew --prefix nvm)/nvm.sh"
 fi
 
-source $HOME/.phpbrew/bashrc
-
 ###################
 # PURE ZSH PROMPT #
 ###################

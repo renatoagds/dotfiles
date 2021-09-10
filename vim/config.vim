@@ -25,8 +25,7 @@ tnoremap <Esc> <C-\><C-n>
 
 " == File Related
 nnoremap ;; :w<CR>
-nnoremap :: :bp\|bd #<CR>
-nnoremap <C-W> :q!<CR>
+nnoremap <C-W> :bd<CR>
 
 " == Split Related
 nnoremap L <C-W><C-L>

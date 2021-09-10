@@ -166,3 +166,7 @@ let g:vim_markdown_conceal = 0
 " https://github.com/neoclide/coc.nvim/issues/110#issuecomment-768264638
 autocmd User EasyMotionPromptBegin silent! CocDisable
 autocmd User EasyMotionPromptEnd silent! CocEnable
+
+" === Minimap ===
+let g:minimap_width = 10
+let g:minimap_auto_start = 1

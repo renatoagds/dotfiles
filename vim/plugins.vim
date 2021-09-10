@@ -33,3 +33,6 @@ Plug 'shime/vim-livedown', { 'do': 'npm install -g livedown' } " == markdown liv
 Plug 'Shougo/context_filetype.vim' " == context filetype
 Plug 'editorconfig/editorconfig-vim' " == editor config for vim
 Plug 'terryma/vim-multiple-cursors' " == multiple cursors
+
+" === NEOVIM 0.5 ===
+Plug 'wfxr/minimap.vim'

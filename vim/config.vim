@@ -159,12 +159,6 @@ let g:AutoPairsMapCh = 0
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_conceal = 0
 
-" === Minimap ===
-let g:minimap_width = 10
-let g:minimap_auto_start = 1
-let g:minimap_auto_start_win_enter = 1
-let g:minimap_git_colors = 1
-
 " === Nvim TREE ===
 nnoremap <C-n> :NvimTreeToggle<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>

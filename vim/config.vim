@@ -159,11 +159,6 @@ let g:AutoPairsMapCh = 0
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_conceal = 0
 
-" === Easymotion ===
-" https://github.com/neoclide/coc.nvim/issues/110#issuecomment-768264638
-autocmd User EasyMotionPromptBegin silent! CocDisable
-autocmd User EasyMotionPromptEnd silent! CocEnable
-
 " === Minimap ===
 let g:minimap_width = 10
 let g:minimap_auto_start = 1
@@ -178,3 +173,10 @@ let g:nvim_tree_ignore = [ '.git', 'node_modules' ]
 let g:nvim_tree_git_hl = 1
 let g:nvim_tree_gitignore = 1
 let g:nvim_tree_highlight_opened_files = 1
+
+" === HOP ===
+lua << EOF
+require'hop'.setup()
+EOF
+nnoremap <leader><leader>w :HopWordAC<CR>
+nnoremap <leader><leader>b :HopWordBC<CR>

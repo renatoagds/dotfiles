@@ -27,7 +27,6 @@ Plug 'airblade/vim-gitgutter' " == git visually helpers
 Plug 'Yggdroot/indentLine' " == indent guides visually
 Plug 'wakatime/vim-wakatime' " === wakatime plugin
 Plug 'tpope/vim-fugitive' " == git commands
-Plug 'easymotion/vim-easymotion' " == improve movimentation in file
 Plug 'qstrahl/vim-matchmaker' " == highlight words under cursor
 Plug 'shime/vim-livedown', { 'do': 'npm install -g livedown' } " == markdown live preview
 Plug 'editorconfig/editorconfig-vim' " == editor config for vim
@@ -36,3 +35,4 @@ Plug 'editorconfig/editorconfig-vim' " == editor config for vim
 Plug 'wfxr/minimap.vim'
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
+Plug 'phaazon/hop.nvim'

@@ -40,14 +40,17 @@ if type "$yarn" > /dev/null; then
 fi
 
 # paths
-export PATH=$(pyenv root)/shims:$HOME/bin:/usr/local/bin:$PATH
+export PATH=/opt/homebrew/bin:$PATH #homebrew
+export PATH=$(pyenv root)/shims:$PATH #pyenv
+export PATH=$HOME/bin:/usr/local/bin:$PATH #general
 
 ################
 # GENERAL VARS #
 ################
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-export LDFLAGS="-L$(brew --prefix openssl)/lib"
+export CFLAGS="-I$(brew --prefix openssl)/include -I$(brew --prefix bzip2)/include -I$(brew --prefix readline)/include -I$(xcrun --show-sdk-path)/usr/include"
+export LDFLAGS="-L$(brew --prefix openssl)/lib -L$(brew --prefix readline)/lib -L$(brew --prefix zlib)/lib -L$(brew --prefix bzip2)/lib"
 export CPPFLAGS="-I$(brew --prefix openssl)/include"
 
 #######################
@@ -98,17 +101,17 @@ if [ -f "$(brew --prefix nvm)/nvm.sh" ]; then
   . "$(brew --prefix nvm)/nvm.sh"
 fi
 
-###################
-# PURE ZSH PROMPT #
-###################
-# https://github.com/sindresorhus/pure
+########################################
+# PURE ZSH PROMPT                      #
+# https://github.com/sindresorhus/pure #
+########################################
 # autoload -U promptinit; promptinit
 # prompt pure
 
-########################
-# SPACESHIP ZSH PROMPT #
-########################
-# https://github.com/denysdovhan/spaceship-prompt
+###################################################
+# SPACESHIP ZSH PROMPT                            #
+# https://github.com/denysdovhan/spaceship-prompt #
+###################################################
 fpath=($fpath "$HOME/.zfunctions")
 autoload -U promptinit; promptinit
 prompt spaceship

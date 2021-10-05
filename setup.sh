@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # renatoagds (SH to setup basic stuffs in new Mac OS)
-DOTFILES=~/Documents/Personal/dotfiles
+DOTFILES=~/Documents/Code/dotfiles
 
 # go to main folder
 cd ~
@@ -9,7 +9,7 @@ cd ~
 # install brew if isn't installed
 if ! type "$brew" &> /dev/null; then
   echo "brew"
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 # setup oh-my-zsh
@@ -24,23 +24,16 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosugges
 declare -a brew=(
     "nvm"
     "neovim"
-    "mitmproxy"
-    "pyenv"
-    "pyenv-virtualenv"
     "git"
     "tmux"
     "zsh"
     "zsh-completion"
-    "ack"
-    "shpotify"
-    "docker"
-    "cmake"
     "watchman"
     "yarn"
     "highlight"
     "bat"
     "prettyping"
-    "reattach-to-user-namespace"
+    "the_silver_searcher"
   )
 
 declare -a cask=(
@@ -52,7 +45,7 @@ declare -a cask=(
     "whatsapp"
     "slack"
     "spotify"
-    "the-unarchiver"
+    "keka"
     "adobe-acrobat-reader"
     "numi"
     "1password"
@@ -70,7 +63,7 @@ done
 echo "Installing application from Brew Cask"
 brew tap caskroom/versions
 for i in "${cask[@]}"; do
-  brew cask install "$i"
+  brew install --cask "$i"
 done
 
 # install neovim
@@ -97,8 +90,8 @@ export NVM_DIR="$HOME/.nvm"
 
 # install node/npm
 echo "Installing Node LTS"
-nvm install lts/dubnium
-nvm alias default lts/dubnium
+nvm install lts/fermium
+nvm alias default lts/fermium
 nvm use default
 
 # setup modules
@@ -108,7 +101,7 @@ declare -a npm=(
     "http-server"
     "tern"
     "neovim"
-    "pure-prompt"
+    "spaceship-prompt"
   )
 
 for i in "${npm[@]}"; do

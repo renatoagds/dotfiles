@@ -44,6 +44,17 @@ export PATH=/opt/homebrew/bin:$PATH #homebrew
 export PATH=$(pyenv root)/shims:$PATH #pyenv
 export PATH=$HOME/bin:/usr/local/bin:$PATH #general
 
+###########################
+# JETPACK ESLINT/PRETTIER #
+########################
+if [ -f "$HOME/Documents/Code/jetpack/node_modules/.bin/eslint" ]; then
+  source "$HOME/Documents/Code/jetpack/node_modules/.bin/eslint"
+fi
+
+if [ -f "$HOME/Documents/Code/jetpack/node_modules/.bin/prettier" ]; then
+  source "$HOME/Documents/Code/jetpack/node_modules/.bin/prettier"
+fi
+
 ################
 # GENERAL VARS #
 ################

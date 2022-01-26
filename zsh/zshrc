@@ -47,13 +47,10 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH #general
 ###########################
 # JETPACK ESLINT/PRETTIER #
 ########################
-if [ -f "$HOME/Documents/Code/jetpack/node_modules/.bin/eslint" ]; then
-  source "$HOME/Documents/Code/jetpack/node_modules/.bin/eslint"
-fi
-
-if [ -f "$HOME/Documents/Code/jetpack/node_modules/.bin/prettier" ]; then
-  source "$HOME/Documents/Code/jetpack/node_modules/.bin/prettier"
-fi
+# eslint
+export NODE_PATH="/Users/renato.santos/Documents/Code/jetpack/node_modules/.pnpm/eslint@7.32.0/node_modules/eslint/bin/node_modules:/Users/renato.santos/Documents/Code/jetpack/node_modules/.pnpm/eslint@7.32.0/node_modules/eslint/node_modules:/Users/renato.santos/Documents/Code/jetpack/node_modules/.pnpm/eslint@7.32.0/node_modules:/Users/renato.santos/Documents/Code/jetpack/node_modules/.pnpm/node_modules:/Users/renato.santos/Documents/Code/jetpack/node_modules:/Users/renato.santos/Documents/Code/node_modules:/Users/renato.santos/Documents/node_modules:/Users/renato.santos/node_modules:/Users/node_modules:/node_modules:/Users/renato.santos/Documents/Code/jetpack/tools/js-tools/node_modules:/Users/renato.santos/Documents/Code/jetpack/tools/node_modules"
+# prettier
+export NODE_PATH="$NODE_PATH:/Users/renato.santos/Documents/Code/jetpack/node_modules/.pnpm/wp-prettier@2.2.1-beta-1/node_modules/wp-prettier/node_modules:/Users/renato.santos/Documents/Code/jetpack/node_modules/.pnpm/wp-prettier@2.2.1-beta-1/node_modules:/Users/renato.santos/Documents/Code/jetpack/node_modules/.pnpm/node_modules:/Users/renato.santos/Documents/Code/jetpack/node_modules:/Users/renato.santos/Documents/Code/node_modules:/Users/renato.santos/Documents/node_modules:/Users/renato.santos/node_modules:/Users/node_modules:/node_modules:/Users/renato.santos/Documents/Code/jetpack/tools/js-tools/node_modules:/Users/renato.santos/Documents/Code/jetpack/tools/node_modules"
 
 ################
 # GENERAL VARS #

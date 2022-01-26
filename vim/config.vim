@@ -161,16 +161,25 @@ let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_conceal = 0
 
 " === Nvim TREE ===
-lua <<EOF
-require'nvim-tree'.setup {}
-EOF
-nnoremap <C-n> :NvimTreeToggle<CR>
-nnoremap <leader>r :NvimTreeRefresh<CR>
-nnoremap <leader>n :NvimTreeFindFile<CR>
-let g:nvim_tree_ignore = [ '.git', 'node_modules' ]
 let g:nvim_tree_git_hl = 1
 let g:nvim_tree_gitignore = 1
 let g:nvim_tree_highlight_opened_files = 1
+
+lua <<EOF
+require'nvim-tree'.setup {
+  filters = {
+    dotfiles = false,
+    custom = {
+      '.git',
+      'node_modules'
+    }
+  }
+}
+EOF
+
+nnoremap <C-n> :NvimTreeToggle<CR>
+nnoremap <leader>r :NvimTreeRefresh<CR>
+nnoremap <leader>n :NvimTreeFindFile<CR>
 
 " === HOP ===
 lua << EOF

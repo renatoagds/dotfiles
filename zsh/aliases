@@ -2,32 +2,45 @@
 # CUSTOM ALIASES #
 ##################
 
-alias rshake='adb shell input keyevent 82'
-alias rreload='adb shell input keyevent 82 && adb shell input keyevent 19 && adb shell input keyevent 23'
-alias gbr='git branch | grep -v "master" | xargs git branch -D'
-alias ctags="`brew --prefix`/bin/ctags"
-alias fml='rm -rf node_modules && npm install'
-alias nba='react-native run-android'
-alias nbi='react-native run-ios'
-alias nreset='watchman watch-del-all && npm run start'
+# alias rshake='adb shell input keyevent 82'
+# alias rreload='adb shell input keyevent 82 && adb shell input keyevent 19 && adb shell input keyevent 23'
+# alias gbr='git branch | grep -v "master" | xargs git branch -D'
+# alias fml='rm -rf node_modules && npm install'
+# alias nba='react-native run-android'
+# alias nbi='react-native run-ios'
+# alias nreset='watchman watch-del-all && npm run start'
+# alias ctags="`brew --prefix`/bin/ctags"
 alias cat='bat'
 alias ping='prettyping'
 
-function adbtext {
-  adb shell input text "$1" && adb shell input keyevent ENTER;
-}
+# function adbtext {
+  # adb shell input text "$1" && adb shell input keyevent ENTER;
+# }
+
+# function adbpic {
+  # adb shell screencap -p /sdcard/screen.png
+  # adb pull /sdcard/screen.png
+  # adb shell rm /sdcard/screen.png
+# }
 
 function dcleanup {
   docker rm -v $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
   docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
 }
 
-function adbpic {
-  adb shell screencap -p /sdcard/screen.png
-  adb pull /sdcard/screen.png
-  adb shell rm /sdcard/screen.png
-}
-
 function dpull {
   docker images | grep -v REPOSITORY | awk '{print $1}' | xargs -L1 docker pull
+}
+
+# jetpack plugin remove
+function jp-remove {
+  rm -r "$HOME/Documents/Code/jetpack/tools/docker/wordpress/wp-content/plugins/$1"
+}
+
+# jetpack plugin reinstall
+function jp-reinstall {
+  dir=$(pwd)
+  cd "$HOME/Documents/Code/jetpack/tools/docker/wordpress/wp-content/plugins"
+  ln -sf "/usr/local/src/jetpack-monorepo/projects/plugins/$1" "$1"
+  cd "$dir"
 }

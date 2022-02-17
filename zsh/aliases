@@ -44,3 +44,13 @@ function jp-reinstall {
   ln -sf "/usr/local/src/jetpack-monorepo/projects/plugins/$1" "$1"
   cd "$dir"
 }
+
+# jetpack start ngrok
+function jp-up {
+  jetpack docker up --ngrok -d
+}
+
+# jetpack down
+function jp-down {
+  jetpack docker down
+}

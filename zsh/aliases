@@ -54,3 +54,8 @@ function jp-up {
 function jp-down {
   jetpack docker down
 }
+
+# jetpack reinstall wordpress
+function jp-wp-reinstall {
+  jetpack docker up -d && jetpack docker uninstall && jetpack docker install
+}

@@ -161,8 +161,8 @@ let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_conceal = 0
 
 " === Nvim TREE ===
+let g:nvim_tree_special_files = { 'README.md': 1, 'Makefile': 1, 'MAKEFILE': 1 }
 let g:nvim_tree_git_hl = 1
-let g:nvim_tree_gitignore = 1
 let g:nvim_tree_highlight_opened_files = 1
 
 lua <<EOF
@@ -173,7 +173,7 @@ require'nvim-tree'.setup {
       '.git',
       'node_modules'
     }
-  }
+  },
 }
 EOF
 

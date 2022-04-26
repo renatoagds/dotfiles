@@ -53,9 +53,9 @@ inoremap <C-l> <Right>
 " ===============
 
 " === Telescope.Vim ===
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fd <cmd>Telescope treesitter<cr>
+nnoremap <leader>ff <cmd>Telescope find_files theme=dropdown<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep theme=dropdown<cr>
+nnoremap <leader>fd <cmd>Telescope treesitter theme=dropdown<cr>
 
 " === COC.Nvim ===
 

@@ -52,18 +52,10 @@ inoremap <C-l> <Right>
 " PLUGINS RELATED
 " ===============
 
-" === FZF.Vim ===
-command! -bang -nargs=? -complete=dir Files
-  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
-
-nnoremap <C-T> :Files<CR>
-nnoremap <C-P> :GFiles<CR>
-nnoremap <C-M> :Ag<CR>
-
-if has("nvim")
-  au TermOpen * tnoremap <Esc> <c-\><c-n>
-  au FileType fzf tunmap <Esc>
-endif
+" === Telescope.Vim ===
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fd <cmd>Telescope treesitter<cr>
 
 " === COC.Nvim ===
 

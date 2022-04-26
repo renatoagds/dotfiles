@@ -33,12 +33,13 @@ declare -a brew=(
     "highlight"
     "bat"
     "prettyping"
-    "the_silver_searcher"
+    "ripgrep"
+    "fd"
   )
 
 declare -a cask=(
     "brave-browser"
-    "iterm2"
+    "hyper"
     "docker"
     "spectacle"
     "telegram"
@@ -90,8 +91,8 @@ export NVM_DIR="$HOME/.nvm"
 
 # install node/npm
 echo "Installing Node LTS"
-nvm install lts/fermium
-nvm alias default lts/fermium
+nvm install lts/gallium
+nvm alias default lts/gallium
 nvm use default
 
 # setup modules
@@ -102,6 +103,7 @@ declare -a npm=(
     "tern"
     "neovim"
     "spaceship-prompt"
+    "pnpm"
   )
 
 for i in "${npm[@]}"; do

@@ -41,7 +41,7 @@ declare -a cask=(
     "brave-browser"
     "hyper"
     "docker"
-    "spectacle"
+    "rectangle"
     "telegram"
     "whatsapp"
     "slack"

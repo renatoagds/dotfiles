@@ -32,6 +32,7 @@ Plug 'qstrahl/vim-matchmaker' " == highlight words under cursor
 Plug 'shime/vim-livedown' " == markdown live preview
 Plug 'editorconfig/editorconfig-vim' " == editor config for vim
 Plug 'kristijanhusak/vim-carbon-now-sh'
+Plug 'github/copilot.vim' " == Github Copilot
 
 " === NEOVIM 0.5 ===
 Plug 'kyazdani42/nvim-web-devicons' " for file icons

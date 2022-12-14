@@ -52,18 +52,25 @@ return require('packer').startup(function(use)
 	use 'tpope/vim-repeat' -- improve repeat using .
 	use 'tpope/vim-fugitive' -- git commands
 	use 'kristijanhusak/vim-carbon-now-sh' -- integration with carbon.now.sh
+	-- auto pairs related
 	use {
 		"windwp/nvim-autopairs",
 		config = function()
 			require("nvim-autopairs").setup({ map_cr = false })
 		end
 	}
+	--  git rleated
 	use {
 		'lewis6991/gitsigns.nvim',
 		tag = 'release',
 		config = function()
 			require('gitsigns').setup()
 		end
+	}
+	-- shortcuts for pnpm|yarn|npm
+	use {
+		"vuki656/package-info.nvim",
+		requires = "MunifTanjim/nui.nvim",
 	}
 
 	-- == Snippets ==

@@ -1,0 +1,42 @@
+{
+  // General
+  "typescript.suggestionActions.enabled": false,
+  "javascript.suggestionActions.enabled": false,
+  "snippets.ultisnips.pythonPrompt": false,
+  "Lua.telemetry.enable": true,
+  // Format on Save
+  "coc.preferences.formatOnSave": true,
+  "eslint.autoFixOnSave": true,
+  // Lua
+  "sumneko-lua.enableNvimLuaDev": true,
+  // Intelephense
+  "intelephense.format.enable": false,
+  "intelephense.diagnostics.enable": false,
+  // Diagnostic
+  "diagnostic-languageserver.debug": true,
+  "diagnostic-languageserver.trace.server": "verbose",
+  "diagnostic-languageserver.mergeConfig": true,
+  "diagnostic-languageserver.linters": {
+    "phpcs": {
+      "args": [""],
+      "rootPatterns": [".git"]
+    }
+  },
+  "diagnostic-languageserver.filetypes": {
+    "php": "phpcs"
+  },
+  "diagnostic-languageserver.formatters": {
+    "phpcbf": {
+      "command": "./vendor/bin/phpcbf",
+      "rootPatterns": [".git"],
+      "args": [],
+      "isStdout": true,
+      "isStderr": false,
+      "doesWriteToFile": false,
+      "ignoreExitCode": [1]
+    }
+  },
+  "diagnostic-languageserver.formatFiletypes": {
+    "php": "phpcbf"
+  }
+}

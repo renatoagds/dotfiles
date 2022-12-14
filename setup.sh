@@ -68,14 +68,15 @@ for i in "${cask[@]}"; do
 done
 
 # install neovim
-echo "Installing neovim"
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+echo "Installing neovim package manager"
 mkdir -p ~/.config/nvim/
-for f in ${DOTFILES}/vim/*.vim; do
-  filename=$(basename "$f")
-  ln -s "$f" "${HOME}/.config/nvim/${filename}"
-done
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.config/nvim/pack/packer/start/packer.nvim
+
+echo "Linking neovim files"
+ln -s "${DOTFILES}/vim/init.lua" ~/.config/nvim/init.lua
+ln -s "${DOTFILES}/vim/lua" ~/.config/nvim/lua
+ln -s "${DOTFILES}/vim/coc-settings.json" ~/.config/nvim/coc-settings.json
 
 # setup tmux
 echo "Adding tmux config in home"
@@ -91,8 +92,8 @@ export NVM_DIR="$HOME/.nvm"
 
 # install node/npm
 echo "Installing Node LTS"
-nvm install lts/gallium
-nvm alias default lts/gallium
+nvm install lts/hydrogen
+nvm alias default lts/hydrogen
 nvm use default
 
 # setup modules

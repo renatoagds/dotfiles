@@ -12,6 +12,10 @@
   // Intelephense
   "intelephense.format.enable": false,
   "intelephense.diagnostics.enable": false,
+  // CSS
+  "css.format.enable": false,
+  "scss.format.enable": false,
+  "prettier.disableLanguages": ["css", "scss"],
   // Diagnostic
   "diagnostic-languageserver.debug": true,
   "diagnostic-languageserver.trace.server": "verbose",

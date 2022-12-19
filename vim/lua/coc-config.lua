@@ -58,7 +58,7 @@ keyset("n", "[g", "<Plug>(coc-diagnostic-prev)", { silent = true })
 keyset("n", "]g", "<Plug>(coc-diagnostic-next)", { silent = true })
 
 -- use K to show documentation in preview window
-keyset("n", "K", '<CMD>lua _G.show_docs()<CR>', { silent = true })
+keyset("n", "<C-K>", '<CMD>lua _G.show_docs()<CR>', { silent = true })
 
 -- trigger completion list
 keyset("i", "<c-space>", "coc#refresh()", { silent = true, expr = true })

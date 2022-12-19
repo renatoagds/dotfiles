@@ -2,7 +2,6 @@ local utils = require('utils')
 local nmap = utils.nmap
 local imap = utils.imap
 local vmap = utils.vmap
-local cmap = utils.cmap
 local tmap = utils.tmap
 
 -- map esc on terminal
@@ -15,6 +14,8 @@ nmap('<C-W>', ':bd<CR>')
 -- navigation between splits
 nmap('H', '<C-W><C-H>')
 nmap('L', '<C-W><C-L>')
+nmap('J', '<C-W><C-J>')
+nmap('K', '<C-W><C-K>')
 
 -- space with tab
 nmap('<Tab>', '>>')

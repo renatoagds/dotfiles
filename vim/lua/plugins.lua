@@ -76,6 +76,23 @@ return require('packer').startup(function(use)
 		end
 	}
 
+	-- dap
+	use { 'rcarriga/nvim-dap-ui',
+		requires = {
+			'mfussenegger/nvim-dap',
+			'nvim-telescope/telescope-dap.nvim',
+			{
+				'theHamsta/nvim-dap-virtual-text',
+				config = function()
+					require('nvim-dap-virtual-text').setup()
+				end
+			}
+		},
+		config = function()
+			require('dapui').setup()
+		end
+	}
+
 	-- == Snippets ==
 	--use 'SirVer/ultisnips'
 	--use 'honza/vim-snippets'

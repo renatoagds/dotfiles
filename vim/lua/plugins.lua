@@ -4,11 +4,9 @@ return require('packer').startup(function(use)
 	use { 'dracula/vim', as = 'dracula' }
 	use 'rose-pine/neovim'
 	use 'norcalli/nvim-colorizer.lua'
-
 	-- syntax highlighting
 	use 'sheerun/vim-polyglot' -- replace all specific highlights
 	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-
 	-- file search
 	use 'nvim-lua/plenary.nvim'
 	use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { { 'nvim-lua/plenary.nvim' } } }
@@ -19,12 +17,10 @@ return require('packer').startup(function(use)
 		},
 		tag = 'nightly' -- optional, updated every week. (see issue #1193)
 	}
-
 	-- autocomplete plugins
 	use { 'neoclide/coc.nvim', branch = 'release' }
 	use 'mattn/emmet-vim'
 	use 'github/copilot.vim' -- Github Copilot
-
 	-- comment
 	use {
 		'numToStr/Comment.nvim',
@@ -32,7 +28,6 @@ return require('packer').startup(function(use)
 			require('Comment').setup()
 		end
 	}
-
 	-- motion
 	use {
 		'phaazon/hop.nvim',
@@ -42,11 +37,10 @@ return require('packer').startup(function(use)
 			require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
 		end
 	}
-
 	-- general plugins
 	use 'wakatime/vim-wakatime' -- wakatime plugin
 	use 'qstrahl/vim-matchmaker' -- highlight words under cursor
-	use 'Yggdroot/indentLine' -- indent guides visually
+	use 'lukas-reineke/indent-blankline.nvim' -- indent guides visually
 	use 'editorconfig/editorconfig-vim' -- editor config for vim
 	use 'tpope/vim-surround' -- helpers with surrounders
 	use 'tpope/vim-repeat' -- improve repeat using .
@@ -59,10 +53,9 @@ return require('packer').startup(function(use)
 			require("nvim-autopairs").setup({ map_cr = false })
 		end
 	}
-	--  git rleated
+	--  git related
 	use {
 		'lewis6991/gitsigns.nvim',
-		tag = 'release',
 		config = function()
 			require('gitsigns').setup()
 		end
@@ -75,7 +68,6 @@ return require('packer').startup(function(use)
 			require("package-info").setup()
 		end
 	}
-
 	-- dap
 	use { 'rcarriga/nvim-dap-ui',
 		requires = {
@@ -92,12 +84,10 @@ return require('packer').startup(function(use)
 			require('dapui').setup()
 		end
 	}
-
-	-- == Snippets ==
+	-- snippets
 	--use 'SirVer/ultisnips'
 	--use 'honza/vim-snippets'
-
-	-- == General editor plugins ==
+	-- general editor plugins
 	--use 'airblade/vim-gitgutter' -- == git visually helpers
 	--use 'shime/vim-livedown' -- == markdown live preview
 end)

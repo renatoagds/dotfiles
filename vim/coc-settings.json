@@ -22,8 +22,9 @@
   "diagnostic-languageserver.mergeConfig": true,
   "diagnostic-languageserver.linters": {
     "phpcs": {
-      "args": [""],
-      "rootPatterns": [".git"]
+      "command": "./vendor/bin/phpcs",
+      "rootPatterns": [".git"],
+      "args": ["--report=emacs", "--stdin-path=%filepath", "-s"]
     }
   },
   "diagnostic-languageserver.filetypes": {

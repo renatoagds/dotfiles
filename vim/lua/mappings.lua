@@ -9,7 +9,8 @@ tmap('<Esc>', '<C-\\><C-n>')
 
 -- save and close (only buffer)
 nmap(';;', ':w<CR>')
-nmap('<C-W>', ':bd<CR>')
+nmap('<C-B>', ':bd<CR>')
+nmap('<C-W>', ':q!<CR>')
 
 -- navigation between splits
 nmap('H', '<C-W><C-H>')

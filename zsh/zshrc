@@ -13,6 +13,9 @@ import_file () {
   fi
 }
 
+# set user env
+USER=$USERNAME
+
 # secret
 import_file "secret"
 
@@ -71,7 +74,6 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=cyan'
 #####################
 # SCM BREEZE EXPORT #
 #####################
-USER=$USERNAME
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
   [ -s "/home/${USER}/.scm_breeze/scm_breeze.sh" ] && source "/home/${USER}/.scm_breeze/scm_breeze.sh"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
@@ -117,7 +119,7 @@ autoload -U promptinit; promptinit
 prompt spaceship
 
 # pnpm
-export PNPM_HOME="/Users/renato.santos/Library/pnpm"
+export PNPM_HOME="/Users/$USER/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 

@@ -7,15 +7,17 @@
   // Format on Save
   "coc.preferences.formatOnSave": true,
   "eslint.autoFixOnSave": true,
+  "javascript.format.enable": false,
+  "typescript.format.enable": false,
+  "css.format.enable": false,
+  "scss.format.enable": false,
+  "prettier.enable": false,
+  "prettier.disableLanguages": ["css", "scss"],
   // Lua
   "sumneko-lua.enableNvimLuaDev": true,
   // Intelephense
   "intelephense.format.enable": false,
   "intelephense.diagnostics.enable": false,
-  // CSS
-  "css.format.enable": false,
-  "scss.format.enable": false,
-  "prettier.disableLanguages": ["css", "scss"],
   // Diagnostic
   "diagnostic-languageserver.debug": true,
   "diagnostic-languageserver.trace.server": "verbose",

@@ -17,7 +17,7 @@ import_file () {
 import_file "secret"
 
 # default editor
-export EDITOR=nvim
+export EDITOR=lvim
 
 # zsh path
 export ZSH=~/.oh-my-zsh

@@ -12,6 +12,8 @@ lvim.log.level = "warn"
 lvim.format_on_save.enabled = false
 lvim.format_on_save.timeout = 2000
 lvim.colorscheme = "lunar"
+-- lvim.builtin.nvimtree.setup.open_on_setup = true
+-- lvim.builtin.nvimtree.setup.open_on_setup_file = true
 -- lvim.lsp.null_ls.setup = { debug = true }
 -- lvim.use_icons = false -- to disable icons
 

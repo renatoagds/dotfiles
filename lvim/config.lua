@@ -18,6 +18,7 @@ lvim.colorscheme = "lunar"
 -- lvim.use_icons = false -- to disable icons
 
 -- NeoVim options
+vim.o.clipboard = 'unnamed'
 vim.o.termguicolors = true
 vim.o.cmdheight = 2
 vim.o.foldmethod = 'manual'

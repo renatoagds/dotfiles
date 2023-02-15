@@ -84,6 +84,19 @@ return require('packer').startup(function(use)
 			require('dapui').setup()
 		end
 	}
+	-- which-key
+	use {
+		"folke/which-key.nvim",
+		config = function()
+			vim.o.timeout = true
+			vim.o.timeoutlen = 300
+			require("which-key").setup {
+				-- your configuration comes here
+				-- or leave it empty to use the default settings
+				-- refer to the configuration section below
+			}
+		end
+	}
 	-- snippets
 	--use 'SirVer/ultisnips'
 	--use 'honza/vim-snippets'

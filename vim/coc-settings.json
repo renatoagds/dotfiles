@@ -12,7 +12,10 @@
   "css.format.enable": false,
   "scss.format.enable": false,
   "prettier.enable": false,
-  "prettier.disableLanguages": ["css", "scss"],
+  "prettier.disableLanguages": [
+    "css",
+    "scss"
+  ],
   // Lua
   "sumneko-lua.enableNvimLuaDev": true,
   // Intelephense
@@ -25,8 +28,14 @@
   "diagnostic-languageserver.linters": {
     "phpcs": {
       "command": "./vendor/bin/phpcs",
-      "rootPatterns": [".git"],
-      "args": ["--report=emacs", "--stdin-path=%filepath", "-s"]
+      "rootPatterns": [
+        ".git"
+      ],
+      "args": [
+        "--report=emacs",
+        "--stdin-path=%filepath",
+        "-s"
+      ]
     }
   },
   "diagnostic-languageserver.filetypes": {
@@ -35,12 +44,16 @@
   "diagnostic-languageserver.formatters": {
     "phpcbf": {
       "command": "./vendor/bin/phpcbf",
-      "rootPatterns": [".git"],
+      "rootPatterns": [
+        ".git"
+      ],
       "args": [],
       "isStdout": true,
       "isStderr": false,
       "doesWriteToFile": false,
-      "ignoreExitCode": [1]
+      "ignoreExitCode": [
+        1
+      ]
     }
   },
   "diagnostic-languageserver.formatFiletypes": {

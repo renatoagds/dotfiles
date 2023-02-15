@@ -27,7 +27,7 @@ dap.configurations.php = {
 nmap('<leader>dx', '<cmd>lua require("dapui").toggle()<CR>')
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
-    dapui.open(p)
+    dapui.open()
 end
 dap.listeners.before.event_terminated["dapui_config"] = function()
     dapui.close()

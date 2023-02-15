@@ -3,7 +3,6 @@
   "typescript.suggestionActions.enabled": false,
   "javascript.suggestionActions.enabled": false,
   "snippets.ultisnips.pythonPrompt": false,
-  "Lua.telemetry.enable": true,
   // Format on Save
   "coc.preferences.formatOnSave": true,
   "eslint.autoFixOnSave": true,

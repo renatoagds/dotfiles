@@ -1,4 +1,4 @@
-local utils = require('utils')
+local utils = require('config.utils')
 local nmap = utils.nmap
 
 nmap('<leader><leader>w', ':HopWordAC<CR>')

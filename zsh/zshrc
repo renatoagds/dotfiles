@@ -20,7 +20,7 @@ USER=$USERNAME
 import_file "secret"
 
 # default editor
-export EDITOR=lvim
+export EDITOR=nvim
 
 # zsh path
 export ZSH=~/.oh-my-zsh

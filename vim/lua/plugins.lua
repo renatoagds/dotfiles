@@ -1,9 +1,22 @@
 return require('packer').startup(function(use)
 	-- styling and themes
-	use 'vim-airline/vim-airline'
 	use { 'dracula/vim', as = 'dracula' }
 	use 'rose-pine/neovim'
 	use 'norcalli/nvim-colorizer.lua'
+	use {
+		'akinsho/bufferline.nvim',
+		tag = "v3.*",
+		requires = 'nvim-tree/nvim-web-devicons',
+		config = function()
+			require('bufferline').setup {
+				options = {
+					numbers = function(opts)
+						return string.format('%s.', opts.ordinal)
+					end
+				}
+			}
+		end
+	}
 	-- syntax highlighting
 	use 'sheerun/vim-polyglot' -- replace all specific highlights
 	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
@@ -37,15 +50,6 @@ return require('packer').startup(function(use)
 			require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
 		end
 	}
-	-- general plugins
-	use 'wakatime/vim-wakatime' -- wakatime plugin
-	use 'qstrahl/vim-matchmaker' -- highlight words under cursor
-	use 'lukas-reineke/indent-blankline.nvim' -- indent guides visually
-	use 'editorconfig/editorconfig-vim' -- editor config for vim
-	use 'tpope/vim-surround' -- helpers with surrounders
-	use 'tpope/vim-repeat' -- improve repeat using .
-	use 'tpope/vim-fugitive' -- git commands
-	use 'kristijanhusak/vim-carbon-now-sh' -- integration with carbon.now.sh
 	-- auto pairs related
 	use {
 		"windwp/nvim-autopairs",
@@ -97,7 +101,29 @@ return require('packer').startup(function(use)
 			}
 		end
 	}
+	-- togleterm
+	use { "akinsho/toggleterm.nvim", tag = '*', config = function()
+		require("toggleterm").setup({
+			direction = "float",
+			open_mapping = [[<c-\>]],
+		})
+	end }
+	-- general plugins
+	use 'wakatime/vim-wakatime' -- wakatime plugin
+	use 'qstrahl/vim-matchmaker' -- highlight words under cursor
+	use 'lukas-reineke/indent-blankline.nvim' -- indent guides visually
+	use 'editorconfig/editorconfig-vim' -- editor config for vim
+	use 'tpope/vim-surround' -- helpers with surrounders
+	use 'tpope/vim-repeat' -- improve repeat using .
+	use 'tpope/vim-fugitive' -- git commands
+	use 'kristijanhusak/vim-carbon-now-sh' -- integration with carbon.now.sh
+	------------------
+	------------------
+	------------------
+	--DEPRECATED
+
 	-- snippets
+	-- use 'vim-airline/vim-airline'
 	--use 'SirVer/ultisnips'
 	--use 'honza/vim-snippets'
 	-- general editor plugins

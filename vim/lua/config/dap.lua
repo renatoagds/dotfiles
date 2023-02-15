@@ -1,4 +1,4 @@
-local utils = require('utils')
+local utils = require('config.utils')
 local dap = require('dap')
 local dapui = require('dapui')
 local nmap = utils.nmap

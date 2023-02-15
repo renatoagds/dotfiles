@@ -1,4 +1,4 @@
-local utils = require('utils')
+local utils = require('config.utils')
 local nmap = utils.nmap
 local imap = utils.imap
 local vmap = utils.vmap
@@ -8,9 +8,9 @@ local tmap = utils.tmap
 tmap('<Esc>', '<C-\\><C-n>')
 
 -- save and close (only buffer)
-nmap(';;', ':w<CR>')
-nmap('<C-B>', ':bd<CR>')
-nmap('<C-W>', ':q!<CR>')
+nmap('<leader>w', ':w<CR>')
+nmap('<leader>c', ':bd<CR>')
+nmap('<leader>q', ':q!<CR>')
 
 -- navigation between splits
 nmap('H', '<C-W><C-H>')

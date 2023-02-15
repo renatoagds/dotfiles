@@ -1,5 +1,5 @@
 local npairs = require('nvim-autopairs')
-local utils = require('utils')
+local utils = require('config.utils')
 
 local keyset = vim.keymap.set
 local vmap = utils.vmap

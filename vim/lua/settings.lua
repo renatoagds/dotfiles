@@ -8,9 +8,8 @@ vim.cmd([[
 
 -- Scheme settings
 vim.o.termguicolors = true
-vim.g.rose_pine_variant = 'moon'
-vim.g.airline_theme = 'dracula'
-vim.cmd('colorscheme rose-pine')
+-- vim.g.rose_pine_variant = 'moon'
+vim.cmd('colorscheme tokyonight-storm')
 
 -- Config
 vim.o.cmdheight = 2

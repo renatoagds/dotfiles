@@ -1,4 +1,5 @@
-require('config.coc')
+-- require('config.coc')
+require('config.lsp')
 require('config.bufferline')
 require('config.treesitter')
 require('config.telescope')

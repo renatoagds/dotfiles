@@ -1,7 +1,14 @@
+
 return require('packer').startup(function(use)
+	-- lsp
+  use {
+    'williamboman/mason.nvim',
+    'williamboman/mason-lspconfig.nvim',
+    'neovim/nvim-lspconfig',
+  }
 	-- styling and themes
-	use { 'dracula/vim', as = 'dracula' }
-	use 'rose-pine/neovim'
+  use 'folke/tokyonight.nvim'
+	-- use 'rose-pine/neovim'
 	use 'norcalli/nvim-colorizer.lua'
 	use {
 		'akinsho/bufferline.nvim',
@@ -17,8 +24,7 @@ return require('packer').startup(function(use)
 			}
 		end
 	}
-	-- syntax highlighting
-	use 'sheerun/vim-polyglot' -- replace all specific highlights
+	-- syntax highlighting (treesitter)
 	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 	-- file search
 	use 'nvim-lua/plenary.nvim'
@@ -31,7 +37,23 @@ return require('packer').startup(function(use)
 		tag = 'nightly' -- optional, updated every week. (see issue #1193)
 	}
 	-- autocomplete plugins
-	use { 'neoclide/coc.nvim', branch = 'release' }
+	-- use { 'neoclide/coc.nvim', branch = 'release' }
+  use {
+    'hrsh7th/nvim-cmp',
+    requires = {
+      'hrsh7th/cmp-nvim-lsp',
+      -- 'hrsh7th/cmp-buffer',
+      -- 'hrsh7th/cmp-path',
+      -- 'hrsh7th/cmp-cmdline',
+      -- 'hrsh7th/cmp-nvim-lua',
+      -- 'hrsh7th/cmp-emoji',
+      -- 'hrsh7th/cmp-vsnip',
+      -- 'hrsh7th/vim-vsnip',
+      -- 'hrsh7th/vim-vsnip-integ',
+      -- 'saadparwaiz1/cmp_luasnip',
+      -- 'L3MON4D3/LuaSnip',
+    },
+  }
 	use 'mattn/emmet-vim'
 	use 'github/copilot.vim' -- Github Copilot
 	-- comment
@@ -50,7 +72,7 @@ return require('packer').startup(function(use)
 			require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
 		end
 	}
-	-- auto pairs related
+	-- auto pairs
 	use {
 		"windwp/nvim-autopairs",
 		config = function()

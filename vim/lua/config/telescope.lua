@@ -18,7 +18,7 @@ wk.register({
         "Find Definition"
       },
       r = {
-        "<cmd>Telescope oldfiles theme=dropdown<cr>",
+        "<cmd>Telescope oldfiles<cr>",
         "Find Recent Files"
       },
     },

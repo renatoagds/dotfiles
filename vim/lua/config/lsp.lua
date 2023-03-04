@@ -1,6 +1,7 @@
 local cmp = require'cmp'
 local mason = require'mason'
 local mason_lsp = require'mason-lspconfig'
+local wk = require'which-key'
 
 local lsp_servers = {
   -- frontend
@@ -8,24 +9,25 @@ local lsp_servers = {
   "cssls",
   "tsserver",
   "angularls",
-  "vuels",
-  "svelte",
   "tailwindcss",
   "eslint",
   "stylelint_lsp",
   -- backend
   "intelephense",
-  "pyright",
   "lua_ls",
-  "graphql",
-  "dockerls",
   -- general
   "bashls",
   "jsonls",
   "vimls",
-  "yamlls",
-  "diagnosticls",
-  "marksman"
+  -- disabled
+  -- "pyright",
+  -- "graphql",
+  -- "dockerls",
+  -- "vuels",
+  -- "svelte",
+  -- "yamlls",
+  -- "diagnosticls",
+  -- "marksman"
 }
 
 local lsp_servers_settings = {
@@ -50,27 +52,40 @@ local lsp_servers_settings = {
     },
   },
   tsserver = {
-    documentFormatting = false,
+    diagnostics = {
+      ignoredCodes = {
+        7016, -- 'Could not find a declaration file for module ''{0}'''
+      },
+    }
   },
 }
 
-mason.setup()
+-- set jsonc for tsconfig.json and coc-settings.json
+vim.cmd([[
+  autocmd BufNewFile,BufRead tsconfig.json setlocal filetype=jsonc
+  autocmd BufNewFile,BufRead coc-settings.json setlocal filetype=jsonc
+]])
 
+-- mapping
+wk.register({
+  ["<leader>l"] = { name = "+LSP" },
+  ["<leader>lgl"] = {
+    "<cmd>lua vim.diagnostic.open_float<CR>",
+    "Show diagnostics for current line",
+    noremap = true,
+    silent = true,
+  }
+})
+
+-- mason
+mason.setup()
 mason_lsp.setup({ ensure_installed = lsp_servers })
 
+-- nvim-cmp
 cmp.setup({
-  -- snippet = {
-  --   -- REQUIRED - you must specify a snippet engine
-  --   expand = function(args)
-  --     -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-  --     -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-  --     -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-  --     -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-  --   end,
-  -- },
   window = {
-    -- completion = cmp.config.window.bordered(),
-    -- documentation = cmp.config.window.bordered(),
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
   },
   mapping = cmp.mapping.preset.insert({
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -81,18 +96,93 @@ cmp.setup({
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
-    -- { name = 'vsnip' }, -- For vsnip users.
-    -- { name = 'luasnip' }, -- For luasnip users.
-    -- { name = 'ultisnips' }, -- For ultisnips users.
-    -- { name = 'snippy' }, -- For snippy users.
   })
 })
 
--- set up lspconfig.
+-- set up servers.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local on_attach = function(client, bufnr)
+  -- enable completion triggered by <c-x><c-o>
+  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+  -- mappings
+  wk.register({
+    ["<leader>"] = {
+      -- +LSP
+      l = {
+        K = {
+          "<cmd>lua vim.lsp.buf.hover()<CR>",
+          "Show hover",
+        },
+        ["<C-k>"] = {
+          "<cmd>lua vim.lsp.buf.signature_help()<CR>",
+          "Show signature help",
+        },
+        D = {
+          "<cmd>lua vim.lsp.buf.declaration()<CR>",
+          "Go to declaration",
+        },
+        g = {
+          name = "+Go to",
+          D = {
+            "<cmd>lua vim.lsp.buf.declaration()<CR>",
+            "Go to declaration",
+          },
+          d = {
+            "<cmd>lua vim.lsp.buf.definition()<CR>",
+            "Go to definition",
+          },
+          i = {
+            "<cmd>lua vim.lsp.buf.implementation()<CR>",
+            "Go to implementation",
+          },
+          r = {
+            "<cmd>lua vim.lsp.buf.references()<CR>",
+            "Go to references",
+          },
+        },
+        w = {
+          name = "+Workspace",
+          a = {
+            "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>",
+            "Add workspace folder",
+          },
+          r = {
+            "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>",
+            "Remove workspace folder",
+          },
+          l = {
+            "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>",
+            "List workspace folders",
+          },
+        },
+        c = {
+          name = "+Code",
+          a = {
+            "<cmd>lua vim.lsp.buf.code_action()<CR>",
+            "Code action",
+          },
+          r = {
+            "<cmd>lua vim.lsp.buf.rename()<CR>",
+            "Rename",
+          },
+          f = {
+            "<cmd>lua vim.lsp.buf.formatting()<CR>",
+            "Format",
+          },
+        },
+      }
+    }
+  }, {
+    noremap = true,
+    silent = true,
+    buffer = bufnr
+  })
+end
 
 for _, lsp in ipairs(lsp_servers) do
   require('lspconfig')[lsp].setup {
+    on_attach = on_attach,
     capabilities = capabilities,
     settings = lsp_servers_settings[lsp],
   }

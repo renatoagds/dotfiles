@@ -1,31 +1,70 @@
-local utils = require('config.utils')
-local nmap = utils.nmap
-local imap = utils.imap
-local vmap = utils.vmap
-local tmap = utils.tmap
+local wk = require'which-key'
 
--- map esc on terminal
-tmap('<Esc>', '<C-\\><C-n>')
+-- terminal
+wk.register({
+  ['<Esc>'] = {
+    "<C-\\><C-n>",
+    "Exit Terminal"
+  },
+}, {
+  mode = 't',
+})
 
--- save and close (only buffer)
-nmap('<leader>w', ':w<CR>')
-nmap('<leader>c', ':bd<CR>')
-nmap('<leader>q', ':q!<CR>')
+-- normal
+wk.register({
+  ["<leader>"] = {
+    w = {
+      "<cmd>w<CR>",
+      "Save"
+    },
+    c = {
+      "<cmd>bd<CR>",
+      "Close"
+    },
+    q = {
+      "<cmd>q!<CR>",
+      "Quit"
+    },
+    s = {
+      name = "Split",
+      H = {
+        "<C-W><C-H>",
+        "Left Split"
+      },
+      L = {
+        "<C-W><C-L>",
+        "Right Split"
+      },
+      J = {
+        "<C-W><C-J>",
+        "Bottom Split"
+      },
+      K = {
+        "<C-W><C-K>",
+        "Top Split"
+      },
+    },
+  },
+  ["<Tab>"] = {
+    ">>",
+    "Indent"
+  },
+  ["<S-Tab>"] = {
+    "<<",
+    "Unindent"
+  },
+})
 
--- navigation between splits
-nmap('H', '<C-W><C-H>')
-nmap('L', '<C-W><C-L>')
-nmap('J', '<C-W><C-J>')
-nmap('K', '<C-W><C-K>')
-
--- space with tab
-nmap('<Tab>', '>>')
-nmap('<S-Tab>', '<<')
-vmap('<Tab>', '>><Esc>gv')
-vmap('<S-Tab>', '<<<Esc>gv')
-
--- no arrow on insert
-imap('<Up>', '<Nop>')
-imap('<Down>', '<Nop>')
-imap('<Left>', '<Nop>')
-imap('<Right>', '<Nop>')
+-- visual
+wk.register({
+  ["<Tab>"] = {
+    ">><Esc>gv",
+    "Indent"
+  },
+  ["<S-Tab>"] = {
+    "<<<Esc>gv",
+    "Unindent"
+  },
+}, {
+  mode = 'v'
+})

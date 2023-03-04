@@ -1,10 +1,25 @@
-local utils = require('config.utils')
-local nmap = utils.nmap
+local wk = require'which-key'
 
 --- mappings for telescope
-nmap('<leader>ff', '<cmd>Telescope find_files theme=dropdown<cr>')
-nmap('<leader>fg', '<cmd>Telescope live_grep theme=dropdown<cr>')
-nmap('<leader>fd', '<cmd>Telescope treesitter theme=dropdown<cr>')
+wk.register({
+  ['<leader>'] = {
+    f = {
+      name = "Find",
+      f = {
+        "<cmd>Telescope find_files theme=dropdown<cr>",
+        "Find Files"
+      },
+      g = {
+        "<cmd>Telescope live_grep theme=dropdown<cr>",
+        "Find Grep"
+      },
+      d = {
+        "<cmd>Telescope treesitter theme=dropdown<cr>",
+        "Find Definition"
+      },
+    },
+  },
+})
 
 -- extensions
 require('telescope').load_extension('dap')

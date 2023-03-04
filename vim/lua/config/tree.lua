@@ -1,5 +1,4 @@
-local utils = require('config.utils')
-local nmap = utils.nmap
+local wk = require'which-key'
 
 require('nvim-tree').setup({
     filters = {
@@ -15,6 +14,15 @@ require('nvim-tree').setup({
     }
 })
 
-nmap('<leader>e', ':NvimTreeToggle<CR>')
-nmap('<leader>r', ':NvimTreeRefresh<CR>')
-nmap('<leader>n', ':NvimTreeFindFile<CR>')
+wk.register({
+  ["<leader>"] = {
+    e = {
+      "<cmd>NvimTreeToggle<CR>",
+      "Explorer"
+    },
+    r = {
+      "<cmd>NvimTreeRefresh<CR>",
+      "Tree Refresh"
+    },
+  },
+})

@@ -1,20 +1,16 @@
--- show dependency versions
-vim.keymap.set({ "n" }, "<LEADER>ns", require("package-info").show, { silent = true, noremap = true })
+local wk = require'which-key'
 
--- hide dependency versions
-vim.keymap.set({ "n" }, "<LEADER>nc", require("package-info").hide, { silent = true, noremap = true })
-
--- toggle dependency versions
-vim.keymap.set({ "n" }, "<LEADER>nt", require("package-info").toggle, { silent = true, noremap = true })
-
--- update dependency on the line
-vim.keymap.set({ "n" }, "<LEADER>nu", require("package-info").update, { silent = true, noremap = true })
-
--- delete dependency on the line
-vim.keymap.set({ "n" }, "<LEADER>nd", require("package-info").delete, { silent = true, noremap = true })
-
--- install a new dependency
-vim.keymap.set({ "n" }, "<LEADER>ni", require("package-info").install, { silent = true, noremap = true })
-
--- install a different dependency version
-vim.keymap.set({ "n" }, "<LEADER>np", require("package-info").change_version, { silent = true, noremap = true })
+wk.register({
+  ["<leader>"] = {
+    n = {
+      name = "+Package-Info",
+      s = { "<cmd>lua require('package-info').show()<CR>", "Show" },
+      c = { "<cmd>lua require('package-info').hide()<CR>", "Hide" },
+      t = { "<cmd>lua require('package-info').toggle()<CR>", "Toggle" },
+      u = { "<cmd>lua require('package-info').update()<CR>", "Update" },
+      d = { "<cmd>lua require('package-info').delete()<CR>", "Delete" },
+      i = { "<cmd>lua require('package-info').install()<CR>", "Install" },
+      p = { "<cmd>lua require('package-info').change_version()<CR>", "Change Version" },
+    }
+  }
+})

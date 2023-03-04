@@ -1,5 +1,15 @@
-local utils = require('config.utils')
-local nmap = utils.nmap
+local wk = require'which-key'
 
-nmap('<leader><leader>w', ':HopWordAC<CR>')
-nmap('<leader><leader>b', ':HopWordBC<CR>')
+wk.register({
+  ['<leader><leader>'] = {
+    name = '+Hop',
+    w = {
+      ':HopWordAC<CR>',
+      'Jump to Word After Cursor'
+    },
+    b = {
+      ':HopWordBC<CR>',
+      'Jump to Word Before Cursor'
+    },
+  },
+})

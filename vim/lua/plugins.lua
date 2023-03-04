@@ -102,7 +102,7 @@ return require('packer').startup(function(use)
 			{
 				'theHamsta/nvim-dap-virtual-text',
 				config = function()
-					require('nvim-dap-virtual-text').setup()
+					require('nvim-dap-virtual-text').setup{}
 				end
 			}
 		},
@@ -116,11 +116,7 @@ return require('packer').startup(function(use)
 		config = function()
 			vim.o.timeout = true
 			vim.o.timeoutlen = 300
-			require("which-key").setup {
-				-- your configuration comes here
-				-- or leave it empty to use the default settings
-				-- refer to the configuration section below
-			}
+			require("which-key").setup{}
 		end
 	}
 	-- togleterm
@@ -143,12 +139,9 @@ return require('packer').startup(function(use)
 	------------------
 	------------------
 	--DEPRECATED
-
-	-- snippets
-	-- use 'vim-airline/vim-airline'
+	--use 'vim-airline/vim-airline'
 	--use 'SirVer/ultisnips'
 	--use 'honza/vim-snippets'
-	-- general editor plugins
 	--use 'airblade/vim-gitgutter' -- == git visually helpers
 	--use 'shime/vim-livedown' -- == markdown live preview
 end)

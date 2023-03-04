@@ -17,6 +17,10 @@ wk.register({
         "<cmd>Telescope treesitter theme=dropdown<cr>",
         "Find Definition"
       },
+      r = {
+        "<cmd>Telescope oldfiles theme=dropdown<cr>",
+        "Find Recent Files"
+      },
     },
   },
 })

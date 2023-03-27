@@ -6,6 +6,7 @@ return require('packer').startup(function(use)
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
     'neovim/nvim-lspconfig',
+    'jose-elias-alvarez/null-ls.nvim'
   }
 	-- styling and themes
   use 'folke/tokyonight.nvim' -- theme
@@ -113,12 +114,29 @@ return require('packer').startup(function(use)
 		end
 	}
 	-- togleterm
-	use { "akinsho/toggleterm.nvim", tag = '*', config = function()
-		require("toggleterm").setup({
-			direction = "float",
-			open_mapping = [[<c-\>]],
-		})
-	end }
+	use {
+    "akinsho/toggleterm.nvim",
+    tag = '*',
+    config = function()
+      require("toggleterm").setup({
+        direction = "float",
+        open_mapping = [[<c-\>]],
+      })
+    end
+  }
+  -- trouble
+  use {
+    "folke/trouble.nvim",
+    requires = "nvim-tree/nvim-web-devicons",
+    config = function()
+      require("trouble").setup {
+        position = "right", -- position of the list can be: bottom, top, left, right
+        auto_open = true, -- automatically open the list when you have diagnostics
+        auto_close = true, -- automatically close the list when you have no diagnostics
+        use_diagnostic_signs = true, -- use the signs defined in your lsp client
+      }
+    end
+  }
 	-- general plugins
 	use 'wakatime/vim-wakatime' -- wakatime plugin
 	use 'qstrahl/vim-matchmaker' -- highlight words under cursor

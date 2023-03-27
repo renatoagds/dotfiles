@@ -2,6 +2,7 @@ local cmp = require'cmp'
 local mason = require'mason'
 local mason_lsp = require'mason-lspconfig'
 local wk = require'which-key'
+local null_ls = require('null-ls')
 
 local lsp_servers = {
   -- frontend
@@ -178,7 +179,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
               "Rename",
             },
             f = {
-              "<cmd>lua vim.lsp.buf.formatting()<CR>",
+              function()
+                 vim.lsp.buf.format({
+                  timeout_ms = 3000,
+                  bufnr = ev.buf,
+                  filter = function(client)
+                      return client.name == "null-ls"
+                  end
+                })
+              end,
               "Format",
             },
           },
@@ -190,4 +199,28 @@ vim.api.nvim_create_autocmd('LspAttach', {
       buffer = ev.buf,
     })
   end,
+})
+
+-- signs
+local signs = { Error = "", Warn = "", Hint = "", Info = "", Ok = "﫠" }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
+-- null-ls (linting, code actions and formatters)
+null_ls.setup({
+  sources = {
+    -- JS
+    null_ls.builtins.formatting.eslint.with({
+      prefer_local = 'node_modules/.bin/',
+    }),
+    -- PHP
+    null_ls.builtins.formatting.phpcbf.with({
+      prefer_local = 'vendor/bin/',
+    }),
+    null_ls.builtins.diagnostics.phpcs.with({
+      prefer_local = 'vendor/bin/',
+    }),
+  }
 })

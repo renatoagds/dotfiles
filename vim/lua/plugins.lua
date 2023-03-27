@@ -1,5 +1,6 @@
-
 return require('packer').startup(function(use)
+  -- core
+	use 'nvim-lua/plenary.nvim'
 	-- lsp
   use {
     'williamboman/mason.nvim',
@@ -7,9 +8,13 @@ return require('packer').startup(function(use)
     'neovim/nvim-lspconfig',
   }
 	-- styling and themes
-  use 'folke/tokyonight.nvim'
-	-- use 'rose-pine/neovim'
-	use 'norcalli/nvim-colorizer.lua'
+  use 'folke/tokyonight.nvim' -- theme
+	use {
+    'norcalli/nvim-colorizer.lua', -- show background color
+    config = function()
+      require('colorizer').setup()
+    end
+  }
 	use {
 		'akinsho/bufferline.nvim',
 		tag = "v3.*",
@@ -27,7 +32,6 @@ return require('packer').startup(function(use)
 	-- syntax highlighting (treesitter)
 	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 	-- file search
-	use 'nvim-lua/plenary.nvim'
 	use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { { 'nvim-lua/plenary.nvim' } } }
 	use {
 		'nvim-tree/nvim-tree.lua',
@@ -37,21 +41,10 @@ return require('packer').startup(function(use)
 		tag = 'nightly' -- optional, updated every week. (see issue #1193)
 	}
 	-- autocomplete plugins
-	-- use { 'neoclide/coc.nvim', branch = 'release' }
   use {
     'hrsh7th/nvim-cmp',
     requires = {
       'hrsh7th/cmp-nvim-lsp',
-      -- 'hrsh7th/cmp-buffer',
-      -- 'hrsh7th/cmp-path',
-      -- 'hrsh7th/cmp-cmdline',
-      -- 'hrsh7th/cmp-nvim-lua',
-      -- 'hrsh7th/cmp-emoji',
-      -- 'hrsh7th/cmp-vsnip',
-      -- 'hrsh7th/vim-vsnip',
-      -- 'hrsh7th/vim-vsnip-integ',
-      -- 'saadparwaiz1/cmp_luasnip',
-      -- 'L3MON4D3/LuaSnip',
     },
   }
 	use 'mattn/emmet-vim'

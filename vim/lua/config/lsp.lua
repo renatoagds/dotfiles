@@ -1,7 +1,7 @@
-local cmp = require'cmp'
-local mason = require'mason'
-local mason_lsp = require'mason-lspconfig'
-local wk = require'which-key'
+local cmp = require 'cmp'
+local mason = require 'mason'
+local mason_lsp = require 'mason-lspconfig'
+local wk = require 'which-key'
 local null_ls = require('null-ls')
 
 local lsp_servers = {
@@ -34,23 +34,27 @@ local lsp_servers = {
 local lsp_servers_settings = {
   lua_ls = {
     Lua = {
+      -- Disable telemetry
+      telemetry = { enable = false },
       runtime = {
-        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+        -- Tell the language server which version of Lua you're using
+        -- (most likely LuaJIT in the case of Neovim)
         version = 'LuaJIT',
+        path = vim.split(package.path, ';'),
       },
       diagnostics = {
         -- Get the language server to recognize the `vim` global
-        globals = {'vim'},
+        globals = { 'vim' }
       },
       workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file("", true),
-      },
-      -- Do not send telemetry data containing a randomized but unique identifier
-      telemetry = {
-        enable = false,
-      },
-    },
+        checkThirdParty = false,
+        library = {
+          -- Make the server aware of Neovim runtime files
+          vim.fn.expand('$VIMRUNTIME/lua'),
+          vim.fn.stdpath('config') .. '/lua'
+        }
+      }
+    }
   },
   tsserver = {
     diagnostics = {
@@ -97,6 +101,7 @@ cmp.setup({
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
+    { name = 'nvim_lua' }
   })
 })
 
@@ -123,68 +128,92 @@ vim.api.nvim_create_autocmd('LspAttach', {
         -- +LSP
         l = {
           K = {
-            "<cmd>lua vim.lsp.buf.hover()<CR>",
+            function()
+              vim.lsp.buf.hover()
+            end,
             "Show hover",
           },
           ["<C-k>"] = {
-            "<cmd>lua vim.lsp.buf.signature_help()<CR>",
+            function()
+              vim.lsp.buf.signature_help()
+            end,
             "Show signature help",
           },
           D = {
-            "<cmd>lua vim.lsp.buf.declaration()<CR>",
+            function()
+              vim.lsp.buf.declaration()
+            end,
             "Go to declaration",
           },
           g = {
             name = "+Go to",
             D = {
-              "<cmd>lua vim.lsp.buf.declaration()<CR>",
+              function()
+                vim.lsp.buf.declaration()
+              end,
               "Go to declaration",
             },
             d = {
-              "<cmd>lua vim.lsp.buf.definition()<CR>",
+              function()
+                vim.lsp.buf.definition()
+              end,
               "Go to definition",
             },
             i = {
-              "<cmd>lua vim.lsp.buf.implementation()<CR>",
+              function()
+                vim.lsp.buf.implementation()
+              end,
               "Go to implementation",
             },
             r = {
-              "<cmd>lua vim.lsp.buf.references()<CR>",
+              function()
+                vim.lsp.buf.references()
+              end,
               "Go to references",
             },
           },
           w = {
             name = "+Workspace",
             a = {
-              "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>",
+              function()
+                vim.lsp.buf.add_workspace_folder()
+              end,
               "Add workspace folder",
             },
             r = {
-              "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>",
+              function()
+                vim.lsp.buf.remove_workspace_folder()
+              end,
               "Remove workspace folder",
             },
             l = {
-              "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>",
+              function()
+                print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+              end,
               "List workspace folders",
             },
           },
           c = {
             name = "+Code",
             a = {
-              "<cmd>lua vim.lsp.buf.code_action()<CR>",
+              function()
+                vim.lsp.buf.code_action()
+              end,
               "Code action",
             },
             r = {
-              "<cmd>lua vim.lsp.buf.rename()<CR>",
+              function()
+                vim.lsp.buf.rename()
+              end,
               "Rename",
             },
             f = {
               function()
-                 vim.lsp.buf.format({
+                vim.lsp.buf.format({
                   timeout_ms = 3000,
                   bufnr = ev.buf,
                   filter = function(client)
-                      return client.name == "null-ls"
+                    return client.name == "null-ls"
                   end
                 })
               end,

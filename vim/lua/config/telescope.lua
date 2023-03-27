@@ -1,4 +1,4 @@
-local wk = require'which-key'
+local wk = require 'which-key'
 
 --- mappings for telescope
 wk.register({

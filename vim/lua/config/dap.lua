@@ -5,35 +5,35 @@ local nmap = utils.nmap
 
 -- config
 dap.adapters.php = {
-    type = "executable",
-    command = "node",
-    args = { os.getenv("HOME") .. "/.config/nvim/vscode-php-debug/out/phpDebug.js" }
+  type = "executable",
+  command = "node",
+  args = { os.getenv("HOME") .. "/.config/nvim/vscode-php-debug/out/phpDebug.js" }
 }
 
 dap.configurations.php = {
-    {
-        type = "php",
-        request = "launch",
-        name = "Jetpack",
-        port = 9003,
-        pathMappings = {
-            ["/usr/local/src/jetpack-monorepo"] = "${workspaceFolder}",
-            ["/var/www/html"] = "${workspaceFolder}/tools/docker/wordpress"
-        }
+  {
+    type = "php",
+    request = "launch",
+    name = "Jetpack",
+    port = 9003,
+    pathMappings = {
+      ["/usr/local/src/jetpack-monorepo"] = "${workspaceFolder}",
+      ["/var/www/html"] = "${workspaceFolder}/tools/docker/wordpress"
     }
+  }
 }
 
 -- dapui
 nmap('<leader>dx', '<cmd>lua require("dapui").toggle()<CR>')
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
-    dapui.open()
+  dapui.open()
 end
 dap.listeners.before.event_terminated["dapui_config"] = function()
-    dapui.close()
+  dapui.close()
 end
 dap.listeners.before.event_exited["dapui_config"] = function()
-    dapui.close()
+  dapui.close()
 end
 
 -- keymaps

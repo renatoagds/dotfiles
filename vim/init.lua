@@ -7,10 +7,8 @@ vim.g.wakatime_PythonBinary = home .. '/.pyenv/versions/neovim3/bin/python'
 -- change Matchmaker to use underline
 vim.cmd('highlight link Matchmaker underlined')
 
--- General Config
+-- config
 require('plugins')
 require('settings')
 require('mappings')
 require('config.setup')
-
--- Plugins Config/Mappings

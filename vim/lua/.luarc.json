@@ -41,6 +41,7 @@
         "/opt/homebrew/Cellar/neovim/0.8.1/share/nvim/runtime",
         "/opt/homebrew/Cellar/neovim/0.8.1/lib/nvim",
         "/Users/renato.santos/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp/after",
-        "${3rd}/luassert/library"
+        "${3rd}/luassert/library",
+        "${3rd}/luv/library"
     ]
 }

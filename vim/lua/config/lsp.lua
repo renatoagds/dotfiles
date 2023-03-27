@@ -101,89 +101,93 @@ cmp.setup({
 
 -- set up servers.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
-local on_attach = function(client, bufnr)
-  -- enable completion triggered by <c-x><c-o>
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-  -- mappings
-  wk.register({
-    ["<leader>"] = {
-      -- +LSP
-      l = {
-        K = {
-          "<cmd>lua vim.lsp.buf.hover()<CR>",
-          "Show hover",
-        },
-        ["<C-k>"] = {
-          "<cmd>lua vim.lsp.buf.signature_help()<CR>",
-          "Show signature help",
-        },
-        D = {
-          "<cmd>lua vim.lsp.buf.declaration()<CR>",
-          "Go to declaration",
-        },
-        g = {
-          name = "+Go to",
-          D = {
-            "<cmd>lua vim.lsp.buf.declaration()<CR>",
-            "Go to declaration",
-          },
-          d = {
-            "<cmd>lua vim.lsp.buf.definition()<CR>",
-            "Go to definition",
-          },
-          i = {
-            "<cmd>lua vim.lsp.buf.implementation()<CR>",
-            "Go to implementation",
-          },
-          r = {
-            "<cmd>lua vim.lsp.buf.references()<CR>",
-            "Go to references",
-          },
-        },
-        w = {
-          name = "+Workspace",
-          a = {
-            "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>",
-            "Add workspace folder",
-          },
-          r = {
-            "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>",
-            "Remove workspace folder",
-          },
-          l = {
-            "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>",
-            "List workspace folders",
-          },
-        },
-        c = {
-          name = "+Code",
-          a = {
-            "<cmd>lua vim.lsp.buf.code_action()<CR>",
-            "Code action",
-          },
-          r = {
-            "<cmd>lua vim.lsp.buf.rename()<CR>",
-            "Rename",
-          },
-          f = {
-            "<cmd>lua vim.lsp.buf.formatting()<CR>",
-            "Format",
-          },
-        },
-      }
-    }
-  }, {
-    noremap = true,
-    silent = true,
-    buffer = bufnr
-  })
-end
 
 for _, lsp in ipairs(lsp_servers) do
   require('lspconfig')[lsp].setup {
-    on_attach = on_attach,
     capabilities = capabilities,
     settings = lsp_servers_settings[lsp],
   }
 end
+
+-- attach function
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  callback = function(ev)
+    -- Enable completion triggered by <c-x><c-o>
+    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+
+    -- mappings
+    wk.register({
+      ["<leader>"] = {
+        -- +LSP
+        l = {
+          K = {
+            "<cmd>lua vim.lsp.buf.hover()<CR>",
+            "Show hover",
+          },
+          ["<C-k>"] = {
+            "<cmd>lua vim.lsp.buf.signature_help()<CR>",
+            "Show signature help",
+          },
+          D = {
+            "<cmd>lua vim.lsp.buf.declaration()<CR>",
+            "Go to declaration",
+          },
+          g = {
+            name = "+Go to",
+            D = {
+              "<cmd>lua vim.lsp.buf.declaration()<CR>",
+              "Go to declaration",
+            },
+            d = {
+              "<cmd>lua vim.lsp.buf.definition()<CR>",
+              "Go to definition",
+            },
+            i = {
+              "<cmd>lua vim.lsp.buf.implementation()<CR>",
+              "Go to implementation",
+            },
+            r = {
+              "<cmd>lua vim.lsp.buf.references()<CR>",
+              "Go to references",
+            },
+          },
+          w = {
+            name = "+Workspace",
+            a = {
+              "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>",
+              "Add workspace folder",
+            },
+            r = {
+              "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>",
+              "Remove workspace folder",
+            },
+            l = {
+              "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>",
+              "List workspace folders",
+            },
+          },
+          c = {
+            name = "+Code",
+            a = {
+              "<cmd>lua vim.lsp.buf.code_action()<CR>",
+              "Code action",
+            },
+            r = {
+              "<cmd>lua vim.lsp.buf.rename()<CR>",
+              "Rename",
+            },
+            f = {
+              "<cmd>lua vim.lsp.buf.formatting()<CR>",
+              "Format",
+            },
+          },
+        }
+      }
+    }, {
+      noremap = true,
+      silent = true,
+      buffer = ev.buf,
+    })
+  end,
+})

@@ -25,6 +25,10 @@ wk.register({
       "<cmd>q!<CR>",
       "Quit"
     },
+    h = {
+      "<cmd>nohlsearch<CR>",
+      "Clear Highlight"
+    },
     s = {
       name = "Split",
       H = {

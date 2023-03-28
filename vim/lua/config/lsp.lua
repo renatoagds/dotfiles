@@ -4,33 +4,6 @@ local mason_lsp = require 'mason-lspconfig'
 local wk = require 'which-key'
 local null_ls = require('null-ls')
 
-local lsp_servers = {
-  -- frontend
-  "html",
-  "cssls",
-  "tsserver",
-  "angularls",
-  "tailwindcss",
-  "eslint",
-  "stylelint_lsp",
-  -- backend
-  "intelephense",
-  "lua_ls",
-  -- general
-  "bashls",
-  "jsonls",
-  "vimls",
-  -- disabled
-  -- "pyright",
-  -- "graphql",
-  -- "dockerls",
-  -- "vuels",
-  -- "svelte",
-  -- "yamlls",
-  -- "diagnosticls",
-  -- "marksman"
-}
-
 local lsp_servers_settings = {
   lua_ls = {
     Lua = {
@@ -73,9 +46,13 @@ vim.cmd([[
 
 -- mapping
 wk.register({
-  ["<leader>l"] = { name = "+LSP" },
+  ["<leader>l"] = {
+    name = "+LSP"
+  },
   ["<leader>lgl"] = {
-    "<cmd>lua vim.diagnostic.open_float<CR>",
+    function()
+      vim.diagnostic.open_float(0, { scope = 'line' })
+    end,
     "Show diagnostics for current line",
     noremap = true,
     silent = true,
@@ -84,7 +61,34 @@ wk.register({
 
 -- mason
 mason.setup()
-mason_lsp.setup({ ensure_installed = lsp_servers })
+mason_lsp.setup({
+  ensure_installed = {
+    -- frontend
+    "html",
+    "cssls",
+    "tsserver",
+    "angularls",
+    "tailwindcss",
+    "eslint",
+    "stylelint_lsp",
+    -- backend
+    "intelephense",
+    "lua_ls",
+    -- general
+    "bashls",
+    "jsonls",
+    "vimls",
+    -- disabled
+    -- "pyright",
+    -- "graphql",
+    -- "dockerls",
+    -- "vuels",
+    -- "svelte",
+    -- "yamlls",
+    -- "diagnosticls",
+    -- "marksman"
+  }
+})
 
 -- nvim-cmp
 cmp.setup({
@@ -107,8 +111,9 @@ cmp.setup({
 
 -- set up servers.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local get_servers = require('mason-lspconfig').get_installed_servers
 
-for _, lsp in ipairs(lsp_servers) do
+for _, lsp in ipairs(get_servers()) do
   require('lspconfig')[lsp].setup {
     capabilities = capabilities,
     settings = lsp_servers_settings[lsp],

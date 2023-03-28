@@ -46,11 +46,20 @@ return require('packer').startup(function(use)
     'hrsh7th/nvim-cmp',
     requires = {
       'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-nvim-lua'
+      'hrsh7th/cmp-nvim-lua',
+      'saadparwaiz1/cmp_luasnip'
     },
   }
   use 'mattn/emmet-vim'
-  use 'github/copilot.vim' -- Github Copilot
+  use 'github/copilot.vim'           -- Github Copilot
+  use "rafamadriz/friendly-snippets" -- Snippets collection
+  use {
+    "L3MON4D3/LuaSnip",
+    -- follow latest release.
+    tag = "v<CurrentMajor>.*",
+    -- install jsregexp (optional!:).
+    run = "make install_jsregexp"
+  }
   -- comment
   use {
     'numToStr/Comment.nvim',

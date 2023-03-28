@@ -1,7 +1,6 @@
-local utils = require('config.utils')
 local dap = require('dap')
 local dapui = require('dapui')
-local nmap = utils.nmap
+local wk = require 'which-key'
 
 -- config
 dap.adapters.php = {
@@ -23,9 +22,6 @@ dap.configurations.php = {
   }
 }
 
--- dapui
-nmap('<leader>dx', '<cmd>lua require("dapui").toggle()<CR>')
-
 dap.listeners.after.event_initialized["dapui_config"] = function()
   dapui.open()
 end
@@ -36,16 +32,66 @@ dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
 
--- keymaps
-nmap('<leader>dd', '<cmd>lua require("dap").continue()<CR>')
-nmap('<leader>ds', '<cmd>lua require("dap").close()<CR>')
-nmap('<leader>dc', '<cmd>lua require("dap").disconnect()<CR>')
-
-nmap('<leader>db', '<cmd>lua require("dap").toggle_breakpoint()<CR>')
-nmap('<leader>do', '<cmd>lua require("dap").step_over()<CR>')
-nmap('<leader>di', '<cmd>lua require("dap").step_into()<CR>')
-nmap('<leader>du', '<cmd>lua require("dap").step_out()<CR>')
-nmap('<leader>dl', '<cmd>lua require("dap").run_last()<CR>')
+-- mappings
+wk.register({
+  ["<leader>d"] = {
+    name = "+Dap",
+    x = {
+      function ()
+        dapui.toggle()
+      end,
+      "Toogle UI"
+    },
+    d = {
+      function ()
+        dap.continue()
+      end,
+      "Continue"
+    },
+    s = {
+      function ()
+        dap.close()
+      end,
+      "Close"
+    },
+    c = {
+      function ()
+        dap.disconnect()
+      end,
+      "Disconnect"
+    },
+    b = {
+      function ()
+        dap.toggle_breakpoint()
+      end,
+      "Toggle Breakpoint"
+    },
+    o = {
+      function ()
+        dap.step_over()
+      end,
+      "Step Over"
+    },
+    i = {
+      function ()
+        dap.step_into()
+      end,
+      "Step Into"
+    },
+    u = {
+      function ()
+        dap.step_out()
+      end,
+      "Step Out"
+    },
+    l = {
+      function ()
+        dap.run_last()
+      end,
+      "Run Last"
+    }
+  }
+})
 
 -- nmap('<leader>dr', '<cmd>lua require("dap").repl.open()<CR>')
 -- nmap('<leader>dt', '<cmd>lua require("dap").run_to_cursor()<CR>')

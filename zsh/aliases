@@ -59,3 +59,18 @@ function jp-down {
 function jp-wp-reinstall {
   jetpack docker up -d && jetpack docker uninstall && jetpack docker install
 }
+
+# jetpack build my jetpack
+function jp-mj {
+  jetpack build packages/my-jetpack
+}
+
+# jetapck build videopress
+function jp-vp {
+  jetpack build packages/videopress && jetpack build plugins/videopress
+}
+
+# jetpack build
+function jp-build {
+  jetpack build plugins/jetpack
+}

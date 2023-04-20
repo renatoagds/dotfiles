@@ -101,6 +101,7 @@ return require('packer').startup(function(use)
   -- dap
   use { 'rcarriga/nvim-dap-ui',
     requires = {
+      'jay-babu/mason-nvim-dap.nvim',
       'mfussenegger/nvim-dap',
       'nvim-telescope/telescope-dap.nvim',
       {
@@ -143,6 +144,7 @@ return require('packer').startup(function(use)
         position = "right",          -- position of the list can be: bottom, top, left, right
         auto_open = true,            -- automatically open the list when you have diagnostics
         auto_close = true,           -- automatically close the list when you have no diagnostics
+        auto_preview = false,
         use_diagnostic_signs = true, -- use the signs defined in your lsp client
       }
     end

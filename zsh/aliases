@@ -35,8 +35,8 @@ function dpull {
 # jetpack aliases
 alias jpup='jetpack docker up --ngrok -d'
 alias jpr='jetpack docker up -d && jetpack docker uninstall && jetpack docker install'
-alias jpw='jetpack watch plugin/jetpack'
-alias jpb='jetpack build plugin/jetpack'
+alias jpw='jetpack watch plugins/jetpack'
+alias jpb='jetpack build plugins/jetpack'
 alias jpwmj='jetpack watch packages/my-jetpack'
 alias jpbmj='jetpack build packages/my-jetpack'
 alias jpwvp='jetpack watch packages/videopress'

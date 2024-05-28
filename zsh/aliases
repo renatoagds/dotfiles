@@ -2,37 +2,23 @@
 # CUSTOM ALIASES #
 ##################
 
-# alias rshake='adb shell input keyevent 82'
-# alias rreload='adb shell input keyevent 82 && adb shell input keyevent 19 && adb shell input keyevent 23'
 # alias gbr='git branch | grep -v "master" | xargs git branch -D'
 # alias fml='rm -rf node_modules && npm install'
-# alias nba='react-native run-android'
-# alias nbi='react-native run-ios'
-# alias nreset='watchman watch-del-all && npm run start'
 # alias ctags="`brew --prefix`/bin/ctags"
 alias cat='bat'
 alias ping='prettyping'
 
-# function adbtext {
-  # adb shell input text "$1" && adb shell input keyevent ENTER;
-# }
-
-# function adbpic {
-  # adb shell screencap -p /sdcard/screen.png
-  # adb pull /sdcard/screen.png
-  # adb shell rm /sdcard/screen.png
-# }
-
+# docker aliases
 function dcleanup {
   docker rm -v $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
   docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
 }
-
 function dpull {
   docker images | grep -v REPOSITORY | awk '{print $1}' | xargs -L1 docker pull
 }
 
 # jetpack aliases
+alias jetapck='jetpack' # typo alias
 alias jpup='jetpack docker up --ngrok -d'
 alias jpr='jetpack docker up -d && jetpack docker uninstall && jetpack docker install'
 alias jpw='jetpack watch plugins/jetpack'
@@ -41,7 +27,7 @@ alias jpwmj='jetpack watch packages/my-jetpack'
 alias jpbmj='jetpack build packages/my-jetpack'
 alias jpwvp='jetpack watch packages/videopress'
 alias jpbvp='jetpack build packages/videopress'
-
+alias jpsync='jetpack build --production plugins/jetpack && jetpack rsync jetpack'
 function jpi {
   # install last changed 
   for f in $(git -c core.quotepath=off ls-files '**/composer.lock'); do
@@ -51,3 +37,18 @@ function jpi {
     jetpack install "$slug"
   done
 }
+
+# adb e react-native aliases
+# alias nreset='watchman watch-del-all && npm run start'
+# alias nba='react-native run-android'
+# alias rshake='adb shell input keyevent 82'
+# alias rreload='adb shell input keyevent 82 && adb shell input keyevent 19 && adb shell input keyevent 23'
+# alias nbi='react-native run-ios'
+# function adbtext {
+  # adb shell input text "$1" && adb shell input keyevent ENTER;
+# }
+# function adbpic {
+  # adb shell screencap -p /sdcard/screen.png
+  # adb pull /sdcard/screen.png
+  # adb shell rm /sdcard/screen.png
+# }

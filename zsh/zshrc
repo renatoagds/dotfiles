@@ -1,5 +1,5 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
+# Amazon Q pre block. Keep at the top of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
 #############
 # UTILITIES #
 #############
@@ -67,9 +67,10 @@ eval "$(pyenv virtualenv-init -)"
 # OH MY ZSH #
 #############
 ZSH_THEME=""
-plugins=(git z tmux nvm docker adb)
+plugins=(git z tmux nvm docker adb zsh-history-substring-search)
 source $ZSH/oh-my-zsh.sh
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh # zsh-autosuggestions: https://github.com/zsh-users/zsh-autosuggestions
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src # zsh-completions: https://github.com/zsh-users/zsh-completions
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=cyan'
 
 #####################
@@ -80,11 +81,6 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   [ -s "/Users/${USER}/.scm_breeze/scm_breeze.sh" ] && source "/Users/${USER}/.scm_breeze/scm_breeze.sh"
 fi
-
-###########
-# ALIASES #
-###########
-import_file "aliases"
 
 ##############
 # FZF EXPORT #
@@ -119,10 +115,20 @@ fpath=($fpath "$HOME/.zfunctions")
 autoload -U promptinit; promptinit
 prompt spaceship
 
-# pnpm
-export PNPM_HOME="/Users/$USER/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-# pnpm end
+###########
+# ALIASES #
+###########
+import_file "aliases"
 
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+####################
+# MAC OS SPECIFICS #
+####################
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  # pnpm
+  export PNPM_HOME="/Users/$USER/Library/pnpm"
+  export PATH="$PNPM_HOME:$PATH"
+  # pnpm end
+
+  # Amazon Q post block. Keep at the bottom of this file.
+  [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
+fi

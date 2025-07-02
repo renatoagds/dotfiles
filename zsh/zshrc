@@ -131,13 +131,14 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     *) export PATH="$PNPM_HOME:$PATH" ;;
     esac
 
-  # Amazon Q post block. Keep at the bottom of this file.
-  [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
-
   # The following lines have been added by Docker Desktop to enable Docker CLI completions.
   fpath=(/Users/renato.santos/.docker/completions $fpath)
   autoload -Uz compinit
   compinit
   # End of Docker CLI completions
-  fi
+
+  # Amazon Q post block. Keep at the bottom of this file.
+  [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && \
+    builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
+fi
 

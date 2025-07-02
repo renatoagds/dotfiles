@@ -18,7 +18,7 @@ return require('packer').startup(function(use)
   }
   use {
     'akinsho/bufferline.nvim',
-    tag = "v3.*",
+    tag = "*",
     requires = 'nvim-tree/nvim-web-devicons',
     config = function()
       require('bufferline').setup {
@@ -104,6 +104,7 @@ return require('packer').startup(function(use)
       'jay-babu/mason-nvim-dap.nvim',
       'mfussenegger/nvim-dap',
       'nvim-telescope/telescope-dap.nvim',
+      'nvim-neotest/nvim-nio',
       {
         'theHamsta/nvim-dap-virtual-text',
         config = function()
@@ -142,10 +143,15 @@ return require('packer').startup(function(use)
     config = function()
       require("trouble").setup {
         position = "right",          -- position of the list can be: bottom, top, left, right
-        auto_open = true,            -- automatically open the list when you have diagnostics
-        auto_close = true,           -- automatically close the list when you have no diagnostics
-        auto_preview = false,
-        use_diagnostic_signs = true, -- use the signs defined in your lsp client
+        opts = {
+          modes = {
+            diagnostics = {
+              auto_open = true,      -- automatically open the list 
+              auto_close = true,     -- automatically close the list
+              auto_preview = false,
+            }
+          }
+        }
       }
     end
   }

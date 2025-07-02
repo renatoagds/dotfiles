@@ -53,64 +53,17 @@ dap.listeners.before.event_exited["dapui_config"] = function()
 end
 
 -- mappings
-wk.register({
-  ["<leader>d"] = {
-    name = "+Dap",
-    x = {
-      function ()
-        dapui.toggle()
-      end,
-      "Toogle UI"
-    },
-    d = {
-      function ()
-        dap.continue()
-      end,
-      "Continue"
-    },
-    s = {
-      function ()
-        dap.close()
-      end,
-      "Close"
-    },
-    c = {
-      function ()
-        dap.disconnect()
-      end,
-      "Disconnect"
-    },
-    b = {
-      function ()
-        dap.toggle_breakpoint()
-      end,
-      "Toggle Breakpoint"
-    },
-    o = {
-      function ()
-        dap.step_over()
-      end,
-      "Step Over"
-    },
-    i = {
-      function ()
-        dap.step_into()
-      end,
-      "Step Into"
-    },
-    u = {
-      function ()
-        dap.step_out()
-      end,
-      "Step Out"
-    },
-    l = {
-      function ()
-        dap.run_last()
-      end,
-      "Run Last"
-    }
-  }
+wk.add({
+  { "<leader>d", group = "+Dap" },
+  { "<leader>dx", function () dapui.toggle() end, desc = "Toogle UI" },
+  { "<leader>dd", function () dap.continue() end, desc = "Continue" },
+  { "<leader>ds", function () dap.close() end, desc = "Close" },
+  { "<leader>dc", function () dap.disconnect() end, desc = "Disconnect" },
+  { "<leader>db", function () dap.toggle_breakpoint() end, desc = "Toggle Breakpoint" },
+  { "<leader>do", function () dap.step_over() end, desc = "Step Over" },
+  { "<leader>di", function () dap.step_into() end, desc = "Step Into" },
+  { "<leader>du", function () dap.step_out() end, desc = "Step Out" },
+  { "<leader>dl", function () dap.run_last() end, desc = "Run Last" }
 })
 
 -- nmap('<leader>dr', '<cmd>lua require("dap").repl.open()<CR>')

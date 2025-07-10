@@ -112,9 +112,9 @@ fi
 # SPACESHIP ZSH PROMPT                            #
 # https://github.com/denysdovhan/spaceship-prompt #
 ###################################################
-fpath=($fpath "$HOME/.zfunctions")
-autoload -U promptinit; promptinit
-prompt spaceship
+source $(brew --prefix)/opt/spaceship/spaceship.zsh
+# autoload -U promptinit; promptinit
+# prompt spaceship
 
 ###########
 # ALIASES #

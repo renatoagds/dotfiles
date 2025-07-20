@@ -57,3 +57,8 @@ done
 # for i in "${cask[@]}"; do
   # brew install --cask "$i"
 # done
+
+# setup scm_breeze
+git clone git://github.com/scmbreeze/scm_breeze.git ~/.scm_breeze
+~/.scm_breeze/install.sh
+source ~/.zshrc

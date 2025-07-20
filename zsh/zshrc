@@ -68,7 +68,7 @@ eval "$(pyenv virtualenv-init -)"
 # OH MY ZSH #
 #############
 ZSH_THEME=""
-plugins=(git z tmux nvm docker adb zsh-history-substring-search)
+plugins=(git z tmux nvm docker)
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh # zsh-autosuggestions: https://github.com/zsh-users/zsh-autosuggestions
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src # zsh-completions: https://github.com/zsh-users/zsh-completions

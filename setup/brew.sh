@@ -7,10 +7,10 @@ DOTFILES=~/Documents/Code/dotfiles
 cd ~
 
 # install brew if isn't installed
-if ! type "$brew" &> /dev/null; then
-  echo "brew"
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-fi
+# if ! type "$brew" &> /dev/null; then
+  # echo "brew"
+  # /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# fi
 
 declare -a brew=(
     "nvm"

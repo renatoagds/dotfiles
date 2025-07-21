@@ -68,7 +68,7 @@ eval "$(pyenv virtualenv-init -)"
 # OH MY ZSH #
 #############
 ZSH_THEME=""
-plugins=(git z tmux nvm docker)
+plugins=(z tmux nvm docker git)
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh # zsh-autosuggestions: https://github.com/zsh-users/zsh-autosuggestions
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src # zsh-completions: https://github.com/zsh-users/zsh-completions
@@ -143,3 +143,5 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
 fi
 
+
+[ -s "/Users/renato.santos/.scm_breeze/scm_breeze.sh" ] && source "/Users/renato.santos/.scm_breeze/scm_breeze.sh"

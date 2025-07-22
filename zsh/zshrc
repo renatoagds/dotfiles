@@ -142,6 +142,3 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && \
     builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
 fi
-
-
-[ -s "/Users/renato.santos/.scm_breeze/scm_breeze.sh" ] && source "/Users/renato.santos/.scm_breeze/scm_breeze.sh"

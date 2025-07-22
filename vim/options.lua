@@ -16,7 +16,7 @@ if vim.g.vscode then
 	vscode.update_config("workbench.colorTheme", "Dracula Theme", "global")
 	vscode.update_config("workbench.activityBar.location", "default", "global")
 	vscode.update_config("workbench.activityBar.orientation", "vertical", "global")
-	vscode.update_config("workbench.sideBar.location", "right", "global")
+	vscode.update_config("workbench.sideBar.location", "left", "global")
 
 	vscode.update_config("search.followSymlinks", false, "global")
 end

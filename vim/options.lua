@@ -19,6 +19,4 @@ if vim.g.vscode then
 	vscode.update_config("workbench.sideBar.location", "right", "global")
 
 	vscode.update_config("search.followSymlinks", false, "global")
-
-	vscode.update_config("extensions.autoUpdate", "onlyEnabledExtensions", "global")
 end

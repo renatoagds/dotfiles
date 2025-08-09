@@ -70,9 +70,9 @@ eval "$(pyenv virtualenv-init -)"
 ZSH_THEME=""
 plugins=(z tmux nvm docker git)
 source $ZSH/oh-my-zsh.sh
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh # zsh-autosuggestions: https://github.com/zsh-users/zsh-autosuggestions
-fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src # zsh-completions: https://github.com/zsh-users/zsh-completions
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=cyan'
+#source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh # zsh-autosuggestions: https://github.com/zsh-users/zsh-autosuggestions
+#fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src # zsh-completions: https://github.com/zsh-users/zsh-completions
+#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=cyan'
 
 #####################
 # SCM BREEZE EXPORT #

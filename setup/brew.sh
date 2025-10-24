@@ -43,12 +43,11 @@ for i in "${brew[@]}"; do
   brew install "$i"
 done
 
-# install all cask dep
-# echo "Installing application from Brew Cask"
-# brew tap caskroom/versions
-# for i in "${cask[@]}"; do
-# brew install --cask "$i"
-# done
+# install all brew cask dep
+echo "Installing cask application from Brew"
+for i in "${cask[@]}"; do
+  brew install --cask "$i"
+done
 
 # setup scm_breeze
 git clone https://github.com/scmbreeze/scm_breeze.git ~/.scm_breeze

@@ -29,20 +29,12 @@ declare -a brew=(
 )
 
 declare -a cask=(
-  "brave-browser"
-  "hyper"
+  "arc"
+  "iterm2"
   "docker"
-  "rectangle"
-  "telegram"
-  "whatsapp"
-  "slack"
+  "raycast"
   "spotify"
-  "keka"
-  "adobe-acrobat-reader"
-  "numi"
   "1password"
-  "kap"
-  "vlc"
 )
 
 # install all brew dep

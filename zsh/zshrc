@@ -44,10 +44,11 @@ fi
 export PATH=/opt/homebrew/bin:$PATH #homebrew
 export PATH=$(pyenv root)/shims:$PATH #pyenv
 export PATH=$(rbenv root)/shims:$PATH #rbenv
+export PATH=$HOME/.local/share/bob/nvim-bin:$PATH #bob neovim
 export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH #general
 # https://stackoverflow.com/a/57973942
-export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:${PATH}" #coreutils
-export MANPATH="/opt/homebrew/opt/coreutils/libexec/gnuman:${MANPATH}" #coreutils
+export PATH=/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH #coreutils
+export MANPATH=/opt/homebrew/opt/coreutils/libexec/gnuman:$MANPATH #coreutils
 
 ################
 # GENERAL VARS #

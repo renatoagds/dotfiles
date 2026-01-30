@@ -1,8 +1,7 @@
 vim.g.mapleader = ","
+vim.g.ai_cmp = true
 
 if not vim.g.vscode then
-  -- general
-  vim.g.ai_cmp = true
   -- dracula
   local dracula_pro = "dracula_pro"
   vim.g.dracula_colorterm = 0

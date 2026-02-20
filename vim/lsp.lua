@@ -9,6 +9,7 @@ return {
         "css-lsp",
         "tailwindcss-language-server",
         "superhtml",
+        "vtsls",
         -- Python
         "pyright",
         -- Copilot
@@ -34,6 +35,9 @@ return {
             },
           },
         },
+      },
+      inlay_hints = {
+        enable = false,
       },
     },
   },

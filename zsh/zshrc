@@ -43,6 +43,7 @@ export PATH=$(pyenv root)/shims:$PATH #pyenv
 export PATH=$(rbenv root)/shims:$PATH #rbenv
 export PATH=$HOME/.local/share/bob/nvim-bin:$PATH #bob neovim
 export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH #general
+export PATH=$HOME/.opencode/bin:$PATH #opencode
 # https://stackoverflow.com/a/57973942
 export PATH=/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH #coreutils
 export MANPATH=/opt/homebrew/opt/coreutils/libexec/gnuman:$MANPATH #coreutils

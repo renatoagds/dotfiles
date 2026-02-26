@@ -2,3 +2,4 @@ tags
 tags.*
 .DS_Store
 zsh/secret
+lazy-lock.json

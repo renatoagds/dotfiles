@@ -4,12 +4,22 @@ return {
     -- version = "*",  -- Use latest tagged version for more stability
     lazy = false, -- The server is already lazy loaded
     build = "cd server && go build",
-    config = function()
-      require("cursortab").setup({
-        provider = {
-          type = "copilot",
-        },
-      })
-    end,
+    opts = {
+      provider = {
+        type = "copilot",
+      },
+      keymaps = {
+        accept = "a",
+        partial_accept = "b",
+      },
+    },
+  },
+  {
+    "folke/sidekick.nvim",
+    opts = {
+      nes = {
+        enabled = false,
+      },
+    },
   },
 }

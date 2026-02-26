@@ -9,8 +9,8 @@ return {
         type = "copilot",
       },
       keymaps = {
-        accept = "a",
-        partial_accept = "b",
+        accept = "<leader>aw",
+        partial_accept = "<leader>aq",
       },
     },
   },

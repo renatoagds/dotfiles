@@ -11,7 +11,8 @@ return {
         "superhtml",
         "vtsls",
         -- Python
-        "pyright",
+        "django-language-server",
+        "django-template-lsp",
         -- Copilot
         "copilot-language-server",
         -- General

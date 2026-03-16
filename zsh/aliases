@@ -16,6 +16,9 @@ function dcleanup {
 function dpull {
   docker images | grep -v REPOSITORY | awk '{print $1}' | xargs -L1 docker pull
 }
+function cc {
+  clear && claude
+}
 
 # adb e react-native aliases
 # alias nreset='watchman watch-del-all && npm run start'

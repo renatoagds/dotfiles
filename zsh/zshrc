@@ -76,10 +76,12 @@ source $ZSH/oh-my-zsh.sh
 #####################
 # SCM BREEZE EXPORT #
 #####################
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-  [ -s "/home/${USER}/.scm_breeze/scm_breeze.sh" ] && source "/home/${USER}/.scm_breeze/scm_breeze.sh"
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-  [ -s "/Users/${USER}/.scm_breeze/scm_breeze.sh" ] && source "/Users/${USER}/.scm_breeze/scm_breeze.sh"
+if [[ -z "$CLAUDECODE" ]]; then
+  if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    [ -s "/home/${USER}/.scm_breeze/scm_breeze.sh" ] && source "/home/${USER}/.scm_breeze/scm_breeze.sh"
+  elif [[ "$OSTYPE" == "darwin"* ]]; then
+    [ -s "/Users/${USER}/.scm_breeze/scm_breeze.sh" ] && source "/Users/${USER}/.scm_breeze/scm_breeze.sh"
+  fi
 fi
 
 ##############

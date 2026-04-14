@@ -16,21 +16,12 @@ function dcleanup {
 function dpull {
   docker images | grep -v REPOSITORY | awk '{print $1}' | xargs -L1 docker pull
 }
-function cc {
-  clear && claude
-}
 
-# adb e react-native aliases
-# alias nreset='watchman watch-del-all && npm run start'
-# alias nba='react-native run-android'
-# alias rshake='adb shell input keyevent 82'
-# alias rreload='adb shell input keyevent 82 && adb shell input keyevent 19 && adb shell input keyevent 23'
-# alias nbi='react-native run-ios'
-# function adbtext {
-  # adb shell input text "$1" && adb shell input keyevent ENTER;
-# }
-# function adbpic {
-  # adb shell screencap -p /sdcard/screen.png
-  # adb pull /sdcard/screen.png
-  # adb shell rm /sdcard/screen.png
-# }
+# claude code aliases
+function cc {
+  if [[ -z "$ANTHROPIC_BASE_URL" ]]; then
+    clear && claude
+  else
+    clear && claude --model glm-5.1:cloud
+  fi
+}

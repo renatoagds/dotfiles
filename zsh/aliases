@@ -25,3 +25,6 @@ function cc {
     clear && claude --model glm-5.1:cloud
   fi
 }
+
+# tiny alias
+alias tinypng='tinypng -k $TINYPNG_API_KEY'

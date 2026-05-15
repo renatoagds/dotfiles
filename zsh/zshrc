@@ -133,6 +133,10 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     *":$PNPM_HOME:"*) ;;
     *) export PATH="$PNPM_HOME:$PATH" ;;
     esac
+  case ":$PATH:" in
+    *":$PNPM_HOME/bin:"*) ;;
+    *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+  esac
 
   # The following lines have been added by Docker Desktop to enable Docker CLI completions.
   fpath=(/Users/renato.santos/.docker/completions $fpath)

@@ -10,7 +10,6 @@ nvm install --lts
 echo "Installing Node Dependencies"
 declare -a npm=(
     "neovim"
-    "pnpm"
   )
 
 for i in "${npm[@]}"; do

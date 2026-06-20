@@ -21,6 +21,7 @@ declare -a brew=(
   "zsh-completion"
   "watchman"
   "yarn"
+  "pnpm"
   "highlight"
   "bat"
   "prettyping"
@@ -29,7 +30,6 @@ declare -a brew=(
 )
 
 declare -a cask=(
-  "arc"
   "iterm2"
   "docker"
   "raycast"

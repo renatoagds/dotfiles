@@ -28,3 +28,7 @@ function cc {
 
 # tiny alias
 alias tinypng='tinypng -k $TINYPNG_API_KEY'
+
+# tmux
+alias tsync='tmux setw synchronize-panes on'
+alias tunsync='tmux setw synchronize-panes off'
